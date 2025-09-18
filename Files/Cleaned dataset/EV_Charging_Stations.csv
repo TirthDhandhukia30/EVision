@@ -1,0 +1,219 @@
+station_name,address,operator,charging_types,payment_options,amenities,latitude,longitude,city,state
+Tata Power - BKC Substation,"Near Asian Heart Hospital, Opp Bharat Diamond Bourse, Bandra East, Mumbai, MH 400051",Tata Power,"AC 3.3kW, DC 25kW","App, RFID, UPI","Parking, App Connect",19.0585,72.8557,Mumbai,Maharashtra
+Magenta ChargeGrid - Vikhroli,"17, LBS Rd, Opp Home Town, Chandan Nagar, Vikhroli West, Mumbai",Magenta,"AC 3.3kW, DC 25kW","App, UPI","Multi-outlet, Parking",19.1078,72.9305,Mumbai,Maharashtra
+Statiq Powai,"Kailash Nagar, Morarji Nagar, Powai, Mumbai, MH 400076",Statiq,"AC 11kW, DC 60kW","App, Card, UPI","Bathroom, Mall Access",19.1172,72.905,Mumbai,Maharashtra
+Ather Grid - Sewri,"Next to VRL Logistics, Ashok Gardens, PD’Mello Rd, Sewri West, Mumbai 400033",Ather,DC Fast 25kW,App,"Parking, App Connect",18.9959,72.8532,Mumbai,Maharashtra
+EV Dock - Malad,"G-603/604, Vasari Hill Rd, Malad, Sunder Nagar, Goregaon West, Mumbai",EV Dock,"AC 11kW, DC 60kW","App, RFID, UPI","RFID, UPI, Parking",19.1787,72.8446,Mumbai,Maharashtra
+Tata Power - Kapasi CHSL,"4/5, Enterprise Apartment, Forjet Hill Rd, Tardeo, Mumbai",Tata Power,"AC 3.3kW, AC 22kW, DC 60kW","App, RFID, UPI","Smart App Charging, Parking",18.965,72.8098,Mumbai,Maharashtra
+Moiz Apartments,"12th Road, Above Upadhyaya Nursing Home, Santacruz East, Mumbai, Maharashtra",Tata Power,"AC 7.4kW, DC 25kW","App, UPI",Parking,19.0737,72.857,Mumbai,Maharashtra
+Tata Power - Borivali Receiving,"Dattapada Road, Near Magathane Bus Dept, Housing Colony, Borivali, Mumbai",Tata Power,"AC 3.3kW, DC 25kW","App, RFID, UPI",Parking,19.2345,72.8587,Mumbai,Maharashtra
+Phoenix Market City Charging Station,"Entrance Gate 3, Phoenix Market City, Lal Bahadur Shastri Rd, Kurla West, Mumbai",ChargeZone,"AC 22kW, DC 25kW","App, Card, UPI","Mall Amenities, Parking",19.0751,72.8893,Mumbai,Maharashtra
+Tata Power - Mahanagar Gas,"MGL Terminal, Opposite Anik Depot, Wadala, Mumbai",Tata Power,DC 25kW,App,"Parking, App Connect",19.0281,72.8647,Mumbai,Maharashtra
+ChargeAndDrive Charging Station,"G-603/604, Vasari Hill Rd, Malad, Sunder Nagar, Goregaon West, Mumbai",Fortum,"AC 22kW, DC 60kW","App, Card, RFID","Parking, RFID",19.1683,72.8452,Mumbai,Maharashtra
+VoltaPoint Charging Station,"527, Building No-2, SRA Cooperative Society, Prabhadevi, near Ahuja Towers, Mumbai",VoltaPoint,"AC 11kW, DC 30kW",App,Parking,19.0161,72.828,Mumbai,Maharashtra
+Volttic Charging Station,"Military Rd, Raje Shivaji Nagar, Marol, Andheri East, Mumbai",Volttic,DC Fast 25kW,"App, Card, UPI","Parking, App Connect",19.1143,72.8707,Mumbai,Maharashtra
+EVteQ Charging Solution,"104, Quantum Tower, Behind SBI, Rambaug Lane, S.V Road, Malad West, Mumbai",EVteQ,"AC 7.4kW, DC 15kW","App, Card, UPI","RFID, UPI, Parking",19.1864,72.8429,Mumbai,Maharashtra
+Kazam Charging Station,"Ground Floor Nana Niwas, Gokhale Road, Baburao Parulekar Marg, Dadar West, Mumbai",Kazam,"AC 3.3kW, AC 7.4kW, DC Fast","App, UPI","App, Parking",19.0176,72.8426,Mumbai,Maharashtra
+ATUM Charge (Malad),"95, Malad, Viaykar Vadi, Malad West, Mumbai 400064",ATUM,"AC 7.4kW, DC 25kW","App, Card, UPI",Parking,19.1876,72.8436,Mumbai,Maharashtra
+Tata Power Charging Station,"Anik Depot, Municipal Kamgar Vasahat, Trombay Industrial Area, Chembur, Mumbai",Tata Power,DC 25kW,"App, UPI","Parking, App Connect",19.0302,72.8927,Mumbai,Maharashtra
+Ather Charging Station,"Next to VRL Logistics, Ashok Gardens, PD’Mello Rd, Sewri West, Mumbai 400033",Ather,"DC Fast Charger, Level 3",App,"Auto Charging, App Connect",18.9959,72.8532,Mumbai,Maharashtra
+Magenta Charging Station (Parel),"Station Rd, Parel East, Parel, Mumbai 400014",Magenta,"AC 7.4kW, DC 15kW","App, Card, UPI",Parking,19.0079,72.8425,Mumbai,Maharashtra
+EV Point - Juhu,"Juhu Tara Rd, Near Juhu Beach, Mumbai, Maharashtra",EV Point,"AC 11kW, DC 22kW","App, Card",Parking,19.0994,72.8269,Mumbai,Maharashtra
+Statiq - Andheri East,"Andheri East Metro Station, Mumbai",Statiq,"AC 11kW, DC 50kW","App, Card, UPI",Parking,19.1146,72.8696,Mumbai,Maharashtra
+Volttic Mini Charging,"Saki Vihar Rd, Near Saki Naka Metro, Andheri East, Mumbai",Volttic,AC 7kW,App,Parking,19.1265,72.8874,Mumbai,Maharashtra
+Magenta ChargeGrid - Malad,"Next to Infinity Mall, New Link Rd, Malad West, Mumbai",Magenta,"AC 7.4kW, DC 15kW","App, Card",Parking,19.1736,72.8352,Mumbai,Maharashtra
+Tata Power - Chembur,"Next to Diamond Garden, Chembur, Mumbai",Tata Power,AC 11kW,"App, RFID",Parking,19.0455,72.8996,Mumbai,Maharashtra
+Statiq - Bandra Kurla Complex,"Next to Bharat Diamond Bourse, BKC, Mumbai",Statiq,"AC 11kW, DC 45kW","App, Card",Parking,19.0588,72.8703,Mumbai,Maharashtra
+ChargeZone - Dadar West,"Senapati Bapat Marg, Near Dadar Station, Dadar West, Mumbai",ChargeZone,"AC 22kW, DC 50kW","App, Card, UPI","Parking, Mall Access",19.0186,72.8425,Mumbai,Maharashtra
+Kazam - Thane,"Eastern Express Hwy, Near Viviana Mall, Thane, Mumbai",Kazam,"AC 7.4kW, DC 22kW",App,Parking,19.1866,72.9728,Mumbai,Maharashtra
+Ather Grid - Goregaon,"Near Oberoi Mall, Western Express Hwy, Goregaon East, Mumbai",Ather,DC Fast 25kW,App,Parking,19.1742,72.8499,Mumbai,Maharashtra
+EV Point - Navi Mumbai,"Plot 1, Sector 21, Nerul, Navi Mumbai",EV Point,"AC 11kW, DC 22kW","App, Card",Parking,19.0337,73.0204,Mumbai,Maharashtra
+Magenta ChargeGrid - Chembur,"RB Mehta Marg, Chembur East, Mumbai",Magenta,"AC 7.4kW, DC 15kW","App, Card",Parking,19.0546,72.9047,Mumbai,Maharashtra
+Statiq - Borivali,"Borivali Station East, Mumbai",Statiq,"AC 11kW, DC 50kW","App, Card, UPI",Parking,19.2334,72.8596,Mumbai,Maharashtra
+Kazam - Kurla,"Nehru Nagar, Near Kurla Station, Mumbai",Kazam,"AC 3.3kW, DC 15kW",App,Parking,19.0731,72.8828,Mumbai,Maharashtra
+ChargeZone - Mulund,"LBS Marg, Near Mulund Station, Mulund West, Mumbai",ChargeZone,"AC 22kW, DC 50kW","App, UPI",Parking,19.1726,72.9532,Mumbai,Maharashtra
+ATUM Charge - Santacruz,"Santacruz West, Next to Railway Station, Mumbai",ATUM,"AC 7.4kW, DC 25kW","App, Card",Parking,19.0815,72.8367,Mumbai,Maharashtra
+Tata Power - Vikhroli,"Near Vikhroli Station East, Mumbai",Tata Power,"AC 11kW, DC 25kW","App, RFID, UPI",Parking,19.106,72.9286,Mumbai,Maharashtra
+EV Dock - Dadar,"Baburao Parulekar Marg, Dadar West, Mumbai",EV Dock,"AC 11kW, DC 60kW","App, RFID, UPI","Parking, RFID",19.0181,72.8427,Mumbai,Maharashtra
+Kazam - Parel,"Dr Ambedkar Rd, Parel, Mumbai",Kazam,"AC 3.3kW, DC 15kW","App, Card, UPI",Parking,19.0094,72.8394,Mumbai,Maharashtra
+Statiq - Colaba,"Near Gateway of India, Colaba, Mumbai",Statiq,"AC 11kW, DC 45kW","App, Card, UPI",Parking,18.9219,72.8347,Mumbai,Maharashtra
+Volttic - Sion,"Sion East, Near Sion Hospital, Mumbai",Volttic,DC Fast 25kW,"App, Card",Parking,19.032,72.8597,Mumbai,Maharashtra
+Magenta ChargeGrid - Ghatkopar,"Near Ghatkopar Metro Station, Ghatkopar West, Mumbai",Magenta,"AC 7.4kW, DC 15kW","App, Card",Parking,19.0864,72.9085,Mumbai,Maharashtra
+ChargeZone - Versova,"Versova Metro Station, Andheri West, Mumbai",ChargeZone,"AC 22kW, DC 50kW","App, Card",Parking,19.137,72.8261,Mumbai,Maharashtra
+Tata Power - Dadar East,"Mujawar Pakhadi Rd, Dadar East, Mumbai",Tata Power,"AC 11kW, DC 25kW","App, RFID, UPI",Parking,19.0202,72.8447,Mumbai,Maharashtra
+Statiq - Malad East,"Near Malad Station, Malad East, Mumbai",Statiq,"AC 11kW, DC 60kW","App, Card, UPI",Parking,19.1826,72.8482,Mumbai,Maharashtra
+Ather Grid - Hiranandani,"Hiranandani Gardens, Powai, Mumbai",Ather,DC Fast 25kW,App,Parking,19.1206,72.9188,Mumbai,Maharashtra
+EVteQ - Kandivali,"Kandivali East, Next to Railway Station, Mumbai",EVteQ,"AC 7.4kW, DC 15kW","App, Card, UPI",Parking,19.2104,72.8572,Mumbai,Maharashtra
+Kazam - Andheri West,"Near Infiniti Mall, Andheri West, Mumbai",Kazam,"AC 7.4kW, DC 15kW",App,Parking,19.1372,72.8276,Mumbai,Maharashtra
+ChargeAndDrive - Juhu,"Juhu Tara Rd, Near Juhu Beach, Mumbai",Fortum,"AC 22kW, DC 60kW","App, Card, RFID","Parking, RFID",19.0977,72.8271,Mumbai,Maharashtra
+VoltaPoint - Parel,"Dr Ambedkar Rd, Parel, Mumbai",VoltaPoint,"AC 11kW, DC 30kW",App,Parking,19.0094,72.8394,Mumbai,Maharashtra
+Magenta ChargeGrid - Bandra,"Next to Bandra Station West, Mumbai",Magenta,"AC 7.4kW, DC 15kW","App, Card",Parking,19.0583,72.8282,Mumbai,Maharashtra
+Statiq - Santacruz,"Santacruz West, Near Railway Station, Mumbai",Statiq,"AC 11kW, DC 60kW","App, Card, UPI",Parking,19.0803,72.8365,Mumbai,Maharashtra
+ATUM Charge - Ghatkopar,"Ghatkopar East, Mumbai",ATUM,"AC 7.4kW, DC 25kW","App, Card",Parking,19.0852,72.9114,Mumbai,Maharashtra
+Tata Power - Jogeshwari,"Near Jogeshwari Station, Mumbai",Tata Power,"AC 11kW, DC 25kW","App, RFID",Parking,19.1334,72.8483,Mumbai,Maharashtra
+EVteQ - Borivali,"Borivali East, Mumbai",EVteQ,"AC 7.4kW, DC 15kW","App, Card, UPI",Parking,19.2365,72.8552,Mumbai,Maharashtra
+Magenta ChargeGrid - Goregaon,"Western Express Hwy, Goregaon East, Mumbai",Magenta,"AC 7.4kW, DC 15kW","App, Card",Parking,19.1638,72.852,Mumbai,Maharashtra
+Statiq - Navi Mumbai,"Seawoods Station, Navi Mumbai",Statiq,"AC 11kW, DC 50kW","App, Card, UPI",Parking,19.0387,73.0222,Mumbai,Maharashtra
+ChargeZone - Vashi,"Vashi Station East, Navi Mumbai",ChargeZone,"AC 22kW, DC 50kW","App, UPI",Parking,19.0708,72.9991,Mumbai,Maharashtra
+Volttic Charging - Marol,"Marol Naka Metro Station, Andheri East, Mumbai",Volttic,DC Fast 25kW,"App, Card",Parking,19.1112,72.874,Mumbai,Maharashtra
+EVteQ - Malad,"Malad West, Mumbai",EVteQ,"AC 7.4kW, DC 15kW",App,Parking,19.1851,72.8388,Mumbai,Maharashtra
+Tata Power - Andheri West,"Next to Andheri West Metro Station, Mumbai",Tata Power,"AC 11kW, DC 25kW","App, UPI",Parking,19.119,72.8466,Mumbai,Maharashtra
+Magenta ChargeGrid - Bhandup,"LBS Marg, Near Bhandup Station, Mumbai",Magenta,"AC 7.4kW, DC 15kW","App, Card",Parking,19.1547,72.9346,Mumbai,Maharashtra
+Statiq - Ghatkopar,"Ghatkopar East, Mumbai",Statiq,"AC 11kW, DC 60kW","App, Card",Parking,19.0836,72.9136,Mumbai,Maharashtra
+ChargeZone - Chembur,"Chembur Station East, Mumbai",ChargeZone,"AC 22kW, DC 50kW","App, Card, UPI","Parking, Mall Access",19.0549,72.9038,Mumbai,Maharashtra
+ATUM Charge - Mulund,"Mulund West, Mumbai",ATUM,"AC 7.4kW, DC 25kW","App, Card",Parking,19.1721,72.9568,Mumbai,Maharashtra
+EVteQ - Sakinaka,"Sakinaka Junction, Andheri East, Mumbai",EVteQ,"AC 7.4kW, DC 15kW","App, Card, UPI",Parking,19.102,72.8872,Mumbai,Maharashtra
+Tata Power - Powai,"Opp IIT Main Gate, Powai, Mumbai",Tata Power,"AC 11kW, DC 60kW","App, RFID, UPI",Parking,19.1328,72.9068,Mumbai,Maharashtra
+Kazam - Kharghar,"Near Kharghar Station, Navi Mumbai",Kazam,"AC 3.3kW, DC 15kW",App,Parking,19.0533,73.0571,Mumbai,Maharashtra
+ChargeZone - Nerul,"Palm Beach Rd, Nerul, Navi Mumbai",ChargeZone,"AC 22kW, DC 50kW","App, Card, UPI",Parking,19.0291,73.0133,Mumbai,Maharashtra
+ATUM Charge - Borivali,"Borivali West, Mumbai",ATUM,"AC 7.4kW, DC 25kW","App, Card",Parking,19.2298,72.8606,Mumbai,Maharashtra
+Magenta ChargeGrid - Mumbra,"Near Mumbra Station, Thane",Magenta,"AC 7.4kW, DC 15kW","App, Card",Parking,19.1808,72.9836,Mumbai,Maharashtra
+Statiq - Kanjurmarg,"Kanjurmarg East Station, Mumbai",Statiq,"AC 11kW, DC 50kW","App, Card",Parking,19.1341,72.9297,Mumbai,Maharashtra
+ChargeZone - Dahisar,"Dahisar East Station, Mumbai",ChargeZone,"AC 22kW, DC 50kW","App, Card, UPI","Parking, Mall Access",19.2505,72.8591,Mumbai,Maharashtra
+Volttic - BKC,"Bandra Kurla Complex, Bandra East, Mumbai",Volttic,DC Fast 25kW,"App, Card","Parking, App Connect",19.0658,72.8687,Mumbai,Maharashtra
+EVteQ - Vikhroli,"Vikhroli East, Mumbai",EVteQ,"AC 7.4kW, DC 15kW","App, Card",Parking,19.0984,72.9262,Mumbai,Maharashtra
+Tata Power - Thane West,"Thane West Station, Thane",Tata Power,"AC 11kW, DC 25kW","App, UPI",Parking,19.1915,72.972,Mumbai,Maharashtra
+Magenta ChargeGrid - Kalyan,"Kalyan West, Kalyan, Thane",Magenta,"AC 7.4kW, DC 15kW","App, Card",Parking,19.2403,73.1258,Mumbai,Maharashtra
+Statiq - Ulhasnagar,"Ulhasnagar Station, Mumbai Region",Statiq,"AC 11kW, DC 60kW","App, Card",Parking,19.2336,73.1353,Mumbai,Maharashtra
+ChargeZone - Ambernath,"Ambernath Station, Thane",ChargeZone,"AC 22kW, DC 50kW","App, Card","Parking, UPI",19.186,73.1891,Mumbai,Maharashtra
+ATUM Charge - Panvel,"Opp Panvel Station, Raigad",ATUM,"AC 7.4kW, DC 25kW","App, Card",Parking,18.9897,73.1145,Mumbai,Maharashtra
+Kazam - Vasai,"Vasai West, Palghar",Kazam,"AC 3.3kW, DC 15kW","App, Card",Parking,19.3919,72.833,Mumbai,Maharashtra
+EV Dock - Mira Road,"Mira Road East, Thane",EV Dock,"AC 11kW, DC 60kW","App, RFID, UPI",Parking,19.291,72.8511,Mumbai,Maharashtra
+Tata Power - Palava,"Near Palava City, Dombivli East",Tata Power,"AC 11kW, DC 25kW","App, UPI",Parking,19.2081,73.1041,Mumbai,Maharashtra
+Magenta ChargeGrid - Taloja,"Taloja MIDC, Navi Mumbai",Magenta,"AC 7.4kW, DC 15kW","App, Card",Parking,19.0378,73.1318,Mumbai,Maharashtra
+Statiq - Kalamboli,"Kalamboli Station, Navi Mumbai",Statiq,"AC 11kW, DC 50kW","App, Card",Parking,19.0705,73.1055,Mumbai,Maharashtra
+Tata Power - Nariman Point,"CR2 Mall Parking, Nariman Point, Mumbai, MH 400021",Tata Power,"AC 22kW, DC 25kW","App, RFID, UPI","Mall Parking, App Connect",18.9255,72.8234,Mumbai,Maharashtra
+Magenta ChargeGrid - Worli,"Atria Mall, Dr Annie Besant Rd, Worli, Mumbai",Magenta,"AC 7.4kW, DC 15kW","App, Card",Mall Parking,19.0085,72.8153,Mumbai,Maharashtra
+Tata Power - Colaba,"Colaba Causeway, Near Regal Cinema, Mumbai",Tata Power,AC 11kW,"App, RFID",Street Parking,18.9216,72.8326,Mumbai,Maharashtra
+Statiq - Parel,"Phoenix Mills Compound, Lower Parel, Mumbai",Statiq,"AC 11kW, DC 60kW","App, Card, UPI",Mall Parking,19.0029,72.824,Mumbai,Maharashtra
+Jio-bp Pulse - Bhandup,"Neptune Magnet Mall, LBS Marg, Bhandup West, Mumbai",Jio-bp Pulse,"AC 22kW, DC 60kW","App, Card",Mall Parking,19.1485,72.9358,Mumbai,Maharashtra
+Tata Power - Byculla,"Rani Baug Entrance, Byculla East, Mumbai",Tata Power,AC 11kW,"App, RFID, UPI",On-street Parking,18.9788,72.8337,Mumbai,Maharashtra
+Magenta ChargeGrid - Mahalaxmi,"Mahalaxmi Race Course, Mumbai",Magenta,"AC 7.4kW, DC 15kW","App, Card",Parking,18.9938,72.8237,Mumbai,Maharashtra
+Volttic - Worli Sea Face,"Worli Sea Face Promenade, Worli, Mumbai",Volttic,DC Fast 25kW,App,Public Parking,19.0053,72.8157,Mumbai,Maharashtra
+Tata Power - Matunga,"Matunga Gymkhana, Mumbai",Tata Power,"AC 11kW, DC 25kW","App, RFID",Club Parking,19.0264,72.8476,Mumbai,Maharashtra
+Statiq - Sion,"Sion Circle, Mumbai",Statiq,"AC 11kW, DC 60kW","App, Card",Public Parking,19.0361,72.8592,Mumbai,Maharashtra
+Magenta ChargeGrid - Prabhadevi,"Century Bazaar, Prabhadevi, Mumbai",Magenta,"AC 7.4kW, DC 15kW",App,Street Parking,19.0155,72.8275,Mumbai,Maharashtra
+Tata Power - Churchgate,"Churchgate Station Parking, Mumbai",Tata Power,AC 11kW,"App, RFID",RTO Parking,18.9323,72.8262,Mumbai,Maharashtra
+Fortum - Powai Plaza,"Powai Plaza Mall Parking, Powai, Mumbai",Fortum,"AC 22kW, DC 50kW","App, Card, RFID",Mall Parking,19.1182,72.9053,Mumbai,Maharashtra
+Ather Grid - Bandra West,"Linking Road, Opp National College, Bandra West, Mumbai",Ather,DC 25kW,App,Street Parking,19.0618,72.833,Mumbai,Maharashtra
+Tata Power - Versova,"Versova Beach Entrance, Andheri West, Mumbai",Tata Power,"AC 11kW, DC 25kW","App, UPI",Beach Parking,19.1309,72.8133,Mumbai,Maharashtra
+Magenta ChargeGrid - Oshiwara,"Oshiwara Police Station Lane, Andheri West, Mumbai",Magenta,"AC 7.4kW, DC 15kW","App, Card",Public Parking,19.1441,72.8366,Mumbai,Maharashtra
+Tata Power - Kandivali West,"Raghuleela Mega Mall, Kandivali West, Mumbai",Tata Power,"AC 22kW, DC 50kW","App, RFID, UPI",Mall Parking,19.2053,72.8444,Mumbai,Maharashtra
+Jio-bp Pulse - Goregaon West,"Inorbit Mall, Goregaon West, Mumbai",Jio-bp Pulse,"AC 22kW, DC 60kW",App,Mall Parking,19.1643,72.8346,Mumbai,Maharashtra
+Magenta ChargeGrid - Malad East,"Evershine Mall Parking, Malad East, Mumbai",Magenta,"AC 7.4kW, DC 15kW","App, Card",Mall Parking,19.1825,72.847,Mumbai,Maharashtra
+Tata Power - Borivali West,"Indraprastha Mall, Borivali West, Mumbai",Tata Power,"AC 11kW, DC 25kW","App, RFID",Mall Parking,19.233,72.8552,Mumbai,Maharashtra
+VoltaPoint - Dahisar,"Dahisar Check Naka Parking, Mumbai",VoltaPoint,"AC 11kW, DC 30kW",App,Public Parking,19.2567,72.8572,Mumbai,Maharashtra
+Statiq - Mira Road,"Maxus Mall, Mira Road East, Mumbai",Statiq,"AC 22kW, DC 50kW","App, Card",Mall Parking,19.2851,72.854,Mumbai,Maharashtra
+Magenta ChargeGrid - Bhayandar,"Bhayandar West Station Parking, Mumbai",Magenta,AC 7.4kW,App,Public Parking,19.3134,72.8476,Mumbai,Maharashtra
+Tata Power - Airoli,"Reliable Plaza, Airoli, Navi Mumbai",Tata Power,"AC 22kW, DC 50kW","App, RFID",Mall Parking,19.164,72.9948,Mumbai,Maharashtra
+Volttic - Ghansoli,"Ghansoli Station East, Navi Mumbai",Volttic,DC 25kW,App,Public Parking,19.1339,73.0011,Mumbai,Maharashtra
+Magenta ChargeGrid - Rabale,"Rabale MIDC, Navi Mumbai",Magenta,"AC 7.4kW, DC 15kW",App,Industrial Parking,19.151,73.0167,Mumbai,Maharashtra
+Tata Power - Kalwa,"Kalwa Station West, Thane",Tata Power,"AC 11kW, DC 25kW","App, RFID, UPI",Public Parking,19.2004,72.9781,Mumbai,Maharashtra
+Jio-bp Pulse - Kolshet,"Kolshet Road, Thane West",Jio-bp Pulse,"AC 22kW, DC 60kW",App,Street Parking,19.2587,72.9773,Mumbai,Maharashtra
+Tata Power - Dombivli,"Dombivli East Railway Parking, Thane",Tata Power,AC 11kW,App,RTO Parking,19.2188,73.0935,Mumbai,Maharashtra
+Magenta ChargeGrid - Kalyan East,"Kalyan East Bus Depot, Thane",Magenta,AC 7.4kW,App,Depot Parking,19.2402,73.1362,Mumbai,Maharashtra
+Statiq - Panvel,"Orion Mall, Panvel",Statiq,"AC 22kW, DC 50kW","App, Card",Mall Parking,18.9892,73.117,Mumbai,Maharashtra
+Tata Power - Uran,"ONGC Colony, Uran",Tata Power,AC 11kW,App,Residential Parking,18.8765,72.9397,Mumbai,Maharashtra
+Tata Power - Ballard Estate,"Ballard Estate Parking Lot, Fort, Mumbai",Tata Power,"AC 11kW, DC 25kW","App, RFID, UPI",Public Parking,18.9451,72.8354,Mumbai,Maharashtra
+Magenta ChargeGrid - CST,"Chhatrapati Shivaji Maharaj Terminus Parking, Fort, Mumbai",Magenta,"AC 7.4kW, DC 15kW","App, Card",Public Parking,18.9398,72.8354,Mumbai,Maharashtra
+Tata Power - Gateway of India,"Apollo Bunder Road, Colaba, Mumbai",Tata Power,AC 11kW,"App, RFID",Tourist Parking,18.9218,72.8347,Mumbai,Maharashtra
+Statiq - Chowpatty,"Marine Drive, Girgaon Chowpatty, Mumbai",Statiq,"AC 11kW, DC 60kW","App, Card",Beach Parking,18.9553,72.8125,Mumbai,Maharashtra
+Fortum - Lower Parel,"World Trade Centre One, Lower Parel, Mumbai",Fortum,"AC 22kW, DC 50kW","App, Card, RFID",Office Parking,19.0012,72.8281,Mumbai,Maharashtra
+Tata Power - Opera House,"Charni Road East, Mumbai",Tata Power,AC 11kW,"App, RFID, UPI",Street Parking,18.9545,72.8189,Mumbai,Maharashtra
+Magenta ChargeGrid - Breach Candy,"Breach Candy Hospital Complex, Mumbai",Magenta,"AC 7.4kW, DC 15kW","App, Card",Hospital Parking,18.9677,72.8055,Mumbai,Maharashtra
+Tata Power - Mahalaxmi West,"Shree Simandhar Towers, Mahalaxmi West, Mumbai",Tata Power,"AC 11kW, DC 25kW",App,Residential Parking,18.994,72.8231,Mumbai,Maharashtra
+Volttic - Mumbai Central,"Mumbai Central Station Parking, Mumbai",Volttic,DC 25kW,App,Station Parking,18.9692,72.8195,Mumbai,Maharashtra
+Jio-bp Pulse - Napean Sea Road,"Priyadarshini Park, Mumbai",Jio-bp Pulse,"AC 22kW, DC 60kW",App,Public Parking,18.9636,72.8019,Mumbai,Maharashtra
+Tata Power - Cotton Green,"Cotton Green Railyard, Mumbai",Tata Power,AC 11kW,App,Station Parking,18.991,72.8485,Mumbai,Maharashtra
+Magenta ChargeGrid - Wadala,"Wadala Truck Terminal, Mumbai",Magenta,"AC 7.4kW, DC 15kW",App,Transport Hub,19.0188,72.8571,Mumbai,Maharashtra
+Tata Power - Antop Hill,"Antop Hill Post Office, Mumbai",Tata Power,"AC 11kW, DC 25kW",App,Street Parking,19.0165,72.8605,Mumbai,Maharashtra
+Ather Grid - Sakinaka,"Sakinaka Metro Station, Mumbai",Ather,DC 25kW,App,Metro Parking,19.1043,72.8878,Mumbai,Maharashtra
+Statiq - Marol Naka,"Marol Naka Metro Station, Mumbai",Statiq,"AC 22kW, DC 60kW","App, Card, UPI",Metro Parking,19.109,72.8771,Mumbai,Maharashtra
+Tata Power - Chakala,"Chakala Metro Station, Mumbai",Tata Power,AC 11kW,App,Metro Parking,19.1088,72.8535,Mumbai,Maharashtra
+Magenta ChargeGrid - MIDC Andheri,"Seepz Gate No. 3, MIDC, Andheri East, Mumbai",Magenta,"AC 7.4kW, DC 15kW",App,Industrial Estate Parking,19.1201,72.8643,Mumbai,Maharashtra
+Tata Power - Juhu Vile Parle,"Juhu Beach Gate 3, Mumbai",Tata Power,"AC 22kW, DC 25kW","App, RFID",Beach Parking,19.097,72.8261,Mumbai,Maharashtra
+Jio-bp Pulse - Santacruz,"SV Road Junction, Santacruz West, Mumbai",Jio-bp Pulse,"AC 22kW, DC 60kW",App,Public Parking,19.0844,72.8384,Mumbai,Maharashtra
+Tata Power - Khar West,"Khar Danda Road, Mumbai",Tata Power,AC 11kW,App,Public Parking,19.0756,72.8322,Mumbai,Maharashtra
+Magenta ChargeGrid - Bandra Kurla Complex 2,"Maker Maxity, BKC, Mumbai",Magenta,"AC 7.4kW, DC 15kW",App,Corporate Parking,19.058,72.8675,Mumbai,Maharashtra
+Tata Power - Kurla LBS,"LBS Marg, Kurla West, Mumbai",Tata Power,AC 11kW,"App, RFID",Street Parking,19.0702,72.881,Mumbai,Maharashtra
+Statiq - Kurla Nehru Nagar,"Nehru Nagar Bus Stand, Kurla East, Mumbai",Statiq,"AC 11kW, DC 60kW","App, Card",Public Parking,19.072,72.8821,Mumbai,Maharashtra
+Tata Power - Tilak Nagar,"Tilak Nagar Railway Station, Mumbai",Tata Power,AC 11kW,App,Station Parking,19.0734,72.8892,Mumbai,Maharashtra
+Magenta ChargeGrid - Chembur Diamond Garden,"Diamond Garden, Chembur, Mumbai",Magenta,AC 7.4kW,App,Park Parking,19.0458,72.8991,Mumbai,Maharashtra
+Jio-bp Pulse - Govandi,"Govandi Station East, Mumbai",Jio-bp Pulse,"AC 22kW, DC 60kW",App,Public Parking,19.0487,72.919,Mumbai,Maharashtra
+Tata Power - Mankhurd,"Mankhurd Railway Station, Mumbai",Tata Power,AC 11kW,App,Station Parking,19.0498,72.9317,Mumbai,Maharashtra
+Magenta ChargeGrid - Trombay,"Anushakti Nagar, Trombay, Mumbai",Magenta,"AC 7.4kW, DC 15kW",App,Public Parking,19.037,72.9235,Mumbai,Maharashtra
+Tata Power - CBD Belapur,"CBD Belapur Railway Complex, Navi Mumbai",Tata Power,"AC 11kW, DC 25kW","App, RFID",Station Parking,19.0173,73.0413,Mumbai,Maharashtra
+Statiq - Kharghar Central Park,"Central Park Parking, Kharghar, Navi Mumbai",Statiq,"AC 22kW, DC 60kW",App,Park Parking,19.0418,73.0634,Mumbai,Maharashtra
+Magenta ChargeGrid - Mansarovar,"Mansarovar Railway Station, Navi Mumbai",Magenta,AC 7.4kW,App,Station Parking,19.0121,73.055,Mumbai,Maharashtra
+Tata Power - Taloja Station,"Taloja Panchanand Station, Navi Mumbai",Tata Power,AC 11kW,App,Station Parking,19.0494,73.1166,Mumbai,Maharashtra
+VoltaPoint - Kalamboli Highway,"Kalamboli Steel Market Junction, Navi Mumbai",VoltaPoint,"AC 11kW, DC 30kW",App,Highway Parking,19.0543,73.1153,Mumbai,Maharashtra
+Tata Power - Khandeshwar,"Khandeshwar Railway Station, Navi Mumbai",Tata Power,AC 11kW,App,Station Parking,19.0028,73.1076,Mumbai,Maharashtra
+Magenta ChargeGrid - Kamothe,"Kamothe Bus Depot, Navi Mumbai",Magenta,AC 7.4kW,App,Bus Depot Parking,19.016,73.0949,Mumbai,Maharashtra
+Tata Power - New Panvel,"Panvel Railway Station East, Navi Mumbai",Tata Power,"AC 11kW, DC 25kW",App,Station Parking,18.9907,73.1195,Mumbai,Maharashtra
+Statiq - Palava City,"Lodha Xperia Mall, Palava City, Dombivli",Statiq,"AC 22kW, DC 60kW",App,Mall Parking,19.2263,73.0965,Mumbai,Maharashtra
+HP Super Service DC Charging Station,"157, Jeevan Bima Marg, Backbay Reclamation, Churchgate, Mumbai, Maharashtra 400020, India",,,,,18.9285,72.8255,Mumbai,Maharashtra
+Kohinoor Altissimo Residential Tower,"Kohinoor Altissimo Residential Tower, Kohinoor Altissimo, Kasaravadi, Dadar, Mumbai, Maharashtra 400028",,,,,19.0246,72.8402,Mumbai,Maharashtra
+Evershine Mall Charging Station,"Chincholi Bunder Road, New Link Rd, Malad West, Mumbai, Maharashtra 400064",,,,,19.1798,72.8361,Mumbai,Maharashtra
+Blue Tokai Coffee,"Unit 20-22, Laxmi Woollen Mill, Opposite Blue Loft, Dr E Moses Marg, Off, Shakti Mills Ln, Mahalakshmi, Mumbai",,,,,18.989356,72.825234,Mumbai,Maharashtra
+Suba International,"Plot No. 211, Chakala, Sahar Rd, Opposite Cigarette Factory, Andheri East, Mumbai, Maharashtra",,,,,19.106207,72.860261,Mumbai,Maharashtra
+MCGM Parking || Runwal Anthurium,"Runwal Anthurium Rd, opposite Veena Nagar, Vardhman Nagar, Mulund West",,,,,19.18066617,72.94684724,Mumbai,Maharashtra
+Kabra Metro One,"14, JP Rd, Aram Nagar, Seven Bunglow, Andheri West",,,,,19.13030121,72.82229723,Mumbai,Maharashtra
+MCGM Parking || Club Aquaria,"Devidas Lane, Shanti Ashram Borivali West, Near St.Lawrence High School, Mumbai, Maharashtra ,Borivali",,,,,19.2402364,72.8481819,Mumbai,Maharashtra
+Lodha Florenza,"On Western Express Highway, adjacent to Hub Mall, Cama Industrial Estate, Goregaon, Mumbai, Maharashtra ,Goregaon",,,,,19.15381142,72.85579572,Mumbai,Maharashtra
+K Star Chembur,"VN Purav Marg Diamond Garden, Basant Garden, Chembur Mumbai, Maharashtra,Chembur",,,,,19.05231631,72.90163581,Mumbai,Maharashtra
+Kala Ghoda Cafe,"10, Rope Walk Ln, Kala Ghoda, Fort, Mumbai, Maharashtra",,,,,18.92845451,72.83203031,Mumbai,Maharashtra
+Carnival Cinemas Imax,"Carnival Cinemas Imax, Anik Wadala Link Rd, Bhakti Park, Wadala, Mumbai, Maharashtra ,Worli",,,,,19.0313299,72.8809653,Mumbai,Maharashtra
+Hotel Yogi Midtown,"Plot No DX 12,Thane - Belapur Road D' Zone Bonsari, Village, TTC Industrial Area, Turbhe, Navi Mumbai, Maharashtra ,Thane",,,,,19.0640261,73.01971543,Mumbai,Maharashtra
+Kohinoor MCGM parking,"Kohinoor Square, Kasaravadi, Dadar, Mumbai, Maharashtra",,,,,19.02460889,72.84282021,Mumbai,Maharashtra
+BMC Parking Runwal Greens,"Nahur West, Industrial Area, Bhandup West, Mumbai, Maharashtra",,,,,19.1593952,72.945112,Mumbai,Maharashtra
+BMC Market Bhandup,"320, 3rd Floor, BMC Market, Station Road, Bhandup West, next to Dreamz Mall, Bhandup (W, Bhandup East, Mumbai, Maharashtra",,,,,19.14477582,72.93714663,Mumbai,Maharashtra
+Lodha Venezia CPL,"GD Ambekar Marg, Lal Baug, Parel, Mumbai, Maharashtra",,,,,18.9917205,72.841513,Mumbai,Maharashtra
+Magenta House - Mumbai,"TTC Industrial Area, MIDC Industrial Area, Sanpada, Navi Mumbai",,,,,19.06870454,73.02298692,Mumbai,Maharashtra
+Vasant oasis,"Borosil Plot,off, Makwana Rd, Marol, Andheri East, Mumbai, Maharashtra",,,,,19.1146146,72.8840941,Mumbai,Maharashtra
+Xavier Institute of Engineering,"Opposite S.L.Raheja Hospital, Mahim Causeway, Mahim (West), Raheja Hospital Marg, Mumbai, Maharashtra",,,,,19.04520829,72.84154175,Mumbai,Maharashtra
+HOTEL REDWINGS CASTLE,"Near to Orion Mall/ New Panvel Bridge, Old, Mumbai - Pune Expy,",,,,,18.99453515,73.11513242,Mumbai,Maharashtra
+Hotel Om Navratna,"1/766, Old Mumbai Pune Highway, Near Agarwal Movers & Packers Ltd, at post Chouk",,,,,18.9014249,73.23657885,Mumbai,Maharashtra
+Hotel Rasraj Parking Zone,"Gaurav Automobile Compound, ,Ramnath Rd, opp. BVM Multiplex,",,,,,18.6509967,72.87407092,Mumbai,Maharashtra
+Ather Space Thane,"Shop No. 4, Mansarovar, Opp. TMC Building, Almeda Rd,",,,,,19.1981177,72.96741506,Mumbai,Maharashtra
+"IOCL Kini Causway, Bandra","36, SV Rd, Santosh Nagar, Bandra West, Mumbai, Maharashtra 400050",,,,,19.051601,72.838011,Mumbai,Maharashtra
+"Brookfield, Powai","Spectra, High St, Hiranandani Gardens, Powai, Mumbai, Maharashtra 400076",,,,,19.11637,72.91086,Mumbai,Maharashtra
+"Brookfield, Powai","Pay & Park, Central Ave, Hiranandani Gardens, Powai, Mumbai, Maharashtra 400076",,,,,19.11644,72.90968,Mumbai,Maharashtra
+"Oberoi Mall, Goregaon","Western Express Hwy, Yashodham, Goregaon, Mumbai, Maharashtra 400063",,,,,19.1737611,72.8600172,Mumbai,Maharashtra
+"Trimurti Petroleum, Panvel","GUT NO.151/2, VILLAGE - AJIVALI, TALUKA - PANVEL, RAIGAD, AJIVALI, 410216",,,,,18.9563188,73.1626506,Mumbai,Maharashtra
+"Hotel Suba International, Andheri East","Saharu00c2u00a0 Road, Near Cigarret Factory, Chakala, Andheri East Mumbai 400099",,,,,19.1063175,72.8603219,Mumbai,Maharashtra
+"Hotel Suba Galaxy, Andheri East","NS Phadake Marg, Opp Teli galli,Near Eastern expres Highway, Andheri East Mumbai 400069u00c2u00a0",,,,,19.1142415,72.8518766,Mumbai,Maharashtra
+"Hotel Suba Palace, Fort","Apppllo Bunder Road, Near Gate way of India, fortu00c2u00a0 Mumbai 400039",,,,,18.9241214,72.8328155,Mumbai,Maharashtra
+Volltic PCS04,"Gala No14 A, KBM compound, military road, raje shivaji nagar, marol, andheri east, 400072",,,,,19.12012455,72.88724762,Mumbai,Maharashtra
+Vijay Securities,"35, Chandivali, Off, Saki Vihar Rd, Andheri (E, Mumbai, 400072",,,,,19.10514321,72.8869012,Mumbai,Maharashtra
+Masstech controls Pvt ltd,"2/7 Meghal Industrial Estate, Devidayal Road, Mulund West, Mumbai, Maharashtra 400080",,,,,19.17674569,72.94574801,Mumbai,Maharashtra
+Lifeon Industries,"D298, TTC Industrial area, turbhe",,,,,19.06895357,73.02251015,Mumbai,Maharashtra
+MH|MUMBAI|POWAI#HIRANANDANI GARDENS,"TECHNOLOGY ST,HIRANANADANI GARDENS,SAINATH NAGAR,POWAI,MUMBAI,MAHARASHTARA 400076",,,,,19.11999443,72.9141036,Mumbai,Maharashtra
+MH|TALASARI|HOTEL SAHYADRI,"HOTEL SAHYADRI,TALASARI,AJMER ROAD,ACHAD,MAHARASHTRA 401606",,,,,20.22117727,72.88122971,Mumbai,Maharashtra
+"CR - Bhandup Station, Bhandup East","Bhandup Station East, near Kotak Mahindra ATM, Bhandup, Bhandup East, Mumbai, Maharashtra 400042",,,,,19.1420246,72.937755,Mumbai,Maharashtra
+MH|MUMBAI|POWAI#HIRANANDANI GARDENS,"TECHNOLOGY ST,HIRANANADANI GARDENS,SAINATH NAGAR,POWAI,MUMBAI,MAHARASHTARA 400076",,,,,19.12,72.9141,Mumbai,Maharashtra
+MH|TALASARI|HOTEL SAHYADRI,"HOTEL SAHYADRI,TALASARI,AJMER ROAD,ACHAD,MAHARASHTRA 401606",,,,,20.2212,72.8812,Mumbai,Maharashtra
+"Ginger Mumbai, Andheri East","Teli - Gali Road, Andheri (East), Mumbai - 400069",,,,,19.11599,72.85018,Mumbai,Maharashtra
+"Tata Power RS, Versova","KL Walawalkar Marg, Sahayog Nagar, Bhudargarh Colony, Andheri West, Mumbai, Maharashtra 400102",,,,,19.13052,72.83056,Mumbai,Maharashtra
+"Inderjit Cars, Andheri West","1059/1060, Adarsh nagar, near infinity mall, Off New Link Road, Andheri West, Mumbai, Maharashtra 400053",,,,,19.14207,72.83241,Mumbai,Maharashtra
+"Tata Power, Vikhroli","The Tata Power Company Limited, 400 kV Project, Vikhroli Sub Station, Godrej Soap Premises, Vikhroli (East), Mumbai 400079",,,,,19.095269,72.926195,Mumbai,Maharashtra
+"Godrej One, Vikhroli","4 Wheeler Parking area Godrej One Pirojshanagar, Eastern Express Highway, Vikhroli u00e2u0080u0093 East, Mumbai u00e2u0080u0093 400079",,,,,19.0925655,72.9223514,Mumbai,Maharashtra
+"IOCL, Breach Candy","Bhulabhai Desai Road, Breach Candy, near Tata Garden, Mumbai, Maharashtra 400026",,,,,18.96555,72.80346,Mumbai,Maharashtra
+"Puneet, Prabadevi","Lloyds Centre Point, Appasaheb Marathe Marg, Dadar West, Prabhadevi, Mumbai, Maharashtra 400025",,,,,19.01296,72.82652,Mumbai,Maharashtra
+"IOCL - COCO, Prabhadevi","Plot No, P. N. 1207, CADELL RD. MUMBAI, PRABHADEVI CADEL RD., MUMBAI - 400022",,,,,19.018857,72.831076,Mumbai,Maharashtra
+"Tata Power, Dharavi Colony","Tata Power Dharavi Colony labour camp dharavi ,Matunga ,Mumbai 400019",,,,,19.034402,72.85284,Mumbai,Maharashtra
+"Nathani Heights, Mumbai Central","Junction of Bellasis Road and Dr D.B. Marg , Mumbai Central, Mumbai 400008",,,,,18.9688627,72.8207138,Mumbai,Maharashtra
+"CSMT Station, Fort","Chhatrapati Shivaji Maharaj Terminus, Fort, Mumbai, Maharashtra 400001",,,,,18.9453551,72.8383287,Mumbai,Maharashtra
+"Mahanagar Gas Limited, Wadala","MGL Terminal, opposite Anik Depot, Wadala, Mumbai, Maharashtra 400022",,,,,19.0472567,72.8783829,Mumbai,Maharashtra
+"IOCL COCO, BKC","Bandra Kurla Complex, New Coco At, C-67, Bharat Nagar Rd, G Block BKC, Bandra Kurla Complex, Bandra East, Mumbai, Maharashtra 400051",,,,,19.0599578,72.8647916,Mumbai,Maharashtra
+"Zenith Chemical Works Pvt Ltd, Andheri East","Zenith Chemical Works Pvt Ltd. Plot No. B.6, Cross Road B, MIDC Marol, Andheri East residing at Mumbai-400093",,,,,19.1157451,72.8682563,Mumbai,Maharashtra
+"IOCL Kini Causway, Bandra West","36, SV Rd, Santosh Nagar, Bandra West, Mumbai, Maharashtra 400050",,,,,19.051601,72.838011,Mumbai,Maharashtra
+"Hare Krishna Mahindra, Mulund West","Building, Plot 1, Udyog Kshtra, Mulund Goregaon Link Rd, near D Mart Mulund, Salpa Devi Pada, Mulund West, Mumbai, Maharashtra 400080",,,,,19.163979,72.938751,Mumbai,Maharashtra
+"Magenta TTC, Turbhe","Magenta House, D-285, TTC Industrial Area, nTurbhe, Near Unitech Motors, Navi Mumbai, Maharashtra",,,,,19.0685788,73.022744,Mumbai,Maharashtra
+Xavier Institute of Engineering,"Opposite S.L.Raheja Hospital, Mahim nCauseway, Mahim (West), Raheja Hospital nMarg, Mumbai, Maharashtra 400016",,,,,19.04527839,72.84168159,Mumbai,Maharashtra
+Charge Zone,"MH | Mumbai | The Westin Mumbai Powai Lake,The Westin Mumbai Powai Lake Kailash Nagar, Morarji Nagar, Powai, Mumbai, Maharashtra 400076",,,,,19.133659,72.900817,Mumbai,Maharashtra
+Charge Zone,"MH | Mumbai | NSCI - Worli,NSCI, Lala Lajpatrai Marg, Lotus Colony, Worli, Mumbai, Maharashtra 400018",,,,,18.9862222,72.8149436,Mumbai,Maharashtra
+Tata Power,"Fortune Cars, Navi Mumbai, Plot No. D-400, TTC Industrial Area, MIDC, Near Uran Phata Signal, Nerul, Navi Mumbai, Maharashtra - 400706",,,,,19.03639,73.029907,Mumbai,Maharashtra
+Tata Power,"The Taj Mahal Palace, Colaba, In front of Times Building , Apollo Bandar, Colaba, Mumbai, Maharashtra 400001",,,,,18.92279506,72.83351898,Mumbai,Maharashtra
+Tata Power,"Seven Hills Hospital, Andheri East, SevenHills Health City, Marol Maroshi Road, Andheri East, Mumbai, Maharashtra 400059",,,,,19.118831,72.87823,Mumbai,Maharashtra
+Tata Power,"IOCL Sahara Hospitality, Vile Parle, opp. Domestic Airport, Navpada, Vile Parle East, Vile Parle, Mumbai, Maharashtra 400099",,,,,19.094122,72.85223,Mumbai,Maharashtra
+Tata Power,"CR - Lokmanya Tilak Station, Kurla, Outside Platform 1, Beside LTT Pay and Park, LTT Station, Pipeline Rd, Tilak Nagar, Kurla, Mumbai, Maharashtra 400089",,,,,19.068262,72.890964,Mumbai,Maharashtra

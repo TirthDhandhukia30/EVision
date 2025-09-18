@@ -1,0 +1,469 @@
+Year,Month_name,Date,State,,Vehicle Class,Vehicle Category,Vehicle Type,,,DIESEL/HYBRID,,ELECTRIC(BOV),,PETROL/HYBRID,,PURE EV,,STRONG HYBRID EV,,Vehicle Use type
+2024,dec,01-12-2024,Maharashtra,,ADAPTED VEHICLE,Others,Others,,,0,,1,,1,,1,,1,,Others
+2024,dec,01-12-2024,Maharashtra,,AGRICULTURAL TRACTOR,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,dec,01-12-2024,Maharashtra,,AMBULANCE,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,dec,01-12-2024,Maharashtra,,ARTICULATED VEHICLE,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,dec,01-12-2024,Maharashtra,,BUS,Bus,Bus,,,0,,42,,0,,20,,0,,Shared
+2024,dec,01-12-2024,Maharashtra,,CAMPER VAN / TRAILER,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,dec,01-12-2024,Maharashtra,,CASH VAN,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,dec,01-12-2024,Maharashtra,,CONSTRUCTION EQUIPMENT VEHICLE,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,dec,01-12-2024,Maharashtra,,CONSTRUCTION EQUIPMENT VEHICLE (COMMERCIAL),Others,Others,,,0,,5,,0,,0,,0,,Others
+2024,dec,01-12-2024,Maharashtra,,CRANE MOUNTED VEHICLE,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,dec,01-12-2024,Maharashtra,,DUMPER,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,dec,01-12-2024,Maharashtra,,EARTH MOVING EQUIPMENT,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,dec,01-12-2024,Maharashtra,,E-RICKSHAW(P),3-Wheelers,3W Shared LowSpeed,,,0,,236,,0,,62,,0,,Shared LowSpeed
+2024,dec,01-12-2024,Maharashtra,,E-RICKSHAW WITH CART (G),3-Wheelers,3W Goods LowSpeed,,,0,,183,,0,,12,,0,,Goods LowSpeed
+2024,dec,01-12-2024,Maharashtra,,EXCAVATOR (NT),Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,dec,01-12-2024,Maharashtra,,FIRE FIGHTING VEHICLE,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,dec,01-12-2024,Maharashtra,,FIRE TENDERS,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,dec,01-12-2024,Maharashtra,,FORK LIFT,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,dec,01-12-2024,Maharashtra,,GOODS CARRIER,Others,Others,,,0,,78,,0,,14,,0,,Others
+2024,dec,01-12-2024,Maharashtra,,HARVESTER,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,dec,01-12-2024,Maharashtra,,HEARSES,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,dec,01-12-2024,Maharashtra,,MAXI CAB,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,dec,01-12-2024,Maharashtra,,M-CYCLE/SCOOTER,2-Wheelers,2W Personal,,,0,,2125,,0,,12253,,0,,Personal
+2024,dec,01-12-2024,Maharashtra,,M-CYCLE/SCOOTER-WITH SIDE CAR,2-Wheelers,2W Personal,,,0,,0,,0,,1,,0,,Personal
+2024,dec,01-12-2024,Maharashtra,,MOBILE CLINIC,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,dec,01-12-2024,Maharashtra,,MOBILE WORKSHOP,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,dec,01-12-2024,Maharashtra,,MOPED,2-Wheelers,2W Personal,,,0,,101,,0,,568,,0,,Personal
+2024,dec,01-12-2024,Maharashtra,,MOTOR CAB,4-Wheelers,4W Shared,,,1,,66,,14,,13,,55,,Shared
+2024,dec,01-12-2024,Maharashtra,,MOTOR CAR,4-Wheelers,4W Personal,,,92,,394,,1570,,970,,1031,,Personal
+2024,dec,01-12-2024,Maharashtra,,MOTORISED CYCLE (CC > 25CC),2-Wheelers,2W Personal,,,0,,0,,0,,1,,0,,Personal
+2024,dec,01-12-2024,Maharashtra,,OMNI BUS (PRIVATE USE),Bus,Bus,,,0,,0,,0,,0,,0,,Personal
+2024,dec,01-12-2024,Maharashtra,,PRIVATE SERVICE VEHICLE,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,dec,01-12-2024,Maharashtra,,PRIVATE SERVICE VEHICLE (INDIVIDUAL USE),Others,Others,,,0,,0,,0,,0,,1,,Personal
+2024,dec,01-12-2024,Maharashtra,,RECOVERY VEHICLE,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,dec,01-12-2024,Maharashtra,,ROAD ROLLER,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,dec,01-12-2024,Maharashtra,,SEMI-TRAILER (COMMERCIAL),Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,dec,01-12-2024,Maharashtra,,THREE WHEELER (GOODS),3-Wheelers,3W Goods,,,0,,150,,0,,4,,0,,Goods
+2024,dec,01-12-2024,Maharashtra,,THREE WHEELER (PASSENGER),3-Wheelers,3W Shared,,,0,,539,,0,,34,,0,,Shared
+2024,dec,01-12-2024,Maharashtra,,THREE WHEELER (PERSONAL),3-Wheelers,3W Personal,,,0,,1,,0,,0,,0,,Personal
+2024,dec,01-12-2024,Maharashtra,,TOWER WAGON,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,dec,01-12-2024,Maharashtra,,TOW TRUCK,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,dec,01-12-2024,Maharashtra,,TRACTOR (COMMERCIAL),Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,dec,01-12-2024,Maharashtra,,TRAILER (AGRICULTURAL),Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,dec,01-12-2024,Maharashtra,,TRAILER (COMMERCIAL),Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,oct,01-10-2024,Maharashtra,,AGRICULTURAL TRACTOR,Others,Others,,,0,,1,,0,,0,,0,,Others
+2024,oct,01-10-2024,Maharashtra,,CAMPER VAN / TRAILER,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,oct,01-10-2024,Maharashtra,,DUMPER,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,oct,01-10-2024,Maharashtra,,FIRE FIGHTING VEHICLE,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,oct,01-10-2024,Maharashtra,,HEARSES,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,oct,01-10-2024,Maharashtra,,MOBILE WORKSHOP,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,oct,01-10-2024,Maharashtra,,OMNI BUS,Bus,Bus,,,0,,20,,0,,0,,0,,Shared
+2024,oct,01-10-2024,Maharashtra,,THREE WHEELER (GOODS),3-Wheelers,3W Goods,,,0,,388,,0,,0,,0,,Goods
+2024,oct,01-10-2024,Maharashtra,,TRAILER (COMMERCIAL),Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,oct,01-10-2024,Maharashtra,,TREE TRIMMING VEHICLE,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,oct,01-10-2024,Maharashtra,,VEHICLE FITTED WITH GENERATOR,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,oct,01-10-2024,Maharashtra,,MOPED,2-Wheelers,2W Personal,,,0,,281,,0,,754,,0,,Personal
+2024,oct,01-10-2024,Maharashtra,,PRIVATE SERVICE VEHICLE (INDIVIDUAL USE),Others,Others,,,0,,0,,0,,0,,0,,Personal
+2024,oct,01-10-2024,Maharashtra,,M-CYCLE/SCOOTER,2-Wheelers,2W Personal,,,0,,6934,,0,,20351,,0,,Personal
+2024,oct,01-10-2024,Maharashtra,,OMNI BUS (PRIVATE USE),Bus,Bus,,,0,,0,,0,,0,,1,,Personal
+2024,oct,01-10-2024,Maharashtra,,FIRE TENDERS,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,oct,01-10-2024,Maharashtra,,FORK LIFT,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,oct,01-10-2024,Maharashtra,,MOTOR CAB,4-Wheelers,4W Shared,,,0,,36,,44,,61,,62,,Shared
+2024,oct,01-10-2024,Maharashtra,,CASH VAN,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,oct,01-10-2024,Maharashtra,,LIBRARY VAN,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,oct,01-10-2024,Maharashtra,,AMBULANCE,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,oct,01-10-2024,Maharashtra,,THREE WHEELER (PASSENGER),3-Wheelers,3W Shared,,,0,,746,,0,,53,,0,,Shared
+2024,oct,01-10-2024,Maharashtra,,CAMPER VAN / TRAILER (PRIVATE USE),Others,Others,,,0,,0,,0,,0,,0,,Personal
+2024,oct,01-10-2024,Maharashtra,,ANIMAL AMBULANCE,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,oct,01-10-2024,Maharashtra,,TOW TRUCK,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,oct,01-10-2024,Maharashtra,,E-RICKSHAW(P),3-Wheelers,3W Shared LowSpeed,,,0,,316,,0,,79,,0,,Shared LowSpeed
+2024,oct,01-10-2024,Maharashtra,,EARTH MOVING EQUIPMENT,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,sep,01-09-2024,Maharashtra,,ADAPTED VEHICLE,Others,Others,,,0,,0,,1,,0,,0,,Others
+2024,aug,01-08-2024,Maharashtra,,ADAPTED VEHICLE,Others,Others,,,0,,0,,1,,0,,0,,Others
+2024,aug,01-08-2024,Maharashtra,,AGRICULTURAL TRACTOR,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,aug,01-08-2024,Maharashtra,,AMBULANCE,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,aug,01-08-2024,Maharashtra,,ANIMAL AMBULANCE,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,aug,01-08-2024,Maharashtra,,ARTICULATED VEHICLE,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,aug,01-08-2024,Maharashtra,,BUS,Bus,Bus,,,0,,76,,0,,12,,0,,Shared
+2024,aug,01-08-2024,Maharashtra,,CAMPER VAN / TRAILER,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,aug,01-08-2024,Maharashtra,,CONSTRUCTION EQUIPMENT VEHICLE,Others,Others,,,0,,1,,0,,0,,0,,Others
+2024,aug,01-08-2024,Maharashtra,,CRANE MOUNTED VEHICLE,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,aug,01-08-2024,Maharashtra,,DUMPER,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,aug,01-08-2024,Maharashtra,,EARTH MOVING EQUIPMENT,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,aug,01-08-2024,Maharashtra,,E-RICKSHAW(P),3-Wheelers,3W Shared LowSpeed,,,0,,203,,0,,47,,0,,Shared LowSpeed
+2024,aug,01-08-2024,Maharashtra,,E-RICKSHAW WITH CART (G),3-Wheelers,3W Goods LowSpeed,,,0,,136,,0,,34,,0,,Goods LowSpeed
+2024,aug,01-08-2024,Maharashtra,,EXCAVATOR (NT),Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,aug,01-08-2024,Maharashtra,,FIRE FIGHTING VEHICLE,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,aug,01-08-2024,Maharashtra,,FIRE TENDERS,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,aug,01-08-2024,Maharashtra,,FORK LIFT,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,aug,01-08-2024,Maharashtra,,GOODS CARRIER,Others,Others,,,0,,73,,0,,21,,0,,Others
+2024,aug,01-08-2024,Maharashtra,,HARVESTER,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,aug,01-08-2024,Maharashtra,,MAXI CAB,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,aug,01-08-2024,Maharashtra,,M-CYCLE/SCOOTER,2-Wheelers,2W Personal,,,0,,7299,,0,,6743,,0,,Personal
+2024,aug,01-08-2024,Maharashtra,,M-CYCLE/SCOOTER-WITH SIDE CAR,2-Wheelers,2W Personal,,,0,,0,,0,,0,,0,,Personal
+2024,aug,01-08-2024,Maharashtra,,MOBILE CLINIC,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,aug,01-08-2024,Maharashtra,,MOBILE WORKSHOP,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,aug,01-08-2024,Maharashtra,,MOPED,2-Wheelers,2W Personal,,,0,,318,,0,,235,,0,,Personal
+2024,aug,01-08-2024,Maharashtra,,MOTOR CAB,4-Wheelers,4W Shared,,,1,,31,,44,,80,,45,,Shared
+2024,aug,01-08-2024,Maharashtra,,MOTOR CAR,4-Wheelers,4W Personal,,,67,,628,,1958,,194,,1102,,Personal
+2024,aug,01-08-2024,Maharashtra,,MOTORISED CYCLE (CC > 25CC),2-Wheelers,2W Personal,,,0,,0,,0,,0,,0,,Personal
+2024,aug,01-08-2024,Maharashtra,,OMNI BUS (PRIVATE USE),Bus,Bus,,,0,,0,,0,,0,,1,,Personal
+2024,aug,01-08-2024,Maharashtra,,PRIVATE SERVICE VEHICLE,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,aug,01-08-2024,Maharashtra,,PRIVATE SERVICE VEHICLE (INDIVIDUAL USE),Others,Others,,,0,,0,,0,,0,,0,,Personal
+2024,aug,01-08-2024,Maharashtra,,ROAD ROLLER,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,aug,01-08-2024,Maharashtra,,SEMI-TRAILER (COMMERCIAL),Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,aug,01-08-2024,Maharashtra,,THREE WHEELER (GOODS),3-Wheelers,3W Goods,,,0,,159,,0,,0,,0,,Goods
+2024,aug,01-08-2024,Maharashtra,,THREE WHEELER (PASSENGER),3-Wheelers,3W Shared,,,0,,451,,0,,29,,0,,Shared
+2024,aug,01-08-2024,Maharashtra,,THREE WHEELER (PERSONAL),3-Wheelers,3W Personal,,,0,,3,,0,,0,,0,,Personal
+2024,aug,01-08-2024,Maharashtra,,TOW TRUCK,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,aug,01-08-2024,Maharashtra,,TRACTOR (COMMERCIAL),Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,aug,01-08-2024,Maharashtra,,TRAILER (AGRICULTURAL),Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,aug,01-08-2024,Maharashtra,,TRAILER (COMMERCIAL),Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,aug,01-08-2024,Maharashtra,,VEHICLE FITTED WITH GENERATOR,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,aug,01-08-2024,Maharashtra,,VEHICLE FITTED WITH RIG,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,sep,01-09-2024,Maharashtra,,AGRICULTURAL TRACTOR,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,sep,01-09-2024,Maharashtra,,AMBULANCE,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,sep,01-09-2024,Maharashtra,,ARTICULATED VEHICLE,Others,Others,,,0,,1,,0,,0,,0,,Others
+2024,sep,01-09-2024,Maharashtra,,BUS,Bus,Bus,,,0,,90,,0,,2,,0,,Shared
+2024,sep,01-09-2024,Maharashtra,,CAMPER VAN / TRAILER,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,sep,01-09-2024,Maharashtra,,CONSTRUCTION EQUIPMENT VEHICLE,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,sep,01-09-2024,Maharashtra,,CONSTRUCTION EQUIPMENT VEHICLE (COMMERCIAL),Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,sep,01-09-2024,Maharashtra,,CRANE MOUNTED VEHICLE,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,sep,01-09-2024,Maharashtra,,DUMPER,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,sep,01-09-2024,Maharashtra,,EARTH MOVING EQUIPMENT,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,sep,01-09-2024,Maharashtra,,E-RICKSHAW(P),3-Wheelers,3W Shared LowSpeed,,,0,,263,,0,,42,,0,,Shared LowSpeed
+2024,sep,01-09-2024,Maharashtra,,E-RICKSHAW WITH CART (G),3-Wheelers,3W Goods LowSpeed,,,0,,193,,0,,2,,0,,Goods LowSpeed
+2024,sep,01-09-2024,Maharashtra,,EXCAVATOR (NT),Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,sep,01-09-2024,Maharashtra,,FIRE FIGHTING VEHICLE,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,sep,01-09-2024,Maharashtra,,FIRE TENDERS,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,sep,01-09-2024,Maharashtra,,FORK LIFT,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,sep,01-09-2024,Maharashtra,,GOODS CARRIER,Others,Others,,,0,,60,,0,,4,,0,,Others
+2024,sep,01-09-2024,Maharashtra,,HARVESTER,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,sep,01-09-2024,Maharashtra,,HEARSES,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,sep,01-09-2024,Maharashtra,,MAXI CAB,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,sep,01-09-2024,Maharashtra,,M-CYCLE/SCOOTER,2-Wheelers,2W Personal,,,0,,5139,,0,,10145,,0,,Personal
+2024,sep,01-09-2024,Maharashtra,,M-CYCLE/SCOOTER-WITH SIDE CAR,2-Wheelers,2W Personal,,,0,,0,,0,,0,,0,,Personal
+2024,sep,01-09-2024,Maharashtra,,MOBILE CLINIC,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,sep,01-09-2024,Maharashtra,,MOPED,2-Wheelers,2W Personal,,,0,,228,,0,,338,,0,,Personal
+2024,sep,01-09-2024,Maharashtra,,MOTOR CAB,4-Wheelers,4W Shared,,,0,,22,,22,,46,,41,,Shared
+2024,sep,01-09-2024,Maharashtra,,MOTOR CAR,4-Wheelers,4W Personal,,,76,,510,,1737,,404,,937,,Personal
+2024,sep,01-09-2024,Maharashtra,,MOTORISED CYCLE (CC > 25CC),2-Wheelers,2W Personal,,,0,,0,,0,,0,,0,,Personal
+2024,sep,01-09-2024,Maharashtra,,OMNI BUS,Bus,Bus,,,0,,10,,0,,0,,0,,Shared
+2024,sep,01-09-2024,Maharashtra,,OMNI BUS (PRIVATE USE),Bus,Bus,,,0,,0,,0,,0,,2,,Personal
+2024,sep,01-09-2024,Maharashtra,,PRIVATE SERVICE VEHICLE (INDIVIDUAL USE),Others,Others,,,0,,0,,0,,0,,0,,Personal
+2024,sep,01-09-2024,Maharashtra,,SEMI-TRAILER (COMMERCIAL),Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,sep,01-09-2024,Maharashtra,,THREE WHEELER (GOODS),3-Wheelers,3W Goods,,,0,,175,,0,,0,,0,,Goods
+2024,sep,01-09-2024,Maharashtra,,THREE WHEELER (PASSENGER),3-Wheelers,3W Shared,,,0,,441,,0,,27,,0,,Shared
+2024,sep,01-09-2024,Maharashtra,,TOW TRUCK,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,sep,01-09-2024,Maharashtra,,TRACTOR (COMMERCIAL),Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,sep,01-09-2024,Maharashtra,,TRAILER (AGRICULTURAL),Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,sep,01-09-2024,Maharashtra,,TRAILER (COMMERCIAL),Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,sep,01-09-2024,Maharashtra,,TRAILER FOR PERSONAL USE,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,oct,01-10-2024,Maharashtra,,ARTICULATED VEHICLE,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,oct,01-10-2024,Maharashtra,,CONSTRUCTION EQUIPMENT VEHICLE,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,oct,01-10-2024,Maharashtra,,E-RICKSHAW WITH CART (G),3-Wheelers,3W Goods LowSpeed,,,0,,209,,0,,50,,0,,Goods LowSpeed
+2024,oct,01-10-2024,Maharashtra,,GOODS CARRIER,Others,Others,,,0,,129,,0,,5,,0,,Others
+2024,oct,01-10-2024,Maharashtra,,M-CYCLE/SCOOTER-WITH SIDE CAR,2-Wheelers,2W Personal,,,0,,0,,0,,0,,0,,Personal
+2024,oct,01-10-2024,Maharashtra,,MOTOR CAR,4-Wheelers,4W Personal,,,127,,754,,3086,,1276,,1548,,Personal
+2024,oct,01-10-2024,Maharashtra,,ROAD ROLLER,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,oct,01-10-2024,Maharashtra,,TRACTOR (COMMERCIAL),Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,oct,01-10-2024,Maharashtra,,SEMI-TRAILER (COMMERCIAL),Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,oct,01-10-2024,Maharashtra,,TRAILER (AGRICULTURAL),Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,oct,01-10-2024,Maharashtra,,EXCAVATOR (NT),Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,sep,01-09-2024,Maharashtra,,VEHICLE FITTED WITH RIG,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,oct,01-10-2024,Maharashtra,,HARVESTER,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,oct,01-10-2024,Maharashtra,,MOBILE CLINIC,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,oct,01-10-2024,Maharashtra,,ADAPTED VEHICLE,Others,Others,,,0,,0,,2,,0,,2,,Others
+2024,oct,01-10-2024,Maharashtra,,BUS,Bus,Bus,,,0,,47,,0,,27,,0,,Shared
+2024,oct,01-10-2024,Maharashtra,,MOTORISED CYCLE (CC > 25CC),2-Wheelers,2W Personal,,,0,,0,,0,,0,,0,,Personal
+2024,oct,01-10-2024,Maharashtra,,CRANE MOUNTED VEHICLE,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,feb,01-02-2024,Maharashtra,,ADAPTED VEHICLE,Others,Others,,,0,,1,,2,,0,,0,,Others
+2024,feb,01-02-2024,Maharashtra,,AGRICULTURAL TRACTOR,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,feb,01-02-2024,Maharashtra,,AMBULANCE,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,feb,01-02-2024,Maharashtra,,ARTICULATED VEHICLE,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,feb,01-02-2024,Maharashtra,,BUS,Bus,Bus,,,0,,100,,0,,0,,0,,Shared
+2024,feb,01-02-2024,Maharashtra,,CAMPER VAN / TRAILER,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,feb,01-02-2024,Maharashtra,,CASH VAN,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,feb,01-02-2024,Maharashtra,,CONSTRUCTION EQUIPMENT VEHICLE,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,feb,01-02-2024,Maharashtra,,CRANE MOUNTED VEHICLE,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,feb,01-02-2024,Maharashtra,,DUMPER,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,feb,01-02-2024,Maharashtra,,EARTH MOVING EQUIPMENT,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,feb,01-02-2024,Maharashtra,,E-RICKSHAW(P),3-Wheelers,3W Shared LowSpeed,,,0,,448,,0,,0,,0,,Shared LowSpeed
+2024,feb,01-02-2024,Maharashtra,,E-RICKSHAW WITH CART (G),3-Wheelers,3W Goods LowSpeed,,,0,,145,,0,,0,,0,,Goods LowSpeed
+2024,feb,01-02-2024,Maharashtra,,EXCAVATOR (NT),Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,feb,01-02-2024,Maharashtra,,FIRE FIGHTING VEHICLE,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,feb,01-02-2024,Maharashtra,,FORK LIFT,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,feb,01-02-2024,Maharashtra,,GOODS CARRIER,Others,Others,,,0,,112,,0,,0,,0,,Others
+2024,feb,01-02-2024,Maharashtra,,HARVESTER,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,feb,01-02-2024,Maharashtra,,HEARSES,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,feb,01-02-2024,Maharashtra,,MAXI CAB,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,feb,01-02-2024,Maharashtra,,M-CYCLE/SCOOTER,2-Wheelers,2W Personal,,,0,,14720,,0,,0,,0,,Personal
+2024,feb,01-02-2024,Maharashtra,,M-CYCLE/SCOOTER-WITH SIDE CAR,2-Wheelers,2W Personal,,,0,,0,,0,,0,,0,,Personal
+2024,feb,01-02-2024,Maharashtra,,MOBILE CLINIC,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,feb,01-02-2024,Maharashtra,,MOBILE WORKSHOP,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,feb,01-02-2024,Maharashtra,,MOPED,2-Wheelers,2W Personal,,,0,,472,,0,,0,,0,,Personal
+2024,feb,01-02-2024,Maharashtra,,MOTOR CAB,4-Wheelers,4W Shared,,,0,,192,,113,,0,,0,,Shared
+2024,feb,01-02-2024,Maharashtra,,MOTOR CAR,4-Wheelers,4W Personal,,,65,,1035,,2918,,0,,0,,Personal
+2024,feb,01-02-2024,Maharashtra,,MOTORISED CYCLE (CC > 25CC),2-Wheelers,2W Personal,,,0,,1,,0,,0,,0,,Personal
+2024,feb,01-02-2024,Maharashtra,,OMNI BUS (PRIVATE USE),Bus,Bus,,,0,,0,,1,,0,,0,,Personal
+2024,feb,01-02-2024,Maharashtra,,PRIVATE SERVICE VEHICLE (INDIVIDUAL USE),Others,Others,,,0,,0,,1,,0,,0,,Personal
+2024,feb,01-02-2024,Maharashtra,,THREE WHEELER (GOODS),3-Wheelers,3W Goods,,,0,,275,,0,,0,,0,,Goods
+2024,feb,01-02-2024,Maharashtra,,THREE WHEELER (PASSENGER),3-Wheelers,3W Shared,,,0,,316,,0,,0,,0,,Shared
+2024,feb,01-02-2024,Maharashtra,,THREE WHEELER (PERSONAL),3-Wheelers,3W Personal,,,0,,0,,0,,0,,0,,Personal
+2024,feb,01-02-2024,Maharashtra,,TOWER WAGON,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,feb,01-02-2024,Maharashtra,,TOW TRUCK,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,feb,01-02-2024,Maharashtra,,TRACTOR (COMMERCIAL),Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,feb,01-02-2024,Maharashtra,,TRAILER (AGRICULTURAL),Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,feb,01-02-2024,Maharashtra,,TRAILER (COMMERCIAL),Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,feb,01-02-2024,Maharashtra,,TRAILER FOR PERSONAL USE,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,feb,01-02-2024,Maharashtra,,TREE TRIMMING VEHICLE,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,feb,01-02-2024,Maharashtra,,VEHICLE FITTED WITH RIG,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,mar,01-03-2024,Maharashtra,,ADAPTED VEHICLE,Others,Others,,,0,,1,,2,,0,,0,,Others
+2024,mar,01-03-2024,Maharashtra,,AGRICULTURAL TRACTOR,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,mar,01-03-2024,Maharashtra,,AMBULANCE,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,mar,01-03-2024,Maharashtra,,ANIMAL AMBULANCE,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,mar,01-03-2024,Maharashtra,,ARTICULATED VEHICLE,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,mar,01-03-2024,Maharashtra,,BUS,Bus,Bus,,,0,,34,,0,,0,,0,,Shared
+2024,mar,01-03-2024,Maharashtra,,CAMPER VAN / TRAILER,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,mar,01-03-2024,Maharashtra,,CAMPER VAN / TRAILER (PRIVATE USE),Others,Others,,,0,,0,,0,,0,,0,,Personal
+2024,mar,01-03-2024,Maharashtra,,CONSTRUCTION EQUIPMENT VEHICLE,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,mar,01-03-2024,Maharashtra,,CRANE MOUNTED VEHICLE,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,mar,01-03-2024,Maharashtra,,DUMPER,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,mar,01-03-2024,Maharashtra,,EARTH MOVING EQUIPMENT,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,mar,01-03-2024,Maharashtra,,E-RICKSHAW(P),3-Wheelers,3W Shared LowSpeed,,,0,,346,,0,,0,,0,,Shared LowSpeed
+2024,mar,01-03-2024,Maharashtra,,E-RICKSHAW WITH CART (G),3-Wheelers,3W Goods LowSpeed,,,0,,165,,0,,0,,0,,Goods LowSpeed
+2024,mar,01-03-2024,Maharashtra,,EXCAVATOR (NT),Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,mar,01-03-2024,Maharashtra,,FIRE FIGHTING VEHICLE,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,mar,01-03-2024,Maharashtra,,FIRE TENDERS,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,mar,01-03-2024,Maharashtra,,FORK LIFT,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,mar,01-03-2024,Maharashtra,,GOODS CARRIER,Others,Others,,,0,,354,,0,,0,,0,,Others
+2024,mar,01-03-2024,Maharashtra,,HARVESTER,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,mar,01-03-2024,Maharashtra,,M-CYCLE/SCOOTER,2-Wheelers,2W Personal,,,0,,25817,,0,,81,,0,,Personal
+2024,mar,01-03-2024,Maharashtra,,M-CYCLE/SCOOTER-WITH SIDE CAR,2-Wheelers,2W Personal,,,0,,3,,0,,0,,0,,Personal
+2024,mar,01-03-2024,Maharashtra,,MOBILE CLINIC,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,mar,01-03-2024,Maharashtra,,MOBILE WORKSHOP,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,mar,01-03-2024,Maharashtra,,MOPED,2-Wheelers,2W Personal,,,0,,848,,0,,0,,0,,Personal
+2024,mar,01-03-2024,Maharashtra,,MOTOR CAB,4-Wheelers,4W Shared,,,0,,35,,130,,0,,5,,Shared
+2024,mar,01-03-2024,Maharashtra,,MOTOR CAR,4-Wheelers,4W Personal,,,181,,1044,,2568,,30,,296,,Personal
+2024,mar,01-03-2024,Maharashtra,,MOTORISED CYCLE (CC > 25CC),2-Wheelers,2W Personal,,,0,,0,,0,,0,,0,,Personal
+2024,mar,01-03-2024,Maharashtra,,OMNI BUS (PRIVATE USE),Bus,Bus,,,0,,0,,1,,0,,0,,Personal
+2024,mar,01-03-2024,Maharashtra,,PRIVATE SERVICE VEHICLE,Others,Others,,,0,,28,,0,,0,,0,,Others
+2024,mar,01-03-2024,Maharashtra,,PRIVATE SERVICE VEHICLE (INDIVIDUAL USE),Others,Others,,,0,,0,,0,,0,,0,,Personal
+2024,mar,01-03-2024,Maharashtra,,ROAD ROLLER,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,mar,01-03-2024,Maharashtra,,SEMI-TRAILER (COMMERCIAL),Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,mar,01-03-2024,Maharashtra,,THREE WHEELER (GOODS),3-Wheelers,3W Goods,,,0,,547,,0,,0,,0,,Goods
+2024,mar,01-03-2024,Maharashtra,,THREE WHEELER (PASSENGER),3-Wheelers,3W Shared,,,0,,403,,0,,17,,0,,Shared
+2024,mar,01-03-2024,Maharashtra,,THREE WHEELER (PERSONAL),3-Wheelers,3W Personal,,,0,,15,,0,,0,,0,,Personal
+2024,mar,01-03-2024,Maharashtra,,TOWER WAGON,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,mar,01-03-2024,Maharashtra,,TOW TRUCK,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,mar,01-03-2024,Maharashtra,,TRACTOR (COMMERCIAL),Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,mar,01-03-2024,Maharashtra,,TRAILER (AGRICULTURAL),Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,mar,01-03-2024,Maharashtra,,TRAILER (COMMERCIAL),Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,mar,01-03-2024,Maharashtra,,TRAILER FOR PERSONAL USE,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,mar,01-03-2024,Maharashtra,,VEHICLE FITTED WITH GENERATOR,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,apr,01-04-2024,Maharashtra,,ADAPTED VEHICLE,Others,Others,,,0,,0,,1,,0,,0,,Others
+2024,apr,01-04-2024,Maharashtra,,AGRICULTURAL TRACTOR,Others,Others,,,0,,1,,0,,0,,0,,Others
+2024,apr,01-04-2024,Maharashtra,,AMBULANCE,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,apr,01-04-2024,Maharashtra,,ARMOURED/SPECIALISED VEHICLE,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,apr,01-04-2024,Maharashtra,,ARTICULATED VEHICLE,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,apr,01-04-2024,Maharashtra,,BUS,Bus,Bus,,,0,,56,,0,,9,,0,,Shared
+2024,apr,01-04-2024,Maharashtra,,CAMPER VAN / TRAILER,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,apr,01-04-2024,Maharashtra,,CAMPER VAN / TRAILER (PRIVATE USE),Others,Others,,,0,,0,,0,,0,,0,,Personal
+2024,apr,01-04-2024,Maharashtra,,CONSTRUCTION EQUIPMENT VEHICLE,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,apr,01-04-2024,Maharashtra,,CONSTRUCTION EQUIPMENT VEHICLE (COMMERCIAL),Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,apr,01-04-2024,Maharashtra,,CRANE MOUNTED VEHICLE,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,apr,01-04-2024,Maharashtra,,DUMPER,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,apr,01-04-2024,Maharashtra,,EARTH MOVING EQUIPMENT,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,apr,01-04-2024,Maharashtra,,E-RICKSHAW(P),3-Wheelers,3W Shared LowSpeed,,,0,,333,,0,,1,,0,,Shared LowSpeed
+2024,apr,01-04-2024,Maharashtra,,E-RICKSHAW WITH CART (G),3-Wheelers,3W Goods LowSpeed,,,0,,199,,0,,0,,0,,Goods LowSpeed
+2024,apr,01-04-2024,Maharashtra,,EXCAVATOR (NT),Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,apr,01-04-2024,Maharashtra,,FIRE FIGHTING VEHICLE,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,apr,01-04-2024,Maharashtra,,FIRE TENDERS,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,apr,01-04-2024,Maharashtra,,FORK LIFT,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,apr,01-04-2024,Maharashtra,,GOODS CARRIER,Others,Others,,,0,,57,,0,,6,,0,,Others
+2024,apr,01-04-2024,Maharashtra,,HARVESTER,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,apr,01-04-2024,Maharashtra,,HEARSES,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,apr,01-04-2024,Maharashtra,,MAXI CAB,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,apr,01-04-2024,Maharashtra,,M-CYCLE/SCOOTER,2-Wheelers,2W Personal,,,0,,11471,,0,,192,,0,,Personal
+2024,apr,01-04-2024,Maharashtra,,M-CYCLE/SCOOTER-WITH SIDE CAR,2-Wheelers,2W Personal,,,0,,0,,0,,0,,0,,Personal
+2024,apr,01-04-2024,Maharashtra,,MOBILE CLINIC,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,apr,01-04-2024,Maharashtra,,MOBILE WORKSHOP,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,apr,01-04-2024,Maharashtra,,MOPED,2-Wheelers,2W Personal,,,0,,298,,0,,0,,0,,Personal
+2024,apr,01-04-2024,Maharashtra,,MOTOR CAB,4-Wheelers,4W Shared,,,0,,38,,32,,0,,22,,Shared
+2024,apr,01-04-2024,Maharashtra,,MOTOR CAR,4-Wheelers,4W Personal,,,127,,1039,,2720,,108,,565,,Personal
+2024,apr,01-04-2024,Maharashtra,,MOTORISED CYCLE (CC > 25CC),2-Wheelers,2W Personal,,,0,,0,,0,,0,,0,,Personal
+2024,apr,01-04-2024,Maharashtra,,OMNI BUS,Bus,Bus,,,0,,0,,0,,0,,0,,Shared
+2024,apr,01-04-2024,Maharashtra,,OMNI BUS (PRIVATE USE),Bus,Bus,,,0,,0,,1,,0,,0,,Personal
+2024,apr,01-04-2024,Maharashtra,,PRIVATE SERVICE VEHICLE,Others,Others,,,0,,14,,0,,0,,0,,Others
+2024,apr,01-04-2024,Maharashtra,,PRIVATE SERVICE VEHICLE (INDIVIDUAL USE),Others,Others,,,0,,0,,0,,0,,0,,Personal
+2024,apr,01-04-2024,Maharashtra,,QUADRICYCLE (PRIVATE),Others,Others,,,0,,0,,0,,0,,0,,Personal
+2024,apr,01-04-2024,Maharashtra,,SEMI-TRAILER (COMMERCIAL),Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,apr,01-04-2024,Maharashtra,,THREE WHEELER (GOODS),3-Wheelers,3W Goods,,,0,,196,,0,,0,,0,,Goods
+2024,apr,01-04-2024,Maharashtra,,THREE WHEELER (PASSENGER),3-Wheelers,3W Shared,,,0,,152,,0,,37,,0,,Shared
+2024,apr,01-04-2024,Maharashtra,,THREE WHEELER (PERSONAL),3-Wheelers,3W Personal,,,0,,1,,0,,0,,0,,Personal
+2024,apr,01-04-2024,Maharashtra,,TOWER WAGON,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,apr,01-04-2024,Maharashtra,,TOW TRUCK,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,apr,01-04-2024,Maharashtra,,TRACTOR (COMMERCIAL),Others,Others,,,0,,1,,0,,0,,0,,Others
+2024,apr,01-04-2024,Maharashtra,,TRAILER (AGRICULTURAL),Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,apr,01-04-2024,Maharashtra,,TRAILER (COMMERCIAL),Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,apr,01-04-2024,Maharashtra,,VEHICLE FITTED WITH COMPRESSOR,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,apr,01-04-2024,Maharashtra,,VEHICLE FITTED WITH GENERATOR,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,apr,01-04-2024,Maharashtra,,VEHICLE FITTED WITH RIG,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,may,01-05-2024,Maharashtra,,ADAPTED VEHICLE,Others,Others,,,0,,1,,2,,0,,0,,Others
+2024,may,01-05-2024,Maharashtra,,AGRICULTURAL TRACTOR,Others,Others,,,0,,1,,0,,0,,0,,Others
+2024,may,01-05-2024,Maharashtra,,AMBULANCE,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,may,01-05-2024,Maharashtra,,ANIMAL AMBULANCE,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,may,01-05-2024,Maharashtra,,ARMOURED/SPECIALISED VEHICLE,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,may,01-05-2024,Maharashtra,,ARTICULATED VEHICLE,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,may,01-05-2024,Maharashtra,,BREAKDOWN VAN,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,may,01-05-2024,Maharashtra,,BUS,Bus,Bus,,,0,,85,,0,,2,,0,,Shared
+2024,may,01-05-2024,Maharashtra,,CAMPER VAN / TRAILER,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,may,01-05-2024,Maharashtra,,CONSTRUCTION EQUIPMENT VEHICLE,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,may,01-05-2024,Maharashtra,,CRANE MOUNTED VEHICLE,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,may,01-05-2024,Maharashtra,,DUMPER,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,may,01-05-2024,Maharashtra,,EARTH MOVING EQUIPMENT,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,may,01-05-2024,Maharashtra,,E-RICKSHAW(P),3-Wheelers,3W Shared LowSpeed,,,0,,320,,0,,7,,0,,Shared LowSpeed
+2024,may,01-05-2024,Maharashtra,,E-RICKSHAW WITH CART (G),3-Wheelers,3W Goods LowSpeed,,,0,,189,,0,,3,,0,,Goods LowSpeed
+2024,may,01-05-2024,Maharashtra,,EXCAVATOR (NT),Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,may,01-05-2024,Maharashtra,,FIRE FIGHTING VEHICLE,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,may,01-05-2024,Maharashtra,,FIRE TENDERS,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,may,01-05-2024,Maharashtra,,FORK LIFT,Others,Others,,,0,,20,,0,,0,,0,,Others
+2024,may,01-05-2024,Maharashtra,,GOODS CARRIER,Others,Others,,,0,,48,,0,,0,,0,,Others
+2024,may,01-05-2024,Maharashtra,,HARVESTER,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,may,01-05-2024,Maharashtra,,HEARSES,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,may,01-05-2024,Maharashtra,,LIBRARY VAN,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,may,01-05-2024,Maharashtra,,M-CYCLE/SCOOTER,2-Wheelers,2W Personal,,,0,,11157,,0,,1622,,0,,Personal
+2024,may,01-05-2024,Maharashtra,,M-CYCLE/SCOOTER-WITH SIDE CAR,2-Wheelers,2W Personal,,,0,,1,,0,,0,,0,,Personal
+2024,may,01-05-2024,Maharashtra,,MOBILE CLINIC,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,may,01-05-2024,Maharashtra,,MOPED,2-Wheelers,2W Personal,,,0,,371,,0,,0,,0,,Personal
+2024,may,01-05-2024,Maharashtra,,MOTOR CAB,4-Wheelers,4W Shared,,,0,,5,,32,,30,,30,,Shared
+2024,may,01-05-2024,Maharashtra,,MOTOR CAR,4-Wheelers,4W Personal,,,110,,974,,2202,,108,,628,,Personal
+2024,may,01-05-2024,Maharashtra,,MOTORISED CYCLE (CC > 25CC),2-Wheelers,2W Personal,,,0,,0,,0,,0,,0,,Personal
+2024,may,01-05-2024,Maharashtra,,OMNI BUS (PRIVATE USE),Bus,Bus,,,0,,0,,0,,0,,0,,Personal
+2024,may,01-05-2024,Maharashtra,,PRIVATE SERVICE VEHICLE,Others,Others,,,0,,10,,0,,0,,0,,Others
+2024,may,01-05-2024,Maharashtra,,PRIVATE SERVICE VEHICLE (INDIVIDUAL USE),Others,Others,,,0,,0,,0,,0,,0,,Personal
+2024,may,01-05-2024,Maharashtra,,SEMI-TRAILER (COMMERCIAL),Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,may,01-05-2024,Maharashtra,,THREE WHEELER (GOODS),3-Wheelers,3W Goods,,,0,,141,,0,,0,,0,,Goods
+2024,may,01-05-2024,Maharashtra,,THREE WHEELER (PASSENGER),3-Wheelers,3W Shared,,,0,,135,,0,,44,,0,,Shared
+2024,may,01-05-2024,Maharashtra,,THREE WHEELER (PERSONAL),3-Wheelers,3W Personal,,,0,,1,,0,,0,,0,,Personal
+2024,may,01-05-2024,Maharashtra,,TOW TRUCK,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,may,01-05-2024,Maharashtra,,TRACTOR (COMMERCIAL),Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,may,01-05-2024,Maharashtra,,TRAILER (AGRICULTURAL),Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,may,01-05-2024,Maharashtra,,TRAILER (COMMERCIAL),Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,may,01-05-2024,Maharashtra,,VEHICLE FITTED WITH GENERATOR,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,may,01-05-2024,Maharashtra,,VEHICLE FITTED WITH RIG,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,jun,01-06-2024,Maharashtra,,ADAPTED VEHICLE,Others,Others,,,0,,2,,1,,0,,1,,Others
+2024,jun,01-06-2024,Maharashtra,,AGRICULTURAL TRACTOR,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,jun,01-06-2024,Maharashtra,,AMBULANCE,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,jun,01-06-2024,Maharashtra,,ANIMAL AMBULANCE,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,jun,01-06-2024,Maharashtra,,ARTICULATED VEHICLE,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,jun,01-06-2024,Maharashtra,,BUS,Bus,Bus,,,0,,38,,0,,1,,0,,Shared
+2024,jun,01-06-2024,Maharashtra,,CAMPER VAN / TRAILER,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,jun,01-06-2024,Maharashtra,,CASH VAN,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,jun,01-06-2024,Maharashtra,,CONSTRUCTION EQUIPMENT VEHICLE,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,jun,01-06-2024,Maharashtra,,CRANE MOUNTED VEHICLE,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,jun,01-06-2024,Maharashtra,,DUMPER,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,jun,01-06-2024,Maharashtra,,EARTH MOVING EQUIPMENT,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,jun,01-06-2024,Maharashtra,,E-RICKSHAW(P),3-Wheelers,3W Shared LowSpeed,,,0,,321,,0,,27,,0,,Shared LowSpeed
+2024,jun,01-06-2024,Maharashtra,,E-RICKSHAW WITH CART (G),3-Wheelers,3W Goods LowSpeed,,,0,,138,,0,,19,,0,,Goods LowSpeed
+2024,jun,01-06-2024,Maharashtra,,EXCAVATOR (NT),Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,jun,01-06-2024,Maharashtra,,FIRE FIGHTING VEHICLE,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,jun,01-06-2024,Maharashtra,,FORK LIFT,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,jun,01-06-2024,Maharashtra,,GOODS CARRIER,Others,Others,,,0,,107,,0,,0,,0,,Others
+2024,jun,01-06-2024,Maharashtra,,HARVESTER,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,jun,01-06-2024,Maharashtra,,HEARSES,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,jun,01-06-2024,Maharashtra,,M-CYCLE/SCOOTER,2-Wheelers,2W Personal,,,0,,8850,,0,,3860,,0,,Personal
+2024,jun,01-06-2024,Maharashtra,,M-CYCLE/SCOOTER-WITH SIDE CAR,2-Wheelers,2W Personal,,,0,,2,,0,,0,,0,,Personal
+2024,jun,01-06-2024,Maharashtra,,MOBILE CLINIC,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,jun,01-06-2024,Maharashtra,,MOPED,2-Wheelers,2W Personal,,,0,,315,,0,,3,,0,,Personal
+2024,jun,01-06-2024,Maharashtra,,MOTOR CAB,4-Wheelers,4W Shared,,,0,,106,,32,,12,,15,,Shared
+2024,jun,01-06-2024,Maharashtra,,MOTOR CAR,4-Wheelers,4W Personal,,,73,,810,,1817,,100,,582,,Personal
+2024,jun,01-06-2024,Maharashtra,,MOTORISED CYCLE (CC > 25CC),2-Wheelers,2W Personal,,,0,,0,,0,,0,,0,,Personal
+2024,jun,01-06-2024,Maharashtra,,OMNI BUS,Bus,Bus,,,0,,0,,0,,0,,0,,Shared
+2024,jun,01-06-2024,Maharashtra,,OMNI BUS (PRIVATE USE),Bus,Bus,,,0,,0,,0,,0,,0,,Personal
+2024,jun,01-06-2024,Maharashtra,,PRIVATE SERVICE VEHICLE,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,jun,01-06-2024,Maharashtra,,PRIVATE SERVICE VEHICLE (INDIVIDUAL USE),Others,Others,,,0,,0,,0,,0,,1,,Personal
+2024,jun,01-06-2024,Maharashtra,,ROAD ROLLER,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,jun,01-06-2024,Maharashtra,,SEMI-TRAILER (COMMERCIAL),Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,jun,01-06-2024,Maharashtra,,THREE WHEELER (GOODS),3-Wheelers,3W Goods,,,0,,210,,0,,1,,0,,Goods
+2024,jun,01-06-2024,Maharashtra,,THREE WHEELER (PASSENGER),3-Wheelers,3W Shared,,,0,,285,,0,,36,,0,,Shared
+2024,jun,01-06-2024,Maharashtra,,TOW TRUCK,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,jun,01-06-2024,Maharashtra,,TRACTOR (COMMERCIAL),Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,jun,01-06-2024,Maharashtra,,TRAILER (AGRICULTURAL),Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,jun,01-06-2024,Maharashtra,,TRAILER (COMMERCIAL),Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,jul,01-07-2024,Maharashtra,,MOPED,2-Wheelers,2W Personal,,,0,,389,,0,,239,,0,,Personal
+2024,jul,01-07-2024,Maharashtra,,MOTOR CAB,4-Wheelers,4W Shared,,,0,,15,,70,,49,,22,,Shared
+2024,jul,01-07-2024,Maharashtra,,MOTOR CAR,4-Wheelers,4W Personal,,,70,,887,,1859,,142,,964,,Personal
+2024,jul,01-07-2024,Maharashtra,,MOTORISED CYCLE (CC > 25CC),2-Wheelers,2W Personal,,,0,,0,,0,,0,,0,,Personal
+2024,jul,01-07-2024,Maharashtra,,OMNI BUS (PRIVATE USE),Bus,Bus,,,0,,0,,0,,0,,4,,Personal
+2024,jul,01-07-2024,Maharashtra,,PRIVATE SERVICE VEHICLE,Others,Others,,,0,,4,,0,,0,,0,,Others
+2024,jul,01-07-2024,Maharashtra,,PRIVATE SERVICE VEHICLE (INDIVIDUAL USE),Others,Others,,,0,,0,,0,,0,,0,,Personal
+2024,jul,01-07-2024,Maharashtra,,SEMI-TRAILER (COMMERCIAL),Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,jul,01-07-2024,Maharashtra,,THREE WHEELER (GOODS),3-Wheelers,3W Goods,,,0,,304,,0,,0,,0,,Goods
+2024,jul,01-07-2024,Maharashtra,,THREE WHEELER (PASSENGER),3-Wheelers,3W Shared,,,0,,457,,0,,26,,0,,Shared
+2024,jul,01-07-2024,Maharashtra,,TOW TRUCK,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,jul,01-07-2024,Maharashtra,,TRACTOR (COMMERCIAL),Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,jul,01-07-2024,Maharashtra,,TRAILER (AGRICULTURAL),Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,jul,01-07-2024,Maharashtra,,TRAILER (COMMERCIAL),Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,jul,01-07-2024,Maharashtra,,TRAILER FOR PERSONAL USE,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,jul,01-07-2024,Maharashtra,,VEHICLE FITTED WITH GENERATOR,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,jul,01-07-2024,Maharashtra,,VEHICLE FITTED WITH RIG,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,jul,01-07-2024,Maharashtra,,ADAPTED VEHICLE,Others,Others,,,0,,0,,1,,0,,0,,Others
+2024,jul,01-07-2024,Maharashtra,,AGRICULTURAL TRACTOR,Others,Others,,,0,,1,,0,,0,,0,,Others
+2024,jul,01-07-2024,Maharashtra,,AMBULANCE,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,jul,01-07-2024,Maharashtra,,ANIMAL AMBULANCE,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,jul,01-07-2024,Maharashtra,,ARTICULATED VEHICLE,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,jul,01-07-2024,Maharashtra,,AUXILIARY TRAILER,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,jul,01-07-2024,Maharashtra,,BUS,Bus,Bus,,,0,,70,,0,,7,,0,,Shared
+2024,jul,01-07-2024,Maharashtra,,CAMPER VAN / TRAILER,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,jul,01-07-2024,Maharashtra,,CASH VAN,Others,Others,,,0,,3,,0,,0,,0,,Others
+2024,jul,01-07-2024,Maharashtra,,CONSTRUCTION EQUIPMENT VEHICLE,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,jul,01-07-2024,Maharashtra,,CRANE MOUNTED VEHICLE,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,jul,01-07-2024,Maharashtra,,DUMPER,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,jul,01-07-2024,Maharashtra,,EARTH MOVING EQUIPMENT,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,jul,01-07-2024,Maharashtra,,E-RICKSHAW(P),3-Wheelers,3W Shared LowSpeed,,,0,,391,,0,,63,,0,,Shared LowSpeed
+2024,jul,01-07-2024,Maharashtra,,E-RICKSHAW WITH CART (G),3-Wheelers,3W Goods LowSpeed,,,0,,317,,0,,0,,0,,Goods LowSpeed
+2024,jul,01-07-2024,Maharashtra,,EXCAVATOR (NT),Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,jul,01-07-2024,Maharashtra,,FIRE FIGHTING VEHICLE,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,jul,01-07-2024,Maharashtra,,FIRE TENDERS,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,jul,01-07-2024,Maharashtra,,FORK LIFT,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,jul,01-07-2024,Maharashtra,,GOODS CARRIER,Others,Others,,,0,,45,,0,,4,,0,,Others
+2024,jul,01-07-2024,Maharashtra,,HARVESTER,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,jul,01-07-2024,Maharashtra,,HEARSES,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,jul,01-07-2024,Maharashtra,,M-CYCLE/SCOOTER,2-Wheelers,2W Personal,,,0,,9726,,0,,7671,,0,,Personal
+2024,jul,01-07-2024,Maharashtra,,M-CYCLE/SCOOTER-WITH SIDE CAR,2-Wheelers,2W Personal,,,0,,1,,0,,0,,0,,Personal
+2024,jul,01-07-2024,Maharashtra,,MOBILE CLINIC,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,jul,01-07-2024,Maharashtra,,MOBILE WORKSHOP,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,nov,01-11-2024,Maharashtra,,ADAPTED VEHICLE,Others,Others,,,0,,0,,2,,0,,2,,Others
+2024,nov,01-11-2024,Maharashtra,,AGRICULTURAL TRACTOR,Others,Others,,,0,,2,,0,,1,,0,,Others
+2024,nov,01-11-2024,Maharashtra,,AMBULANCE,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,nov,01-11-2024,Maharashtra,,ANIMAL AMBULANCE,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,nov,01-11-2024,Maharashtra,,ARTICULATED VEHICLE,Others,Others,,,0,,1,,0,,0,,0,,Others
+2024,nov,01-11-2024,Maharashtra,,BUS,Bus,Bus,,,0,,43,,0,,25,,0,,Shared
+2024,nov,01-11-2024,Maharashtra,,CAMPER VAN / TRAILER,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,nov,01-11-2024,Maharashtra,,CONSTRUCTION EQUIPMENT VEHICLE,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,nov,01-11-2024,Maharashtra,,CRANE MOUNTED VEHICLE,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,nov,01-11-2024,Maharashtra,,DUMPER,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,nov,01-11-2024,Maharashtra,,EARTH MOVING EQUIPMENT,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,nov,01-11-2024,Maharashtra,,E-RICKSHAW(P),3-Wheelers,3W Shared LowSpeed,,,0,,198,,0,,34,,0,,Shared LowSpeed
+2024,nov,01-11-2024,Maharashtra,,E-RICKSHAW WITH CART (G),3-Wheelers,3W Goods LowSpeed,,,0,,200,,0,,7,,0,,Goods LowSpeed
+2024,nov,01-11-2024,Maharashtra,,EXCAVATOR (NT),Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,nov,01-11-2024,Maharashtra,,FIRE FIGHTING VEHICLE,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,nov,01-11-2024,Maharashtra,,FIRE TENDERS,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,nov,01-11-2024,Maharashtra,,FORK LIFT,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,nov,01-11-2024,Maharashtra,,GOODS CARRIER,Others,Others,,,0,,75,,0,,6,,0,,Others
+2024,nov,01-11-2024,Maharashtra,,HARVESTER,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,nov,01-11-2024,Maharashtra,,MAXI CAB,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,nov,01-11-2024,Maharashtra,,M-CYCLE/SCOOTER,2-Wheelers,2W Personal,,,0,,4815,,0,,15347,,0,,Personal
+2024,nov,01-11-2024,Maharashtra,,M-CYCLE/SCOOTER-WITH SIDE CAR,2-Wheelers,2W Personal,,,0,,0,,0,,1,,0,,Personal
+2024,nov,01-11-2024,Maharashtra,,MOBILE CLINIC,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,nov,01-11-2024,Maharashtra,,MOPED,2-Wheelers,2W Personal,,,0,,162,,0,,647,,0,,Personal
+2024,nov,01-11-2024,Maharashtra,,MOTOR CAB,4-Wheelers,4W Shared,,,0,,10,,34,,30,,28,,Shared
+2024,nov,01-11-2024,Maharashtra,,MOTOR CAR,4-Wheelers,4W Personal,,,78,,359,,1440,,936,,886,,Personal
+2024,nov,01-11-2024,Maharashtra,,MOTORISED CYCLE (CC > 25CC),2-Wheelers,2W Personal,,,0,,0,,0,,0,,0,,Personal
+2024,nov,01-11-2024,Maharashtra,,OMNI BUS (PRIVATE USE),Bus,Bus,,,0,,0,,0,,0,,1,,Personal
+2024,nov,01-11-2024,Maharashtra,,PRIVATE SERVICE VEHICLE,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,nov,01-11-2024,Maharashtra,,PRIVATE SERVICE VEHICLE (INDIVIDUAL USE),Others,Others,,,0,,0,,0,,0,,0,,Personal
+2024,nov,01-11-2024,Maharashtra,,QUADRICYCLE (PRIVATE),Others,Others,,,0,,0,,0,,0,,0,,Personal
+2024,nov,01-11-2024,Maharashtra,,ROAD ROLLER,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,nov,01-11-2024,Maharashtra,,SEMI-TRAILER (COMMERCIAL),Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,nov,01-11-2024,Maharashtra,,THREE WHEELER (GOODS),3-Wheelers,3W Goods,,,0,,201,,0,,0,,0,,Goods
+2024,nov,01-11-2024,Maharashtra,,THREE WHEELER (PASSENGER),3-Wheelers,3W Shared,,,0,,539,,0,,46,,0,,Shared
+2024,nov,01-11-2024,Maharashtra,,TOW TRUCK,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,nov,01-11-2024,Maharashtra,,TRACTOR (COMMERCIAL),Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,nov,01-11-2024,Maharashtra,,TRAILER (AGRICULTURAL),Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,nov,01-11-2024,Maharashtra,,TRAILER (COMMERCIAL),Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,nov,01-11-2024,Maharashtra,,VEHICLE FITTED WITH COMPRESSOR,Others,Others,,,0,,0,,0,,0,,0,,Others
+2024,nov,01-11-2024,Maharashtra,,VEHICLE FITTED WITH RIG,Others,Others,,,0,,0,,0,,0,,0,,Others

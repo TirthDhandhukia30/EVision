@@ -1,0 +1,4 @@
+Model,Accuracy
+RandomForest_Clf,0.5483870967741935
+XGBoost_Clf,0.5483870967741935
+LogisticRegression,0.9354838709677419
