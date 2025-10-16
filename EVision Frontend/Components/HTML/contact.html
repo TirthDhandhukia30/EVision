@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us - EVision</title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/Components/CSS/contact.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>
+        <i class="fa-solid fa-bolt"></i> EV<span
+          style="color: var(--primary-dark)"
+          >ision</span
+        >
+      </h1>
+      <div class="hamburger">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+      <div class="theme-toggle" id="themeToggle">
+        <i class="fa-solid fa-sun"></i>
+      </div>
+      <nav class="nav-menu">
+        <a href="/index.html">Home</a>
+        <a href="/Components/HTML/dashboard.html">Dashboard</a>
+        <a
+          href="https://github.com/TirthDhandhukia30/EVision-Capstone"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Source</a
+        >
+        <a href="contact.html" class="active">Contact</a>
+      </nav>
+    </header>
+
+    <section class="contact-hero">
+      <h2>Contact Us</h2>
+    </section>
+
+    <div class="contact-container">
+      <div class="contact-card">
+        <img
+          src="https://avatars.githubusercontent.com/u/88525223"
+          alt="Tirth Dhandhukia"
+          class="profile-image"
+        />
+        <h3 class="contact-name">Tirth Dhandhukia</h3>
+        <div class="social-links">
+          <a
+            href="https://github.com/TirthDhandhukia30"
+            target="_blank"
+            class="social-link"
+          >
+            <i class="fab fa-github"></i>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/tirthdhandhukia/"
+            target="_blank"
+            class="social-link"
+          >
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="mailto:tirth30.info@gmail.com" class="social-link">
+            <i class="fas fa-envelope"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <img
+          src="https://avatars.githubusercontent.com/u/88525223"
+          alt="Yash Joshi"
+          class="profile-image"
+        />
+        <h3 class="contact-name">Yash Joshi</h3>
+        <div class="social-links">
+          <a
+            href="https://github.com/YashJoshi"
+            target="_blank"
+            class="social-link"
+          >
+            <i class="fab fa-github"></i>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/yashjoshi03/"
+            target="_blank"
+            class="social-link"
+          >
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="mailto:shaswatjain@gmail.com" class="social-link">
+            <i class="fas fa-envelope"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-info">
+      <p>
+        EVision is our Capstone 2025 Final Year Project, focusing on optimizing EV charging
+        station locations in Mumbai using machine learning and data analytics.
+      </p>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const hamburger = document.querySelector(".hamburger");
+        const navMenu = document.querySelector(".nav-menu");
+        const themeToggle = document.getElementById("themeToggle");
+        const themeIcon = themeToggle.querySelector("i");
+
+        // Check system preference
+        const prefersDarkScheme = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        );
+
+        // Theme toggle functionality
+        const currentTheme =
+          localStorage.getItem("theme") ||
+          (prefersDarkScheme.matches ? "dark" : "light");
+
+        // Set initial theme
+        document.documentElement.setAttribute("data-theme", currentTheme);
+        themeIcon.className =
+          currentTheme === "dark" ? "fa-solid fa-moon" : "fa-solid fa-sun";
+
+        // Listen for system theme changes
+        prefersDarkScheme.addEventListener("change", (e) => {
+          if (!localStorage.getItem("theme")) {
+            const newTheme = e.matches ? "dark" : "light";
+            document.documentElement.setAttribute("data-theme", newTheme);
+            themeIcon.className =
+              newTheme === "dark" ? "fa-solid fa-moon" : "fa-solid fa-sun";
+          }
+        });
+
+        themeToggle.addEventListener("click", () => {
+          const currentTheme =
+            document.documentElement.getAttribute("data-theme");
+          const newTheme = currentTheme === "dark" ? "light" : "dark";
+
+          document.documentElement.setAttribute("data-theme", newTheme);
+          localStorage.setItem("theme", newTheme);
+          themeIcon.className =
+            newTheme === "dark" ? "fa-solid fa-moon" : "fa-solid fa-sun";
+        });
+
+        hamburger.addEventListener("click", function () {
+          navMenu.classList.toggle("active");
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll(".nav-menu a").forEach((link) => {
+          link.addEventListener("click", function () {
+            navMenu.classList.remove("active");
+          });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener("click", function (e) {
+          if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+            navMenu.classList.remove("active");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

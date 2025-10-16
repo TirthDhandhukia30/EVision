@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EV Charging Dashboard</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="/Components/CSS/style.css" />
+    <link rel="stylesheet" href="/Components/CSS/dashboard.css" />
+  </head>
+  <body>
+    <header>
+      <h1> <i class="fa-solid fa-bolt"></i> EV<span style="color:var(--primary-dark);">ision</span></h1>
+      <div class="hamburger">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+      <div class="theme-toggle" id="themeToggle">
+        <i class="fa-solid fa-sun"></i>
+      </div>
+      <nav class="nav-menu">
+        <a href="/index.html">Home</a>
+        <a href="/Components/HTML/dashboard.html" class="active">Dashboard</a>
+        <a href="https://github.com/TirthDhandhukia30/EVision-Capstone" target="_blank" rel="noopener noreferrer">Source</a>
+                <a href="/Components/HTML/contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <section class="dashboard-hero">
+      <div class="hero-content">
+        <h2>Dashboard</h2>
+        <p>Comparative Analysis of EV Charging Station Optimization</p>
+      </div>
+    </section>
+
+    <main class="dashboard-container">
+      <!-- Model Comparison Cards -->
+      <section class="model-comparison-section" data-aos="fade-up">
+        <!-- <div class="section-header">
+          <h2>
+            <i class="fa-solid fa-chart-simple"></i> Machine Learning Models
+            Comparison
+          </h2>
+          <p class="section-description">
+            Performance metrics of different algorithms for predicting optimal
+            EV charging station locations
+          </p>
+        </div> -->
+
+        <div class="model-cards" id="modelCards">
+          <!-- Ridge Regression Model Card -->
+          <div
+            class="model-card"
+            data-model="ridge"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="model-card-header">
+              <i class="fa-solid fa-wave-square model-icon"></i>
+              <h3>Ridge Regression</h3>
+            </div>
+            <div class="model-card-body">
+              <div class="metric">
+                <div class="metric-header">
+                  <div class="metric-label">Accuracy</div>
+                  <div class="metric-value" data-value="58.17">0%</div>
+                </div>
+                <div class="progress-bar">
+                  <div
+                    class="progress-fill"
+                    style="width: 0%"
+                    data-target="58.17%"
+                  ></div>
+                </div>
+              </div>
+              <div class="metric">
+                <div class="metric-header">
+                  <div class="metric-label">RMSE Score</div>
+                  <div class="metric-value" data-value="0.724">0</div>
+                </div>
+                <div class="progress-bar rmse">
+                  <div
+                    class="progress-fill"
+                    style="width: 0%"
+                    data-target="72.4%"
+                  ></div>
+                </div>
+              </div>
+              <div class="metric">
+                <div class="metric-header">
+                  <div class="metric-label">New Stations Predicted</div>
+                  <div class="metric-value" data-value="21">0</div>
+                </div>
+                <div class="progress-bar stations">
+                  <div
+                    class="progress-fill"
+                    style="width: 0%"
+                    data-target="60%"
+                  ></div>
+                </div>
+              </div>
+              <div class="model-card-footer">
+                
+              </div>
+            </div>
+          </div>
+
+          <!-- Gradient Boost Model Card -->
+          <div
+            class="model-card highlighted"
+            data-model="gradient-boost"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div class="model-card-header">
+              <i class="fa-solid fa-diagram-project model-icon"></i>
+              <h3>Gradient Boost</h3>
+              <!-- <span class="recommendation-badge">Recommended</span> -->
+            </div>
+            <div class="model-card-body">
+              <div class="metric">
+                <div class="metric-header">
+                  <div class="metric-label">Accuracy</div>
+                  <div class="metric-value" data-value="87.2">0%</div>
+                </div>
+                <div class="progress-bar">
+                  <div
+                    class="progress-fill"
+                    style="width: 0%"
+                    data-target="87.2%"
+                  ></div>
+                </div>
+              </div>
+              <div class="metric">
+                <div class="metric-header">
+                  <div class="metric-label">RMSE Score</div>
+                  <div class="metric-value" data-value="0.41">0</div>
+                </div>
+                <div class="progress-bar rmse">
+                  <div
+                    class="progress-fill"
+                    style="width: 0%"
+                    data-target="41%"
+                  ></div>
+                </div>
+              </div>
+              <div class="metric">
+                <div class="metric-header">
+                  <div class="metric-label">New Stations Predicted</div>
+                  <div class="metric-value" data-value="24">0</div>
+                </div>
+                <div class="progress-bar stations">
+                  <div
+                    class="progress-fill"
+                    style="width: 0%"
+                    data-target="85%"
+                  ></div>
+                </div>
+              </div>
+              <div class="model-card-footer">
+                
+              </div>
+            </div>
+          </div>
+
+          <!-- Linear Regression Model Card -->
+          <div
+            class="model-card"
+            data-model="linear"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <div class="model-card-header">
+              <i class="fa-solid fa-chart-line model-icon"></i>
+              <h3>Linear Regression</h3>
+            </div>
+            <div class="model-card-body">
+              <div class="metric">
+                <div class="metric-header">
+                  <div class="metric-label">Accuracy</div>
+                  <div class="metric-value" data-value="54.3">0%</div>
+                </div>
+                <div class="progress-bar">
+                  <div
+                    class="progress-fill"
+                    style="width: 0%"
+                    data-target="54.3%"
+                  ></div>
+                </div>
+              </div>
+              <div class="metric">
+                <div class="metric-header">
+                  <div class="metric-label">RMSE Score</div>
+                  <div class="metric-value" data-value="0.81">0</div>
+                </div>
+                <div class="progress-bar rmse">
+                  <div
+                    class="progress-fill"
+                    style="width: 0%"
+                    data-target="81%"
+                  ></div>
+                </div>
+              </div>
+              <div class="metric">
+                <div class="metric-header">
+                  <div class="metric-label">New Stations Predicted</div>
+                  <div class="metric-value" data-value="15">0</div>
+                </div>
+                <div class="progress-bar stations">
+                  <div
+                    class="progress-fill"
+                    style="width: 0%"
+                    data-target="42%"
+                  ></div>
+                </div>
+              </div>
+              <div class="model-card-footer">
+                
+              </div>
+            </div>
+          </div>
+        </div>
+
+        
+
+      <!-- Additional Info/Analysis Section -->
+      <section class="additional-info-section" data-aos="fade-up">
+        <div class="section-header" data-aos="fade-up">
+          <h2>
+            <i class="fa-solid fa-magnifying-glass-chart"></i> Key Insights
+          </h2>
+          <p class="section-description">
+            Our analysis revealed crucial patterns that optimize EV charging infrastructure deployment
+          </p>
+        </div>
+
+        <div class="insight-tabs">
+          <div class="insight-nav">
+            <button class="insight-tab active" data-tab="model-performance">
+              <i class="fa-solid fa-diagram-project"></i>
+              <span>Model Performance</span>
+            </button>
+            <button class="insight-tab" data-tab="location-insights">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>Location Insights</span>
+            </button>
+            <button class="insight-tab" data-tab="key-findings">
+              <i class="fa-solid fa-lightbulb"></i>
+              <span>Key Findings</span>
+            </button>
+            <button class="insight-tab" data-tab="usage-patterns">
+              <i class="fa-solid fa-chart-pie"></i>
+              <span>Usage Patterns</span>
+            </button>
+          </div>
+          
+          <div class="insight-content-wrapper">
+            <div class="insight-content active" id="model-performance" data-aos="fade-right">
+              <div class="insight-visual">
+                <div class="visual-placeholder">
+                  <i class="fa-solid fa-chart-column"></i>
+                  <span class="visual-label">Model Accuracy Comparison</span>
+                </div>
+              </div>
+              <div class="insight-text">
+                <h3>Model Performance <span class="highlight-badge">87% Accuracy</span></h3>
+                <p>
+                  XGBoost consistently outperforms other models in both classification and regression tasks 
+                  with higher accuracy and lower error rates. The ensemble-based methods (Random Forest and XGBoost) 
+                  demonstrate superior performance over single-model approaches.
+                </p>
+                <div class="key-points">
+                  <div class="key-point">
+                    <span class="key-icon"><i class="fa-solid fa-check"></i></span>
+                    <span>Ensemble models capture complex geographical relationships</span>
+                  </div>
+                  <div class="key-point">
+                    <span class="key-icon"><i class="fa-solid fa-check"></i></span>
+                    <span>41% lower error rate compared to baseline models</span>
+                  </div>
+                  <div class="key-point">
+                    <span class="key-icon"><i class="fa-solid fa-check"></i></span>
+                    <span>Higher predictive power for urban environments</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="insight-content" id="location-insights">
+              <div class="insight-visual">
+                <div class="visual-placeholder">
+                  <i class="fa-solid fa-map-location-dot"></i>
+                  <span class="visual-label">Strategic Location Heatmap</span>
+                </div>
+              </div>
+              <div class="insight-text">
+                <h3>Location Insights <span class="highlight-badge">35% Coverage Increase</span></h3>
+                <p>
+                  Areas with high road density and population concentration show the strongest correlation with 
+                  optimal charging station placement. Commercial zones located near residential areas with high 
+                  EV ownership demonstrate the highest predicted utilization rates.
+                </p>
+                <div class="key-points">
+                  <div class="key-point">
+                    <span class="key-icon"><i class="fa-solid fa-check"></i></span>
+                    <span>Strategic positioning at commercial-residential intersections</span>
+                  </div>
+                  <div class="key-point">
+                    <span class="key-icon"><i class="fa-solid fa-check"></i></span>
+                    <span>High correlation with road network density</span>
+                  </div>
+                  <div class="key-point">
+                    <span class="key-icon"><i class="fa-solid fa-check"></i></span>
+                    <span>Proximity to high EV ownership areas increases utilization</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="insight-content" id="key-findings">
+              <div class="insight-visual">
+                <div class="visual-placeholder">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                  <span class="visual-label">Regional Distribution Analysis</span>
+                </div>
+              </div>
+              <div class="insight-text">
+                <h3>Key Findings <span class="highlight-badge">Western Suburbs</span></h3>
+                <p>
+                  The spatial distribution analysis reveals that Mumbai's western suburbs have the highest 
+                  potential for new charging stations, particularly in areas with developing smart grid 
+                  infrastructure. Additionally, existing station density is inversely correlated with predicted 
+                  success of new stations beyond a certain threshold.
+                </p>
+                <div class="key-points">
+                  <div class="key-point">
+                    <span class="key-icon"><i class="fa-solid fa-check"></i></span>
+                    <span>Market saturation effects identified in high-density areas</span>
+                  </div>
+                  <div class="key-point">
+                    <span class="key-icon"><i class="fa-solid fa-check"></i></span>
+                    <span>Smart grid development correlates with optimal placement</span>
+                  </div>
+                  <div class="key-point">
+                    <span class="key-icon"><i class="fa-solid fa-check"></i></span>
+                    <span>24 new strategic locations identified</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="insight-content" id="usage-patterns">
+              <div class="insight-visual">
+                <div class="visual-placeholder">
+                  <i class="fa-solid fa-clock"></i>
+                  <span class="visual-label">Hourly Usage Distribution</span>
+                </div>
+              </div>
+              <div class="insight-text">
+                <h3>Usage Patterns <span class="highlight-badge">9am-5pm Peak</span></h3>
+                <p>
+                  Temporal analysis shows peak charging demand occurs during working hours (9am-5pm), with 
+                  secondary peaks in early evening. Weekend usage follows different patterns with more 
+                  distributed charging throughout the day. These insights can inform dynamic pricing strategies 
+                  and capacity planning.
+                </p>
+                <div class="key-points">
+                  <div class="key-point">
+                    <span class="key-icon"><i class="fa-solid fa-check"></i></span>
+                    <span>Distinct weekday vs weekend usage patterns</span>
+                  </div>
+                  <div class="key-point">
+                    <span class="key-icon"><i class="fa-solid fa-check"></i></span>
+                    <span>Early evening secondary peak identified</span>
+                  </div>
+                  <div class="key-point">
+                    <span class="key-icon"><i class="fa-solid fa-check"></i></span>
+                    <span>Data supports dynamic pricing optimization</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="conclusion-section" data-aos="fade-up">
+          <h3>Conclusion</h3>
+          <p>
+            The machine learning models demonstrate that optimizing EV charging
+            station placement requires a multi-faceted approach that considers
+            infrastructure, demographics, and existing usage patterns. Our
+            XGBoost model achieved the highest accuracy (87%) in classification
+            tasks and lowest error rates in regression tasks, making it the
+            recommended approach for deployment.
+          </p>
+
+          <p>
+            These insights have been translated into an interactive map
+            highlighting the top 20 recommended locations for new EV charging
+            stations in Mumbai, with an estimated increase in coverage of
+            approximately 35% while minimizing overlap with existing
+            infrastructure.
+          </p>
+          
+          <div class="action-buttons">
+            <!-- <a href="#" class="primary-btn">
+              <i class="fa-solid fa-download"></i> Download Full Report
+            </a> -->
+            <a href="/Components/HTML/result.html" class="secondary-btn">
+              <i class="fa-solid fa-map"></i>  Final Results
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      // Initialize AOS
+      AOS.init({
+        duration: 800,
+        offset: 100,
+        once: true,
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const hamburger = document.querySelector(".hamburger");
+        const navMenu = document.querySelector(".nav-menu");
+        const themeToggle = document.getElementById("themeToggle");
+        const themeIcon = themeToggle.querySelector("i");
+
+        // Check system preference
+        const prefersDarkScheme = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        );
+
+        // Theme toggle functionality
+        const currentTheme =
+          localStorage.getItem("theme") ||
+          (prefersDarkScheme.matches ? "dark" : "light");
+
+        // Set initial theme
+        document.documentElement.setAttribute("data-theme", currentTheme);
+        themeIcon.className =
+          currentTheme === "dark" ? "fa-solid fa-moon" : "fa-solid fa-sun";
+
+        // Listen for system theme changes
+        prefersDarkScheme.addEventListener("change", (e) => {
+          if (!localStorage.getItem("theme")) {
+            const newTheme = e.matches ? "dark" : "light";
+            document.documentElement.setAttribute("data-theme", newTheme);
+            themeIcon.className =
+              newTheme === "dark" ? "fa-solid fa-moon" : "fa-solid fa-sun";
+          }
+        });
+
+        themeToggle.addEventListener("click", () => {
+          const currentTheme =
+            document.documentElement.getAttribute("data-theme");
+          const newTheme = currentTheme === "dark" ? "light" : "dark";
+
+          document.documentElement.setAttribute("data-theme", newTheme);
+          localStorage.setItem("theme", newTheme);
+          themeIcon.className =
+            newTheme === "dark" ? "fa-solid fa-moon" : "fa-solid fa-sun";
+        });
+
+        hamburger.addEventListener("click", function() {
+          navMenu.classList.toggle("active");
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll(".nav-menu a").forEach(link => {
+          link.addEventListener("click", function() {
+            navMenu.classList.remove("active");
+          });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener("click", function(e) {
+          if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+            navMenu.classList.remove("active");
+          }
+        });
+
+        // Enhanced model card interactivity
+        const modelCards = document.querySelectorAll(".model-card");
+        const modelSelectorBtns = document.querySelectorAll(
+          ".model-selector-btn"
+        );
+
+        // Animated counters and progress bars for each card
+        modelCards.forEach((card) => {
+          // Animated counters and progress bars
+          const animateValues = () => {
+            const metrics = card.querySelectorAll(".metric-value");
+            const progressBars = card.querySelectorAll(".progress-fill");
+
+            metrics.forEach((metric) => {
+              const targetValue = parseFloat(metric.getAttribute("data-value"));
+              let startValue = 0;
+              const duration = 1500; // ms
+              const startTime = performance.now();
+
+              const isPercent = metric.textContent.includes("%");
+
+              const updateValue = (currentTime) => {
+                const elapsedTime = currentTime - startTime;
+                const progress = Math.min(elapsedTime / duration, 1);
+                const easeProgress = 1 - Math.pow(1 - progress, 3); // Cubic ease out
+
+                const value =
+                  startValue + (targetValue - startValue) * easeProgress;
+
+                if (isPercent) {
+                  metric.textContent = value.toFixed(1) + "%";
+                } else {
+                  metric.textContent =
+                    targetValue < 1 ? value.toFixed(2) : Math.round(value);
+                }
+
+                if (progress < 1) {
+                  requestAnimationFrame(updateValue);
+                }
+              };
+
+              requestAnimationFrame(updateValue);
+            });
+
+            progressBars.forEach((bar) => {
+              const targetWidth = bar.getAttribute("data-target");
+              setTimeout(() => {
+                bar.style.width = targetWidth;
+              }, 200);
+            });
+          };
+
+          // Use Intersection Observer to trigger animations when cards come into view
+          const observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  setTimeout(() => {
+                    animateValues();
+                  }, 300);
+                  observer.unobserve(entry.target);
+                }
+              });
+            },
+            { threshold: 0.2 }
+          );
+
+          observer.observe(card);
+        });
+
+        // Model selector functionality
+        modelSelectorBtns.forEach((btn) => {
+          btn.addEventListener("click", function () {
+            // Update active button
+            modelSelectorBtns.forEach((b) => b.classList.remove("active"));
+            this.classList.add("active");
+
+            // Filter models
+            const selectedModel = this.getAttribute("data-model");
+
+            modelCards.forEach((card) => {
+              if (card.getAttribute("data-model") === selectedModel) {
+                card.style.display = "flex";
+                // Add animation
+                card.style.animation = "none";
+                setTimeout(() => {
+                  card.style.animation = "fadeInUp 0.6s ease-out";
+                }, 10);
+              } else {
+                card.style.display = "none";
+              }
+            });
+          });
+        });
+        
+        // Insight Tabs Functionality
+        const insightTabs = document.querySelectorAll('.insight-tab');
+        const insightContents = document.querySelectorAll('.insight-content');
+        
+        insightTabs.forEach(tab => {
+          tab.addEventListener('click', function() {
+            // Update active tab
+            insightTabs.forEach(t => t.classList.remove('active'));
+            this.classList.add('active');
+            
+            // Show corresponding content
+            const tabId = this.getAttribute('data-tab');
+            
+            insightContents.forEach(content => {
+              content.classList.remove('active');
+              
+              // Apply fade animation
+              if (content.id === tabId) {
+                content.style.opacity = 0;
+                content.classList.add('active');
+                
+                // Trigger reflow to ensure animation works
+                void content.offsetWidth;
+                
+                setTimeout(() => {
+                  content.style.opacity = 1;
+                }, 10);
+              }
+            });
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

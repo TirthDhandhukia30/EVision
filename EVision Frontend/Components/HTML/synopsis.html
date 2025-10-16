@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>INFO</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/Components/CSS/synopsis.css" />
+  </head>
+  <body>
+    <header>
+      <h1>
+        <i class="fa-solid fa-bolt"></i> EV<span
+          style="color: var(--primary-dark)"
+          >ision</span
+        >
+      </h1>
+      <div class="hamburger">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+      <div class="theme-toggle" id="themeToggle">
+        <i class="fa-solid fa-sun"></i>
+      </div>
+      <nav class="nav-menu">
+        <a href="/index.html">Home</a>
+        <a href="#project-info">About</a>
+        <a href="/Components/HTML/dashboard.html">Dashboard</a>
+        <a
+          href="https://github.com/TirthDhandhukia30/EVision-Capstone"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Source</a
+        >
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main class="synopsis-content">
+      <section class="synopsis-header">
+        <h2>Why this project?</h2>
+        <div class="synopsis-icon">
+          <!-- <i class="fa-solid fa-charging-station"></i> -->
+        </div>
+      </section>
+
+      <section class="synopsis-body">
+        <p>
+          India is witnessing rapid growth in electric vehicle (EV) adoption,
+          driven by government incentives, rising environmental awareness, and
+          advancements in EV technology. According to
+          <span class="highlight">NITI Aayog</span>, EVs are projected to
+          account for <span class="highlight">30%</span> of total vehicle sales
+          by <span class="highlight">2030</span>, while recent reports indicate
+          that India's EV stock has already crossed
+          <span class="highlight">5.45 million vehicles</span> in
+          <span class="highlight">2024</span>, with sales continuing to grow.
+        </p>
+
+        <div class="key-point">
+          <i class="fa-solid fa-chart-line"></i>
+          <p>
+            This surge in EV adoption underscores the critical need for
+            strategically planned charging infrastructure, especially in urban
+            centers and high-traffic areas.
+          </p>
+        </div>
+
+        <div class="study-comparison">
+          <div class="study-header">
+            <i class="fa-solid fa-globe"></i>
+            <h3>Global Perspective</h3>
+          </div>
+          <p>
+            International studies support the crucial role of strategic charging
+            infrastructure. In <span class="highlight">Norway</span>, the world
+            leader in EV adoption with
+            <span class="highlight">over 80%</span> of new car sales being
+            electric in <span class="highlight">2023</span>, success was largely
+            attributed to their early focus on comprehensive charging networks.
+            Similarly, <span class="highlight">China</span> has demonstrated
+            that strategic placement of charging stations in high-demand areas
+            led to a <span class="highlight">300% increase</span> in EV adoption
+            rates between <span class="highlight">2020-2023</span>.
+          </p>
+        </div>
+
+        <div class="data-points">
+          <div class="data-point">
+            <i class="fa-solid fa-database"></i>
+            <span>Traffic Patterns</span>
+          </div>
+          <div class="data-point">
+            <i class="fa-solid fa-users"></i>
+            <span>Population Density</span>
+          </div>
+          <div class="data-point">
+            <i class="fa-solid fa-charging-station"></i>
+            <span>Charging Points</span>
+          </div>
+          <!-- <div class="data-point">
+            <i class="fa-solid fa-chart-pie"></i>
+            <span>Socio-economic Data</span>
+          </div> -->
+        </div>
+
+        <p>
+          Drawing from these global insights and local data analysis, our
+          project ensures that charging infrastructure is accessible, efficient,
+          and capable of supporting projected EV growth. This provides
+          actionable insights for policymakers, city planners, and private
+          stakeholders looking to build a
+          <span class="highlight">sustainable</span> and
+          <span class="highlight">future-ready</span> EV ecosystem, positioning
+          India alongside global leaders in the EV revolution.
+        </p>
+      </section>
+    </main>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const hamburger = document.querySelector(".hamburger");
+        const navMenu = document.querySelector(".nav-menu");
+        const themeToggle = document.getElementById("themeToggle");
+        const themeIcon = themeToggle.querySelector("i");
+
+        // Check system preference
+        const prefersDarkScheme = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        );
+
+        // Theme toggle functionality
+        const currentTheme =
+          localStorage.getItem("theme") ||
+          (prefersDarkScheme.matches ? "dark" : "light");
+
+        // Set initial theme
+        document.documentElement.setAttribute("data-theme", currentTheme);
+        themeIcon.className =
+          currentTheme === "dark" ? "fa-solid fa-moon" : "fa-solid fa-sun";
+
+        // Listen for system theme changes
+        prefersDarkScheme.addEventListener("change", (e) => {
+          if (!localStorage.getItem("theme")) {
+            const newTheme = e.matches ? "dark" : "light";
+            document.documentElement.setAttribute("data-theme", newTheme);
+            themeIcon.className =
+              newTheme === "dark" ? "fa-solid fa-moon" : "fa-solid fa-sun";
+          }
+        });
+
+        themeToggle.addEventListener("click", () => {
+          const currentTheme =
+            document.documentElement.getAttribute("data-theme");
+          const newTheme = currentTheme === "dark" ? "light" : "dark";
+
+          document.documentElement.setAttribute("data-theme", newTheme);
+          localStorage.setItem("theme", newTheme);
+          themeIcon.className =
+            newTheme === "dark" ? "fa-solid fa-moon" : "fa-solid fa-sun";
+        });
+
+        hamburger.addEventListener("click", function () {
+          navMenu.classList.toggle("active");
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll(".nav-menu a").forEach((link) => {
+          link.addEventListener("click", function () {
+            navMenu.classList.remove("active");
+          });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener("click", function (e) {
+          if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+            navMenu.classList.remove("active");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

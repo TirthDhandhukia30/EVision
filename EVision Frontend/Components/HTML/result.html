@@ -1,0 +1,6174 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <title>EVision - Project Results</title>
+
+    <!-- Third-party Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+
+    <!-- Stylesheets -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <style>
+      /* CSS Variables */
+      :root {
+        /* Primary Colors */
+        --primary: #2ecc71;
+        --primary-dark: #27ae60;
+        --primary-light: #a8e6cf;
+
+        /* Backgrounds */
+        --bg-dark: #f5f5f5;
+        --bg-light: #ffffff;
+
+        /* Text Colors */
+        --text-dark: #2c3e50;
+        --text-light: #34495e;
+        --muted: #7f8c8d;
+
+        /* Gradient Background */
+        --bg-gradient: linear-gradient(135deg, #f5f5f5, #e8f5e9);
+      }
+
+      /* Dark theme overrides */
+      [data-theme="dark"] {
+        --primary: #4ade80;
+        --primary-dark: #22c55e;
+        --primary-light: #86efac;
+
+        /* Dark Backgrounds */
+        --bg-dark: #121212;
+        --bg-light: #1e1e1e;
+
+        /* Text Colors */
+        --text-dark: #ffffff;
+        --text-light: #e0e0e0;
+        --muted: #a3a3a3;
+
+        /* Dark Gradient Background */
+        --bg-gradient: linear-gradient(135deg, #121212, #1e1e1e);
+      }
+
+      /* Base Styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Outfit", sans-serif;
+        color: var(--text-dark);
+        line-height: 1.6;
+        overflow-x: hidden;
+        letter-spacing: 0.3px;
+        background-color: var(--bg-dark);
+      }
+
+      /* Header Styles */
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem 5%;
+        background: var(--bg-dark);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      header h1 {
+        font-size: 2.8rem;
+        color: var(--primary);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+
+      .hamburger {
+        display: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: var(--text-dark);
+        transition: color 0.3s ease;
+        background-color: var(--bg-dark);
+      }
+
+      .hamburger:hover {
+        color: var(--primary);
+      }
+
+      /* Navigation */
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        gap: 3rem;
+        margin-left: auto;
+      }
+
+      nav a {
+        color: var(--text-dark);
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-weight: 500;
+        position: relative;
+        padding-bottom: 5px;
+      }
+
+      nav a:hover {
+        color: var(--primary);
+      }
+
+      nav a::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: var(--primary);
+        transition: width 0.3s ease;
+      }
+
+      nav a:hover::after {
+        width: 100%;
+      }
+
+      /* Theme Toggle */
+      .theme-toggle {
+        cursor: pointer;
+        font-size: 1.5rem;
+        color: var(--text-dark);
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+        background: var(--bg-dark);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        z-index: 999;
+      }
+
+      .theme-toggle:hover {
+        background: var(--primary-light);
+        color: var(--primary-dark);
+        transform: rotate(15deg);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Hero Section */
+      .hero {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 6rem 2rem;
+        justify-content: center;
+        position: relative;
+        margin-top: 0;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+        background: var(--bg-dark);
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .hero h1 {
+        font-family: "Outfit", sans-serif;
+        color: var(--text-dark);
+        margin-bottom: 1.5rem;
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero p {
+        color: var(--text-light);
+        font-size: 1.2rem;
+      }
+      /* Map and Results Section Styles */
+      .map-container {
+        height: 70vh;
+        width: 100%;
+        margin: 2rem 0;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid var(--primary);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      #map_5d46edbaf2f1ad9d0b1d238bd7749124 {
+        height: 100%;
+        width: 100%;
+      }
+
+      .results-section {
+        padding: 4rem 5%;
+        background: var(--bg-dark);
+        border-radius: 20px;
+        margin: 2rem 0;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+      }
+
+      .results-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+        padding-bottom: 30px;
+      }
+
+      .result-card {
+        background: var(--bg-dark);
+        padding: 2rem;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .result-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        border-color: var(--primary);
+      }
+
+      .result-card h4 {
+        color: var(--text-dark);
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        font-weight: 600;
+      }
+
+      .result-card p {
+        color: var(--text-light);
+        font-size: 1.1rem;
+        margin: 0;
+        line-height: 1.5;
+      }
+
+      .result-number {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 1rem;
+        font-family: "Outfit", sans-serif;
+      }
+
+      .leaflet-container {
+        font-size: 1rem;
+      }
+
+      /* Footer */
+      footer {
+        background-color: var(--bg-dark);
+        text-align: center;
+        padding: 1rem;
+        font-size: 0.9rem;
+        color: var(--muted);
+        padding-top: 50px;
+      }
+
+      /* Responsive Styles */
+      @media (max-width: 1024px) {
+        header h1 {
+          font-size: 2.2rem;
+        }
+
+        nav a {
+          font-size: 1rem;
+          gap: 2rem;
+        }
+
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        header {
+          padding: 1rem;
+        }
+
+        .hamburger {
+          display: block;
+        }
+
+        nav.nav-menu {
+          display: none;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100vh;
+          background-color: var(--bg-dark);
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: 2rem;
+          z-index: 999;
+        }
+
+        nav.nav-menu.active {
+          display: flex;
+        }
+
+        nav a {
+          font-size: 1.2rem;
+          padding: 1rem;
+          width: 200px;
+          text-align: center;
+          border-radius: 8px;
+          background: var(--bg-light);
+        }
+
+        .map-container {
+          height: 50vh;
+          margin: 1rem 0;
+        }
+
+        .results-grid {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+
+        .result-card {
+          padding: 1.5rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        header h1 {
+          font-size: 1.8rem;
+        }
+
+        .hero h1 {
+          font-size: 2rem;
+        }
+
+        .hero p {
+          font-size: 1rem;
+        }
+
+        .map-container {
+          height: 40vh;
+        }
+
+        .result-card h4 {
+          font-size: 1.3rem;
+        }
+
+        .result-number {
+          font-size: 2rem;
+        }
+      }
+    </style>
+
+    <script>
+      L_NO_TOUCH = false;
+      L_DISABLE_3D = false;
+    </script>
+  </head>
+  <body>
+    <header>
+      <h1>
+        <i class="fa-solid fa-bolt"></i> EV<span
+          style="color: var(--primary-dark)"
+          >ision</span
+        >
+      </h1>
+      <div class="hamburger">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+      <div class="theme-toggle" id="themeToggle">
+        <i class="fa-solid fa-sun"></i>
+      </div>
+      <nav class="nav-menu">
+        <a href="/index.html">Home</a>
+        <a href="/Components/HTML/dashboard.html">Dashboard</a>
+        <a
+          href="https://github.com/TirthDhandhukia30/EVision-Capstone"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Source</a
+        >
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <section class="hero" style="min-height: 25vh; padding: 2rem">
+      <div class="hero-content">
+        <h1
+          style="
+            font-size: 3rem;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+          "
+        >
+          Project Results
+        </h1>
+        <p style="font-size: 1.5rem; color: var(--text-light)">
+          Optimized EV Charging Station Locations
+        </p>
+      </div>
+    </section>
+
+    <section class="results-section">
+      <div class="container">
+        <div class="results-grid">
+          <div class="result-card">
+            <h4>Model Accuracy</h4>
+            <div class="result-number">60%</div>
+            <p>
+              Ridge Regression model performance in predicting optimal locations
+            </p>
+          </div>
+          <div class="result-card">
+            <h4>New Stations</h4>
+            <div class="result-number">21</div>
+            <p>Additional charging stations recommended for optimal coverage</p>
+          </div>
+          <div class="result-card">
+            <h4>Coverage Increase</h4>
+            <div class="result-number">20%</div>
+            <p>Improvement in charging station accessibility</p>
+          </div>
+          <div class="result-card">
+            <h4>Population Served</h4>
+            <div class="result-number">4M+</div>
+            <p>Overall Mumbai</p>
+          </div>
+        </div>
+        <div class="map-container">
+          <div
+            class="folium-map"
+            id="map_5d46edbaf2f1ad9d0b1d238bd7749124"
+          ></div>
+        </div>
+        
+      </div>
+    </section>
+
+    <footer>&copy; Made with ❤️ ~ Tirth Dhandhukia</footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const hamburger = document.querySelector(".hamburger");
+        const navMenu = document.querySelector(".nav-menu");
+        const themeToggle = document.getElementById("themeToggle");
+        const themeIcon = themeToggle.querySelector("i");
+
+        // Check system preference
+        const prefersDarkScheme = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        );
+
+        // Theme toggle functionality
+        const currentTheme =
+          localStorage.getItem("theme") ||
+          (prefersDarkScheme.matches ? "dark" : "light");
+
+        // Set initial theme
+        document.documentElement.setAttribute("data-theme", currentTheme);
+        themeIcon.className =
+          currentTheme === "dark" ? "fa-solid fa-moon" : "fa-solid fa-sun";
+
+        // Listen for system theme changes
+        prefersDarkScheme.addEventListener("change", (e) => {
+          if (!localStorage.getItem("theme")) {
+            const newTheme = e.matches ? "dark" : "light";
+            document.documentElement.setAttribute("data-theme", newTheme);
+            themeIcon.className =
+              newTheme === "dark" ? "fa-solid fa-moon" : "fa-solid fa-sun";
+          }
+        });
+
+        themeToggle.addEventListener("click", () => {
+          const currentTheme =
+            document.documentElement.getAttribute("data-theme");
+          const newTheme = currentTheme === "dark" ? "light" : "dark";
+
+          document.documentElement.setAttribute("data-theme", newTheme);
+          localStorage.setItem("theme", newTheme);
+          themeIcon.className =
+            newTheme === "dark" ? "fa-solid fa-moon" : "fa-solid fa-sun";
+        });
+
+        hamburger.addEventListener("click", function () {
+          navMenu.classList.toggle("active");
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll(".nav-menu a").forEach((link) => {
+          link.addEventListener("click", function () {
+            navMenu.classList.remove("active");
+          });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener("click", function (e) {
+          if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+            navMenu.classList.remove("active");
+          }
+        });
+      });
+    </script>
+  </body>
+  <script>
+    var map_5d46edbaf2f1ad9d0b1d238bd7749124 = L.map(
+      "map_5d46edbaf2f1ad9d0b1d238bd7749124",
+      {
+        center: [19.08610171923664, 72.90281729774809],
+        crs: L.CRS.EPSG3857,
+        ...{
+          zoom: 11,
+          zoomControl: false,
+          preferCanvas: false,
+        },
+      }
+    );
+
+    var tile_layer_f9d150c16cd6afc7c594f5588ec7c589 = L.tileLayer(
+      "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+      {
+        minZoom: 0,
+        maxZoom: 50,
+        maxNativeZoom: 50,
+        noWrap: false,
+        subdomains: "abc",
+        detectRetina: false,
+        tms: false,
+        opacity: 1,
+      }
+    );
+
+    tile_layer_f9d150c16cd6afc7c594f5588ec7c589.addTo(
+      map_5d46edbaf2f1ad9d0b1d238bd7749124
+    );
+
+    var marker_5a6ee868bac18d3372cd562d6dcf5390 = L.marker(
+      [19.0618, 72.833],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_6743315463e27ed333fee10ffcd1b422 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_bf2435d02be4af518ed60199978a0253 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_1d0ceb0a3bb89f6cb90be0212dba0dae = $(
+      `<div id="html_1d0ceb0a3bb89f6cb90be0212dba0dae" style="width: 100.0%; height: 100.0%;">Existing Station: Ather Grid - Bandra West | </div>`
+    )[0];
+    popup_bf2435d02be4af518ed60199978a0253.setContent(
+      html_1d0ceb0a3bb89f6cb90be0212dba0dae
+    );
+
+    marker_5a6ee868bac18d3372cd562d6dcf5390.bindPopup(
+      popup_bf2435d02be4af518ed60199978a0253
+    );
+
+    marker_5a6ee868bac18d3372cd562d6dcf5390.setIcon(
+      icon_6743315463e27ed333fee10ffcd1b422
+    );
+
+    var marker_7e657ab27a604555592b772a651e9310 = L.marker(
+      [19.1206, 72.9188],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_26ca58c5e29b700e39119d60f162884e = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_57873af98f5d36ada27c424d77101490 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_1e97bbbd60e3410bc9688198a7931c86 = $(
+      `<div id="html_1e97bbbd60e3410bc9688198a7931c86" style="width: 100.0%; height: 100.0%;">Existing Station: Ather Grid - Hiranandani | </div>`
+    )[0];
+    popup_57873af98f5d36ada27c424d77101490.setContent(
+      html_1e97bbbd60e3410bc9688198a7931c86
+    );
+
+    marker_7e657ab27a604555592b772a651e9310.bindPopup(
+      popup_57873af98f5d36ada27c424d77101490
+    );
+
+    marker_7e657ab27a604555592b772a651e9310.setIcon(
+      icon_26ca58c5e29b700e39119d60f162884e
+    );
+
+    var marker_8ca93a02acb812056973fd42c87705c4 = L.marker(
+      [18.9959, 72.8532],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_1fd9e2eba9d5422ec879050780daa3f4 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_79ab5637ad4b292921169aa6cb74db41 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_6e8ef90e93ba6177ebfd46853e936ae9 = $(
+      `<div id="html_6e8ef90e93ba6177ebfd46853e936ae9" style="width: 100.0%; height: 100.0%;">Existing Station: Ather Grid - Sewri | </div>`
+    )[0];
+    popup_79ab5637ad4b292921169aa6cb74db41.setContent(
+      html_6e8ef90e93ba6177ebfd46853e936ae9
+    );
+
+    marker_8ca93a02acb812056973fd42c87705c4.bindPopup(
+      popup_79ab5637ad4b292921169aa6cb74db41
+    );
+
+    marker_8ca93a02acb812056973fd42c87705c4.setIcon(
+      icon_1fd9e2eba9d5422ec879050780daa3f4
+    );
+
+    var marker_a321943a18c6ddc6ef2e37ce2572691f = L.marker(
+      [19.2298, 72.8606],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_bdb90c92554503478aad4d07a8b6e20b = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_6c898409a205da8cbee1c45e712d52e6 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_39b30937938bc635c207a27d6badc67e = $(
+      `<div id="html_39b30937938bc635c207a27d6badc67e" style="width: 100.0%; height: 100.0%;">Existing Station: ATUM Charge - Borivali | </div>`
+    )[0];
+    popup_6c898409a205da8cbee1c45e712d52e6.setContent(
+      html_39b30937938bc635c207a27d6badc67e
+    );
+
+    marker_a321943a18c6ddc6ef2e37ce2572691f.bindPopup(
+      popup_6c898409a205da8cbee1c45e712d52e6
+    );
+
+    marker_a321943a18c6ddc6ef2e37ce2572691f.setIcon(
+      icon_bdb90c92554503478aad4d07a8b6e20b
+    );
+
+    var marker_fca3d38cb279a072ce72702d75ac13eb = L.marker(
+      [19.0852, 72.9114],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_e1c3e1ca20b2995f62a41a3f87d8ff37 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_3d9f56656d2d9052cd4479611a088522 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_1acdb9c402f4856254032046b752149d = $(
+      `<div id="html_1acdb9c402f4856254032046b752149d" style="width: 100.0%; height: 100.0%;">Existing Station: ATUM Charge - Ghatkopar | </div>`
+    )[0];
+    popup_3d9f56656d2d9052cd4479611a088522.setContent(
+      html_1acdb9c402f4856254032046b752149d
+    );
+
+    marker_fca3d38cb279a072ce72702d75ac13eb.bindPopup(
+      popup_3d9f56656d2d9052cd4479611a088522
+    );
+
+    marker_fca3d38cb279a072ce72702d75ac13eb.setIcon(
+      icon_e1c3e1ca20b2995f62a41a3f87d8ff37
+    );
+
+    var marker_6fbea818c4ab84e01d21572f302e3da0 = L.marker(
+      [19.1876, 72.8436],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_d5bc7f28312705f20fd00f15c0d021f9 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_88208217aab29102e8836b07675a6b75 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_6c8ae9e1b45b68da79b1233343aa44e2 = $(
+      `<div id="html_6c8ae9e1b45b68da79b1233343aa44e2" style="width: 100.0%; height: 100.0%;">Existing Station: ATUM Charge (Malad) | </div>`
+    )[0];
+    popup_88208217aab29102e8836b07675a6b75.setContent(
+      html_6c8ae9e1b45b68da79b1233343aa44e2
+    );
+
+    marker_6fbea818c4ab84e01d21572f302e3da0.bindPopup(
+      popup_88208217aab29102e8836b07675a6b75
+    );
+
+    marker_6fbea818c4ab84e01d21572f302e3da0.setIcon(
+      icon_d5bc7f28312705f20fd00f15c0d021f9
+    );
+
+    var marker_9f3d0801bc7880b72d4dbdb926de1276 = L.marker(
+      [19.1721, 72.9568],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_13bd7ba7061f2b4d07da3477b9b176dc = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_072615f1dc308438698811677e6a5445 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_88d25d6e6a29eaf9d1094d5d87b3c46a = $(
+      `<div id="html_88d25d6e6a29eaf9d1094d5d87b3c46a" style="width: 100.0%; height: 100.0%;">Existing Station: ATUM Charge - Mulund | </div>`
+    )[0];
+    popup_072615f1dc308438698811677e6a5445.setContent(
+      html_88d25d6e6a29eaf9d1094d5d87b3c46a
+    );
+
+    marker_9f3d0801bc7880b72d4dbdb926de1276.bindPopup(
+      popup_072615f1dc308438698811677e6a5445
+    );
+
+    marker_9f3d0801bc7880b72d4dbdb926de1276.setIcon(
+      icon_13bd7ba7061f2b4d07da3477b9b176dc
+    );
+
+    var marker_e64ad69568df15bdb244c746d9412c31 = L.marker(
+      [18.9897, 73.1145],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_b5aa0aa56ce8c1169fcd3bc666399458 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_3a8822db09f62c99166d8b29f52d61ba = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_c359fbc99d1c7aa35b33929e1f8a6486 = $(
+      `<div id="html_c359fbc99d1c7aa35b33929e1f8a6486" style="width: 100.0%; height: 100.0%;">Existing Station: ATUM Charge - Panvel | </div>`
+    )[0];
+    popup_3a8822db09f62c99166d8b29f52d61ba.setContent(
+      html_c359fbc99d1c7aa35b33929e1f8a6486
+    );
+
+    marker_e64ad69568df15bdb244c746d9412c31.bindPopup(
+      popup_3a8822db09f62c99166d8b29f52d61ba
+    );
+
+    marker_e64ad69568df15bdb244c746d9412c31.setIcon(
+      icon_b5aa0aa56ce8c1169fcd3bc666399458
+    );
+
+    var marker_e4bb359765112d6bfaa12eb5cfc66151 = L.marker(
+      [19.0815, 72.8367],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_f024e42b709df70319db9e55b56690dc = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_32de369aad784a480f0ab9b083813c79 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_f06a5a6d0cb87eaf59595db2b685a86f = $(
+      `<div id="html_f06a5a6d0cb87eaf59595db2b685a86f" style="width: 100.0%; height: 100.0%;">Existing Station: ATUM Charge - Santacruz | </div>`
+    )[0];
+    popup_32de369aad784a480f0ab9b083813c79.setContent(
+      html_f06a5a6d0cb87eaf59595db2b685a86f
+    );
+
+    marker_e4bb359765112d6bfaa12eb5cfc66151.bindPopup(
+      popup_32de369aad784a480f0ab9b083813c79
+    );
+
+    marker_e4bb359765112d6bfaa12eb5cfc66151.setIcon(
+      icon_f024e42b709df70319db9e55b56690dc
+    );
+
+    var marker_2d4cf5f38324017d43516801c8ef4384 = L.marker(
+      [18.989356, 72.825234],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_457495339b43f1f579c4716af21960ed = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_f36bc9f5fa8067662a771a8d33741f66 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_a37634877094ffa49ac1045cfe234153 = $(
+      `<div id="html_a37634877094ffa49ac1045cfe234153" style="width: 100.0%; height: 100.0%;">Existing Station: Blue Tokai Coffee | sessions_count: 4</div>`
+    )[0];
+    popup_f36bc9f5fa8067662a771a8d33741f66.setContent(
+      html_a37634877094ffa49ac1045cfe234153
+    );
+
+    marker_2d4cf5f38324017d43516801c8ef4384.bindPopup(
+      popup_f36bc9f5fa8067662a771a8d33741f66
+    );
+
+    marker_2d4cf5f38324017d43516801c8ef4384.setIcon(
+      icon_457495339b43f1f579c4716af21960ed
+    );
+
+    var marker_a25bfb6af83960913a22bfe8c96e14af = L.marker(
+      [19.1593952, 72.945112],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_87e427d7de66760dcea92efbf22f417c = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_48d99ab9c398860925ce1d829b97284a = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_a5586372e5e5e44d6651578883fadd49 = $(
+      `<div id="html_a5586372e5e5e44d6651578883fadd49" style="width: 100.0%; height: 100.0%;">Existing Station: BMC Parking Runwal Greens | </div>`
+    )[0];
+    popup_48d99ab9c398860925ce1d829b97284a.setContent(
+      html_a5586372e5e5e44d6651578883fadd49
+    );
+
+    marker_a25bfb6af83960913a22bfe8c96e14af.bindPopup(
+      popup_48d99ab9c398860925ce1d829b97284a
+    );
+
+    marker_a25bfb6af83960913a22bfe8c96e14af.setIcon(
+      icon_87e427d7de66760dcea92efbf22f417c
+    );
+
+    var marker_318ff1059151f8ab247cbcfb475ad708 = L.marker(
+      [19.11637, 72.91086],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_5a3b6aa83bbf55c5d6606d454d7b96b7 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_5e8806b6413d55fc86bf714cf03f3706 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_10e6e91286f0bfd33d6d640ed141c5c4 = $(
+      `<div id="html_10e6e91286f0bfd33d6d640ed141c5c4" style="width: 100.0%; height: 100.0%;">Existing Station: Brookfield, Powai | sessions_count: 4</div>`
+    )[0];
+    popup_5e8806b6413d55fc86bf714cf03f3706.setContent(
+      html_10e6e91286f0bfd33d6d640ed141c5c4
+    );
+
+    marker_318ff1059151f8ab247cbcfb475ad708.bindPopup(
+      popup_5e8806b6413d55fc86bf714cf03f3706
+    );
+
+    marker_318ff1059151f8ab247cbcfb475ad708.setIcon(
+      icon_5a3b6aa83bbf55c5d6606d454d7b96b7
+    );
+
+    var marker_a25a808163c52b6c7a81add20de0d0f3 = L.marker(
+      [19.0313299, 72.8809653],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_d68a9b7142d738a785484e43f1a844d1 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_8e8543fb07ce50aedd923fdab23dc59f = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_522fce9fabdef52cbfa668146db87b71 = $(
+      `<div id="html_522fce9fabdef52cbfa668146db87b71" style="width: 100.0%; height: 100.0%;">Existing Station: Carnival Cinemas Imax | </div>`
+    )[0];
+    popup_8e8543fb07ce50aedd923fdab23dc59f.setContent(
+      html_522fce9fabdef52cbfa668146db87b71
+    );
+
+    marker_a25a808163c52b6c7a81add20de0d0f3.bindPopup(
+      popup_8e8543fb07ce50aedd923fdab23dc59f
+    );
+
+    marker_a25a808163c52b6c7a81add20de0d0f3.setIcon(
+      icon_d68a9b7142d738a785484e43f1a844d1
+    );
+
+    var marker_9b71444db97bbd331f00ac67a339fccf = L.marker(
+      [19.133659, 72.900817],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_efebda70d0ce9479ab8a304251907087 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_15049570df7f688918d74c6edb8d2184 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_ef1e24bee38fd5f11674170815c2b2df = $(
+      `<div id="html_ef1e24bee38fd5f11674170815c2b2df" style="width: 100.0%; height: 100.0%;">Existing Station: Charge Zone | </div>`
+    )[0];
+    popup_15049570df7f688918d74c6edb8d2184.setContent(
+      html_ef1e24bee38fd5f11674170815c2b2df
+    );
+
+    marker_9b71444db97bbd331f00ac67a339fccf.bindPopup(
+      popup_15049570df7f688918d74c6edb8d2184
+    );
+
+    marker_9b71444db97bbd331f00ac67a339fccf.setIcon(
+      icon_efebda70d0ce9479ab8a304251907087
+    );
+
+    var marker_d53ed6e6337fade74afd20e7803bc876 = L.marker(
+      [19.0977, 72.8271],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_298b3e1875f5d0c4724121eb82fedee2 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_a4b2b3114a73feb539362e09c0a7e782 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_5941ed7124e6075a67537aabd7efddb4 = $(
+      `<div id="html_5941ed7124e6075a67537aabd7efddb4" style="width: 100.0%; height: 100.0%;">Existing Station: ChargeAndDrive - Juhu | </div>`
+    )[0];
+    popup_a4b2b3114a73feb539362e09c0a7e782.setContent(
+      html_5941ed7124e6075a67537aabd7efddb4
+    );
+
+    marker_d53ed6e6337fade74afd20e7803bc876.bindPopup(
+      popup_a4b2b3114a73feb539362e09c0a7e782
+    );
+
+    marker_d53ed6e6337fade74afd20e7803bc876.setIcon(
+      icon_298b3e1875f5d0c4724121eb82fedee2
+    );
+
+    var marker_a54bbc08f5863c54371b66431c84f19d = L.marker(
+      [19.186, 73.1891],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_131a7a30783bd991bf39158d7a478f62 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_2d14dc42487d2d6e60cebee9c6e1aaf3 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_e722297b06998588072e3a9c1d79322f = $(
+      `<div id="html_e722297b06998588072e3a9c1d79322f" style="width: 100.0%; height: 100.0%;">Existing Station: ChargeZone - Ambernath | </div>`
+    )[0];
+    popup_2d14dc42487d2d6e60cebee9c6e1aaf3.setContent(
+      html_e722297b06998588072e3a9c1d79322f
+    );
+
+    marker_a54bbc08f5863c54371b66431c84f19d.bindPopup(
+      popup_2d14dc42487d2d6e60cebee9c6e1aaf3
+    );
+
+    marker_a54bbc08f5863c54371b66431c84f19d.setIcon(
+      icon_131a7a30783bd991bf39158d7a478f62
+    );
+
+    var marker_278892a8a7c037a73196065d2dd67e35 = L.marker(
+      [19.0549, 72.9038],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_1e7fb10f303d35813dba16ec7c1078ce = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_4962b1ad314bfe059fdd93a558ca72ed = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_d163108167aade1a2976236cd16c33c1 = $(
+      `<div id="html_d163108167aade1a2976236cd16c33c1" style="width: 100.0%; height: 100.0%;">Existing Station: ChargeZone - Chembur | </div>`
+    )[0];
+    popup_4962b1ad314bfe059fdd93a558ca72ed.setContent(
+      html_d163108167aade1a2976236cd16c33c1
+    );
+
+    marker_278892a8a7c037a73196065d2dd67e35.bindPopup(
+      popup_4962b1ad314bfe059fdd93a558ca72ed
+    );
+
+    marker_278892a8a7c037a73196065d2dd67e35.setIcon(
+      icon_1e7fb10f303d35813dba16ec7c1078ce
+    );
+
+    var marker_d125f508bc61babfda001736b2aa0e1a = L.marker(
+      [19.2505, 72.8591],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_d8ad421e3a937013326ee187242e292a = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_d2e190e8f23edc98db27dc2a7a038f03 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_e40d32dbc0fcb9b74aa34693d738d417 = $(
+      `<div id="html_e40d32dbc0fcb9b74aa34693d738d417" style="width: 100.0%; height: 100.0%;">Existing Station: ChargeZone - Dahisar | </div>`
+    )[0];
+    popup_d2e190e8f23edc98db27dc2a7a038f03.setContent(
+      html_e40d32dbc0fcb9b74aa34693d738d417
+    );
+
+    marker_d125f508bc61babfda001736b2aa0e1a.bindPopup(
+      popup_d2e190e8f23edc98db27dc2a7a038f03
+    );
+
+    marker_d125f508bc61babfda001736b2aa0e1a.setIcon(
+      icon_d8ad421e3a937013326ee187242e292a
+    );
+
+    var marker_7c15dfa342021032482d2c87481be7b8 = L.marker(
+      [19.1726, 72.9532],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_8168a906bac1b3017bee94a21b103d2f = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_c05e9eb0e6c83abc81298bcc6bfb9551 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_b7e4323a095778ab04f47d16ae5cab89 = $(
+      `<div id="html_b7e4323a095778ab04f47d16ae5cab89" style="width: 100.0%; height: 100.0%;">Existing Station: ChargeZone - Mulund | </div>`
+    )[0];
+    popup_c05e9eb0e6c83abc81298bcc6bfb9551.setContent(
+      html_b7e4323a095778ab04f47d16ae5cab89
+    );
+
+    marker_7c15dfa342021032482d2c87481be7b8.bindPopup(
+      popup_c05e9eb0e6c83abc81298bcc6bfb9551
+    );
+
+    marker_7c15dfa342021032482d2c87481be7b8.setIcon(
+      icon_8168a906bac1b3017bee94a21b103d2f
+    );
+
+    var marker_853efbc67047f83b93df0b4d05d17ba5 = L.marker(
+      [19.0708, 72.9991],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_ac0a44728e6981e0a099554449fc0060 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_7e0da224b5fe0fb7f01514c460f436cc = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_ee19802964fa5d14e147767aea68db4b = $(
+      `<div id="html_ee19802964fa5d14e147767aea68db4b" style="width: 100.0%; height: 100.0%;">Existing Station: ChargeZone - Vashi | </div>`
+    )[0];
+    popup_7e0da224b5fe0fb7f01514c460f436cc.setContent(
+      html_ee19802964fa5d14e147767aea68db4b
+    );
+
+    marker_853efbc67047f83b93df0b4d05d17ba5.bindPopup(
+      popup_7e0da224b5fe0fb7f01514c460f436cc
+    );
+
+    marker_853efbc67047f83b93df0b4d05d17ba5.setIcon(
+      icon_ac0a44728e6981e0a099554449fc0060
+    );
+
+    var marker_2f55e97b06bf3a0f84732803cdf6d89d = L.marker(
+      [19.137, 72.8261],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_39c0ed96dc209be83f8f733095811926 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_f66874f61da4ea5068c9956880f5149c = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_cbcc2429ae9eaff2e1a4564bb38518f2 = $(
+      `<div id="html_cbcc2429ae9eaff2e1a4564bb38518f2" style="width: 100.0%; height: 100.0%;">Existing Station: ChargeZone - Versova | </div>`
+    )[0];
+    popup_f66874f61da4ea5068c9956880f5149c.setContent(
+      html_cbcc2429ae9eaff2e1a4564bb38518f2
+    );
+
+    marker_2f55e97b06bf3a0f84732803cdf6d89d.bindPopup(
+      popup_f66874f61da4ea5068c9956880f5149c
+    );
+
+    marker_2f55e97b06bf3a0f84732803cdf6d89d.setIcon(
+      icon_39c0ed96dc209be83f8f733095811926
+    );
+
+    var marker_5430344cec60145d18b25b490152a6f0 = L.marker(
+      [19.1787, 72.8446],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_5a498409f0d7a02173de4e272c93cf21 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_e8c740f07eaae11b1c3e8d223f73f56b = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_571b31bae371144e9c9c004e9be7bac3 = $(
+      `<div id="html_571b31bae371144e9c9c004e9be7bac3" style="width: 100.0%; height: 100.0%;">Existing Station: EV Dock - Malad | </div>`
+    )[0];
+    popup_e8c740f07eaae11b1c3e8d223f73f56b.setContent(
+      html_571b31bae371144e9c9c004e9be7bac3
+    );
+
+    marker_5430344cec60145d18b25b490152a6f0.bindPopup(
+      popup_e8c740f07eaae11b1c3e8d223f73f56b
+    );
+
+    marker_5430344cec60145d18b25b490152a6f0.setIcon(
+      icon_5a498409f0d7a02173de4e272c93cf21
+    );
+
+    var marker_28434062182d87bd82ebb6ecb1803bba = L.marker(
+      [19.291, 72.8511],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_9f4ca1ca88e3349f3d2cc3a4861000dd = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_be15b5ea008015ccef0b635f9b766425 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_065d75e6b81cd5a741d838a81f627559 = $(
+      `<div id="html_065d75e6b81cd5a741d838a81f627559" style="width: 100.0%; height: 100.0%;">Existing Station: EV Dock - Mira Road | </div>`
+    )[0];
+    popup_be15b5ea008015ccef0b635f9b766425.setContent(
+      html_065d75e6b81cd5a741d838a81f627559
+    );
+
+    marker_28434062182d87bd82ebb6ecb1803bba.bindPopup(
+      popup_be15b5ea008015ccef0b635f9b766425
+    );
+
+    marker_28434062182d87bd82ebb6ecb1803bba.setIcon(
+      icon_9f4ca1ca88e3349f3d2cc3a4861000dd
+    );
+
+    var marker_8ff854ee2172c1677562349ae61e6ea5 = L.marker(
+      [19.1798, 72.8361],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_d281426c5b7a8719adc5d0c267095738 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_ce8c06a2d424496386c19213bc88f571 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_6bec1c8e2060b7abd285f44a6e5c780b = $(
+      `<div id="html_6bec1c8e2060b7abd285f44a6e5c780b" style="width: 100.0%; height: 100.0%;">Existing Station: Evershine Mall Charging Station | </div>`
+    )[0];
+    popup_ce8c06a2d424496386c19213bc88f571.setContent(
+      html_6bec1c8e2060b7abd285f44a6e5c780b
+    );
+
+    marker_8ff854ee2172c1677562349ae61e6ea5.bindPopup(
+      popup_ce8c06a2d424496386c19213bc88f571
+    );
+
+    marker_8ff854ee2172c1677562349ae61e6ea5.setIcon(
+      icon_d281426c5b7a8719adc5d0c267095738
+    );
+
+    var marker_e30dff5d176e6b3dc6d22e2bdd48f8fc = L.marker(
+      [19.2365, 72.8552],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_8b675b12a75c950c70a1f22795401a93 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_68982eddbe6380b749bbad4fe305de94 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_7a47b24eafaf3931c946fcd3e44661f6 = $(
+      `<div id="html_7a47b24eafaf3931c946fcd3e44661f6" style="width: 100.0%; height: 100.0%;">Existing Station: EVteQ - Borivali | </div>`
+    )[0];
+    popup_68982eddbe6380b749bbad4fe305de94.setContent(
+      html_7a47b24eafaf3931c946fcd3e44661f6
+    );
+
+    marker_e30dff5d176e6b3dc6d22e2bdd48f8fc.bindPopup(
+      popup_68982eddbe6380b749bbad4fe305de94
+    );
+
+    marker_e30dff5d176e6b3dc6d22e2bdd48f8fc.setIcon(
+      icon_8b675b12a75c950c70a1f22795401a93
+    );
+
+    var marker_df2a342b03c225e734c12cefcaa97d28 = L.marker(
+      [19.2104, 72.8572],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_627917c28d067db3a81763d77b93874d = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_0de081bba4279533576f1c54d739a906 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_32be08ea2770557ee8cebb67f3990028 = $(
+      `<div id="html_32be08ea2770557ee8cebb67f3990028" style="width: 100.0%; height: 100.0%;">Existing Station: EVteQ - Kandivali | </div>`
+    )[0];
+    popup_0de081bba4279533576f1c54d739a906.setContent(
+      html_32be08ea2770557ee8cebb67f3990028
+    );
+
+    marker_df2a342b03c225e734c12cefcaa97d28.bindPopup(
+      popup_0de081bba4279533576f1c54d739a906
+    );
+
+    marker_df2a342b03c225e734c12cefcaa97d28.setIcon(
+      icon_627917c28d067db3a81763d77b93874d
+    );
+
+    var marker_d702c10793844b6c388ef585f36563ff = L.marker(
+      [19.1851, 72.8388],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_0b42b25a8873b4f5d1a9aa9482eb91b0 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_6cb56a2cd21f7b0129a63ba3a15a0f02 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_083309172b8849a6dedcce954f2cfd04 = $(
+      `<div id="html_083309172b8849a6dedcce954f2cfd04" style="width: 100.0%; height: 100.0%;">Existing Station: EVteQ - Malad | </div>`
+    )[0];
+    popup_6cb56a2cd21f7b0129a63ba3a15a0f02.setContent(
+      html_083309172b8849a6dedcce954f2cfd04
+    );
+
+    marker_d702c10793844b6c388ef585f36563ff.bindPopup(
+      popup_6cb56a2cd21f7b0129a63ba3a15a0f02
+    );
+
+    marker_d702c10793844b6c388ef585f36563ff.setIcon(
+      icon_0b42b25a8873b4f5d1a9aa9482eb91b0
+    );
+
+    var marker_c42e0e8d433c96239015bcdb19f10243 = L.marker(
+      [19.102, 72.8872],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_c27be7d37d855f44dc58a36001b6e205 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_93f306d4a1687779895ec8674f7a9ab0 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_9562fe13b4120b72462dd7220b844f59 = $(
+      `<div id="html_9562fe13b4120b72462dd7220b844f59" style="width: 100.0%; height: 100.0%;">Existing Station: EVteQ - Sakinaka | sessions_count: 4</div>`
+    )[0];
+    popup_93f306d4a1687779895ec8674f7a9ab0.setContent(
+      html_9562fe13b4120b72462dd7220b844f59
+    );
+
+    marker_c42e0e8d433c96239015bcdb19f10243.bindPopup(
+      popup_93f306d4a1687779895ec8674f7a9ab0
+    );
+
+    marker_c42e0e8d433c96239015bcdb19f10243.setIcon(
+      icon_c27be7d37d855f44dc58a36001b6e205
+    );
+
+    var marker_b99f82afe15b7206b1dcf82d8fc838ff = L.marker(
+      [19.0984, 72.9262],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_5b69976796372892b99f9ade6a8b8dde = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_0b7762096ee3b4b98fa7ec139db1cf4a = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_8d4058ddddee2486e5bd3f1357c24568 = $(
+      `<div id="html_8d4058ddddee2486e5bd3f1357c24568" style="width: 100.0%; height: 100.0%;">Existing Station: EVteQ - Vikhroli | </div>`
+    )[0];
+    popup_0b7762096ee3b4b98fa7ec139db1cf4a.setContent(
+      html_8d4058ddddee2486e5bd3f1357c24568
+    );
+
+    marker_b99f82afe15b7206b1dcf82d8fc838ff.bindPopup(
+      popup_0b7762096ee3b4b98fa7ec139db1cf4a
+    );
+
+    marker_b99f82afe15b7206b1dcf82d8fc838ff.setIcon(
+      icon_5b69976796372892b99f9ade6a8b8dde
+    );
+
+    var marker_553f48967e5c108c017a124d117d5f26 = L.marker(
+      [19.0012, 72.8281],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_0fedd22a3e909d6fb8454d7fed024810 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_2d9270b2d2bc4c12b3db7792b986d297 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_38fd500a8470c784f9ac3d2e9c6cc806 = $(
+      `<div id="html_38fd500a8470c784f9ac3d2e9c6cc806" style="width: 100.0%; height: 100.0%;">Existing Station: Fortum - Lower Parel | </div>`
+    )[0];
+    popup_2d9270b2d2bc4c12b3db7792b986d297.setContent(
+      html_38fd500a8470c784f9ac3d2e9c6cc806
+    );
+
+    marker_553f48967e5c108c017a124d117d5f26.bindPopup(
+      popup_2d9270b2d2bc4c12b3db7792b986d297
+    );
+
+    marker_553f48967e5c108c017a124d117d5f26.setIcon(
+      icon_0fedd22a3e909d6fb8454d7fed024810
+    );
+
+    var marker_968e0172743eec95b5dde6797eae1f3e = L.marker(
+      [19.1182, 72.9053],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_8412136c30aaf764c4e4f3cbf78e6f31 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_4effa69840c9971ede92ba4121fadb12 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_9785d121296338c89cdaa8a878316dfc = $(
+      `<div id="html_9785d121296338c89cdaa8a878316dfc" style="width: 100.0%; height: 100.0%;">Existing Station: Fortum - Powai Plaza | 0</div>`
+    )[0];
+    popup_4effa69840c9971ede92ba4121fadb12.setContent(
+      html_9785d121296338c89cdaa8a878316dfc
+    );
+
+    marker_968e0172743eec95b5dde6797eae1f3e.bindPopup(
+      popup_4effa69840c9971ede92ba4121fadb12
+    );
+
+    marker_968e0172743eec95b5dde6797eae1f3e.setIcon(
+      icon_8412136c30aaf764c4e4f3cbf78e6f31
+    );
+
+    var marker_dd82c67176a85cbac11b7671b7f9f181 = L.marker(
+      [19.11599, 72.85018],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_b26132b30945255539c38f87509cd69c = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_8503c25db6fe678edd62c1d7323f7d38 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_7140ac8dadebdf40c1c952b6be6d7257 = $(
+      `<div id="html_7140ac8dadebdf40c1c952b6be6d7257" style="width: 100.0%; height: 100.0%;">Existing Station: Ginger Mumbai, Andheri East | </div>`
+    )[0];
+    popup_8503c25db6fe678edd62c1d7323f7d38.setContent(
+      html_7140ac8dadebdf40c1c952b6be6d7257
+    );
+
+    marker_dd82c67176a85cbac11b7671b7f9f181.bindPopup(
+      popup_8503c25db6fe678edd62c1d7323f7d38
+    );
+
+    marker_dd82c67176a85cbac11b7671b7f9f181.setIcon(
+      icon_b26132b30945255539c38f87509cd69c
+    );
+
+    var marker_08eaf2887f5642cd8966f793e9e42428 = L.marker(
+      [19.0925655, 72.9223514],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_24fe6bf9ba760047a99ea48eabe298ea = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_2ca880881da339169c4cd534e636ffa2 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_8fd76c804cf05d6bedcd62b4db3891a0 = $(
+      `<div id="html_8fd76c804cf05d6bedcd62b4db3891a0" style="width: 100.0%; height: 100.0%;">Existing Station: Godrej One, Vikhroli | </div>`
+    )[0];
+    popup_2ca880881da339169c4cd534e636ffa2.setContent(
+      html_8fd76c804cf05d6bedcd62b4db3891a0
+    );
+
+    marker_08eaf2887f5642cd8966f793e9e42428.bindPopup(
+      popup_2ca880881da339169c4cd534e636ffa2
+    );
+
+    marker_08eaf2887f5642cd8966f793e9e42428.setIcon(
+      icon_24fe6bf9ba760047a99ea48eabe298ea
+    );
+
+    var marker_b1e27c6263b7ffcde7ed53246ed8fd61 = L.marker(
+      [19.163979, 72.938751],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_f2960d39491bb6e2d2107204328a032b = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_ce105e43bf8e649e3e7abf86e2f9dd9c = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_331ff477a42d30f34fb35b4463ba1965 = $(
+      `<div id="html_331ff477a42d30f34fb35b4463ba1965" style="width: 100.0%; height: 100.0%;">Existing Station: Hare Krishna Mahindra, Mulund West | </div>`
+    )[0];
+    popup_ce105e43bf8e649e3e7abf86e2f9dd9c.setContent(
+      html_331ff477a42d30f34fb35b4463ba1965
+    );
+
+    marker_b1e27c6263b7ffcde7ed53246ed8fd61.bindPopup(
+      popup_ce105e43bf8e649e3e7abf86e2f9dd9c
+    );
+
+    marker_b1e27c6263b7ffcde7ed53246ed8fd61.setIcon(
+      icon_f2960d39491bb6e2d2107204328a032b
+    );
+
+    var marker_5c8b853c4bb60a6639a54ae374e4e867 = L.marker(
+      [18.99453515, 73.11513242],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_72d21bb6d0c04269f0bebd9c58fb34e2 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_505e392957d066c9115da70efacd449b = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_44242793be93713e3fd77e08943e5852 = $(
+      `<div id="html_44242793be93713e3fd77e08943e5852" style="width: 100.0%; height: 100.0%;">Existing Station: HOTEL REDWINGS CASTLE | </div>`
+    )[0];
+    popup_505e392957d066c9115da70efacd449b.setContent(
+      html_44242793be93713e3fd77e08943e5852
+    );
+
+    marker_5c8b853c4bb60a6639a54ae374e4e867.bindPopup(
+      popup_505e392957d066c9115da70efacd449b
+    );
+
+    marker_5c8b853c4bb60a6639a54ae374e4e867.setIcon(
+      icon_72d21bb6d0c04269f0bebd9c58fb34e2
+    );
+
+    var marker_92bb2d2f84751522bf9f37889ba98aab = L.marker(
+      [19.1142415, 72.8518766],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_7dfe5c6364f71c082b9f76fd3a3fcd00 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_abced24f6185799acbac7ae41a43998b = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_e53821371ebb517bdd844b1de62f71fe = $(
+      `<div id="html_e53821371ebb517bdd844b1de62f71fe" style="width: 100.0%; height: 100.0%;">Existing Station: Hotel Suba Galaxy, Andheri East | </div>`
+    )[0];
+    popup_abced24f6185799acbac7ae41a43998b.setContent(
+      html_e53821371ebb517bdd844b1de62f71fe
+    );
+
+    marker_92bb2d2f84751522bf9f37889ba98aab.bindPopup(
+      popup_abced24f6185799acbac7ae41a43998b
+    );
+
+    marker_92bb2d2f84751522bf9f37889ba98aab.setIcon(
+      icon_7dfe5c6364f71c082b9f76fd3a3fcd00
+    );
+
+    var marker_a443deb12c9f78485fb4048e6f498d88 = L.marker(
+      [19.0640261, 73.01971543],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_b150188a3a91ece33310a07abbef2af1 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_4951d63f586d54fc6022773bac27e345 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_40223237275625dc313fb9fae9f53134 = $(
+      `<div id="html_40223237275625dc313fb9fae9f53134" style="width: 100.0%; height: 100.0%;">Existing Station: Hotel Yogi Midtown | </div>`
+    )[0];
+    popup_4951d63f586d54fc6022773bac27e345.setContent(
+      html_40223237275625dc313fb9fae9f53134
+    );
+
+    marker_a443deb12c9f78485fb4048e6f498d88.bindPopup(
+      popup_4951d63f586d54fc6022773bac27e345
+    );
+
+    marker_a443deb12c9f78485fb4048e6f498d88.setIcon(
+      icon_b150188a3a91ece33310a07abbef2af1
+    );
+
+    var marker_252cfb8a1b5e14762c713ce1552196ca = L.marker(
+      [18.9285, 72.8255],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_3b0f9314fafe676100a9b7fdef954d33 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_e96e1b9f1edd27f84d8ba3bee6731075 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_036e4d941e19ee3880fb5a5e7ee1bff9 = $(
+      `<div id="html_036e4d941e19ee3880fb5a5e7ee1bff9" style="width: 100.0%; height: 100.0%;">Existing Station: HP Super Service DC Charging Station | </div>`
+    )[0];
+    popup_e96e1b9f1edd27f84d8ba3bee6731075.setContent(
+      html_036e4d941e19ee3880fb5a5e7ee1bff9
+    );
+
+    marker_252cfb8a1b5e14762c713ce1552196ca.bindPopup(
+      popup_e96e1b9f1edd27f84d8ba3bee6731075
+    );
+
+    marker_252cfb8a1b5e14762c713ce1552196ca.setIcon(
+      icon_3b0f9314fafe676100a9b7fdef954d33
+    );
+
+    var marker_33933bfe647b94400f8342a5125f5fc1 = L.marker(
+      [19.14207, 72.83241],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_5296e7109aa2fe9fec04a2f178d8b93a = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_faf25be4f19e3be55bd5be69a8ede187 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_eb171c7874bbba746618ec44b1dae0a4 = $(
+      `<div id="html_eb171c7874bbba746618ec44b1dae0a4" style="width: 100.0%; height: 100.0%;">Existing Station: Inderjit Cars, Andheri West | </div>`
+    )[0];
+    popup_faf25be4f19e3be55bd5be69a8ede187.setContent(
+      html_eb171c7874bbba746618ec44b1dae0a4
+    );
+
+    marker_33933bfe647b94400f8342a5125f5fc1.bindPopup(
+      popup_faf25be4f19e3be55bd5be69a8ede187
+    );
+
+    marker_33933bfe647b94400f8342a5125f5fc1.setIcon(
+      icon_5296e7109aa2fe9fec04a2f178d8b93a
+    );
+
+    var marker_b89adf48b8c52cd09cf13919c493a7b1 = L.marker(
+      [19.018857, 72.831076],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_3f699cf34d3820a16a214025346f917b = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_67c8bc880be0df32b7a34a0d8bc2952d = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_cc957ab3d61190364f85efd5cf2b3c19 = $(
+      `<div id="html_cc957ab3d61190364f85efd5cf2b3c19" style="width: 100.0%; height: 100.0%;">Existing Station: IOCL - COCO, Prabhadevi | </div>`
+    )[0];
+    popup_67c8bc880be0df32b7a34a0d8bc2952d.setContent(
+      html_cc957ab3d61190364f85efd5cf2b3c19
+    );
+
+    marker_b89adf48b8c52cd09cf13919c493a7b1.bindPopup(
+      popup_67c8bc880be0df32b7a34a0d8bc2952d
+    );
+
+    marker_b89adf48b8c52cd09cf13919c493a7b1.setIcon(
+      icon_3f699cf34d3820a16a214025346f917b
+    );
+
+    var marker_2c65e57de1803dacd181c55aa9783264 = L.marker(
+      [19.051601, 72.838011],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_70b4a7b88969a74af01932cbfe04d05e = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_f70ff21801cdee7871ad38b9d7bf5332 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_245c11a01a751022c1062e907beaa43b = $(
+      `<div id="html_245c11a01a751022c1062e907beaa43b" style="width: 100.0%; height: 100.0%;">Existing Station: IOCL Kini Causway, Bandra | </div>`
+    )[0];
+    popup_f70ff21801cdee7871ad38b9d7bf5332.setContent(
+      html_245c11a01a751022c1062e907beaa43b
+    );
+
+    marker_2c65e57de1803dacd181c55aa9783264.bindPopup(
+      popup_f70ff21801cdee7871ad38b9d7bf5332
+    );
+
+    marker_2c65e57de1803dacd181c55aa9783264.setIcon(
+      icon_70b4a7b88969a74af01932cbfe04d05e
+    );
+
+    var marker_03346305901b98bb7bfdaa1024aae842 = L.marker(
+      [19.1485, 72.9358],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_3b1b1d3ce16274478cf145ac93278e58 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_a6f91a734692795beebe83092adf2eba = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_0a59af16bdc2531c40fb4df29d80b766 = $(
+      `<div id="html_0a59af16bdc2531c40fb4df29d80b766" style="width: 100.0%; height: 100.0%;">Existing Station: Jio-bp Pulse - Bhandup | </div>`
+    )[0];
+    popup_a6f91a734692795beebe83092adf2eba.setContent(
+      html_0a59af16bdc2531c40fb4df29d80b766
+    );
+
+    marker_03346305901b98bb7bfdaa1024aae842.bindPopup(
+      popup_a6f91a734692795beebe83092adf2eba
+    );
+
+    marker_03346305901b98bb7bfdaa1024aae842.setIcon(
+      icon_3b1b1d3ce16274478cf145ac93278e58
+    );
+
+    var marker_4d92c4d53bf9c91c88d979452b690fff = L.marker(
+      [19.1643, 72.8346],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_5a8f58ed5fd124357a3bc3a42008e94c = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_f2c836ca16532dc21dc207f72deb128e = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_b1590599b74fbf89c665cd5e97b4a772 = $(
+      `<div id="html_b1590599b74fbf89c665cd5e97b4a772" style="width: 100.0%; height: 100.0%;">Existing Station: Jio-bp Pulse - Goregaon West | </div>`
+    )[0];
+    popup_f2c836ca16532dc21dc207f72deb128e.setContent(
+      html_b1590599b74fbf89c665cd5e97b4a772
+    );
+
+    marker_4d92c4d53bf9c91c88d979452b690fff.bindPopup(
+      popup_f2c836ca16532dc21dc207f72deb128e
+    );
+
+    marker_4d92c4d53bf9c91c88d979452b690fff.setIcon(
+      icon_5a8f58ed5fd124357a3bc3a42008e94c
+    );
+
+    var marker_6e650f6908af037505d1dd60a5bc1f98 = L.marker(
+      [19.2587, 72.9773],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_973bd756060068f14f81d5b70a1df00e = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_089fa6bd1d3a8a65d2cc31e1c8871aa6 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_049de4aab3e7d5ac24ae9b8fcfb6d592 = $(
+      `<div id="html_049de4aab3e7d5ac24ae9b8fcfb6d592" style="width: 100.0%; height: 100.0%;">Existing Station: Jio-bp Pulse - Kolshet | </div>`
+    )[0];
+    popup_089fa6bd1d3a8a65d2cc31e1c8871aa6.setContent(
+      html_049de4aab3e7d5ac24ae9b8fcfb6d592
+    );
+
+    marker_6e650f6908af037505d1dd60a5bc1f98.bindPopup(
+      popup_089fa6bd1d3a8a65d2cc31e1c8871aa6
+    );
+
+    marker_6e650f6908af037505d1dd60a5bc1f98.setIcon(
+      icon_973bd756060068f14f81d5b70a1df00e
+    );
+
+    var marker_046d083ed5b42d09d22a8ffc2a83e62e = L.marker(
+      [18.9636, 72.8019],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_f8f8a8d6bbe92916c057c9bbc8b8c2d3 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_2ef044930c01f87442febf32086a128e = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_00c0210e9b186d1d7923810dd7a60f87 = $(
+      `<div id="html_00c0210e9b186d1d7923810dd7a60f87" style="width: 100.0%; height: 100.0%;">Existing Station: Jio-bp Pulse - Napean Sea Road | </div>`
+    )[0];
+    popup_2ef044930c01f87442febf32086a128e.setContent(
+      html_00c0210e9b186d1d7923810dd7a60f87
+    );
+
+    marker_046d083ed5b42d09d22a8ffc2a83e62e.bindPopup(
+      popup_2ef044930c01f87442febf32086a128e
+    );
+
+    marker_046d083ed5b42d09d22a8ffc2a83e62e.setIcon(
+      icon_f8f8a8d6bbe92916c057c9bbc8b8c2d3
+    );
+
+    var marker_d132b376d56fd2784fe3b47f969022fb = L.marker(
+      [19.05231631, 72.90163581],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_ab4db69548317a1e4d00281b8361991e = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_c3ceaa7b0c33ab4084ae55a2f11ecf41 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_693c02bfc6666ec04594de501db26f7f = $(
+      `<div id="html_693c02bfc6666ec04594de501db26f7f" style="width: 100.0%; height: 100.0%;">Existing Station: K Star Chembur | </div>`
+    )[0];
+    popup_c3ceaa7b0c33ab4084ae55a2f11ecf41.setContent(
+      html_693c02bfc6666ec04594de501db26f7f
+    );
+
+    marker_d132b376d56fd2784fe3b47f969022fb.bindPopup(
+      popup_c3ceaa7b0c33ab4084ae55a2f11ecf41
+    );
+
+    marker_d132b376d56fd2784fe3b47f969022fb.setIcon(
+      icon_ab4db69548317a1e4d00281b8361991e
+    );
+
+    var marker_50dd2cce27bc226fda4eb72dcb55337a = L.marker(
+      [19.13030121, 72.82229723],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_5a942cec56b89c0346a87883f7e81b89 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_ae3de0bd3f41501ea314f78d66dd9f82 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_7b0c9b1da9dbdf02d5a914693477b330 = $(
+      `<div id="html_7b0c9b1da9dbdf02d5a914693477b330" style="width: 100.0%; height: 100.0%;">Existing Station: Kabra Metro One | </div>`
+    )[0];
+    popup_ae3de0bd3f41501ea314f78d66dd9f82.setContent(
+      html_7b0c9b1da9dbdf02d5a914693477b330
+    );
+
+    marker_50dd2cce27bc226fda4eb72dcb55337a.bindPopup(
+      popup_ae3de0bd3f41501ea314f78d66dd9f82
+    );
+
+    marker_50dd2cce27bc226fda4eb72dcb55337a.setIcon(
+      icon_5a942cec56b89c0346a87883f7e81b89
+    );
+
+    var marker_ae3d90696adf3c288e7291e000e30af4 = L.marker(
+      [19.1372, 72.8276],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_988badd6dc940a3301ff1ecb6166e152 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_074c3e609364683bf62cf8c1e0762e14 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_a13130c0baef51b75ae2ac00a36d0516 = $(
+      `<div id="html_a13130c0baef51b75ae2ac00a36d0516" style="width: 100.0%; height: 100.0%;">Existing Station: Kazam - Andheri West | </div>`
+    )[0];
+    popup_074c3e609364683bf62cf8c1e0762e14.setContent(
+      html_a13130c0baef51b75ae2ac00a36d0516
+    );
+
+    marker_ae3d90696adf3c288e7291e000e30af4.bindPopup(
+      popup_074c3e609364683bf62cf8c1e0762e14
+    );
+
+    marker_ae3d90696adf3c288e7291e000e30af4.setIcon(
+      icon_988badd6dc940a3301ff1ecb6166e152
+    );
+
+    var marker_78ae05fcb127a5b4d6e8b26343eab87f = L.marker(
+      [19.0533, 73.0571],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_3545292fcd26782c29ef49e0b6c40011 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_d0fa06c1cb1cc384d70181c639ff4906 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_a79c8fd8e2cfe40b0ff3ed83d381e9f9 = $(
+      `<div id="html_a79c8fd8e2cfe40b0ff3ed83d381e9f9" style="width: 100.0%; height: 100.0%;">Existing Station: Kazam - Kharghar | </div>`
+    )[0];
+    popup_d0fa06c1cb1cc384d70181c639ff4906.setContent(
+      html_a79c8fd8e2cfe40b0ff3ed83d381e9f9
+    );
+
+    marker_78ae05fcb127a5b4d6e8b26343eab87f.bindPopup(
+      popup_d0fa06c1cb1cc384d70181c639ff4906
+    );
+
+    marker_78ae05fcb127a5b4d6e8b26343eab87f.setIcon(
+      icon_3545292fcd26782c29ef49e0b6c40011
+    );
+
+    var marker_cbd08ea6a01ee1f5175693852b7944ec = L.marker(
+      [19.0731, 72.8828],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_38ab65e99670c25b9270dd53ab366e58 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_b7cc35c75b05fe1f2d32fecd3e220a2f = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_613abd7a56146f2f61490dc4b4f2dcff = $(
+      `<div id="html_613abd7a56146f2f61490dc4b4f2dcff" style="width: 100.0%; height: 100.0%;">Existing Station: Kazam - Kurla | </div>`
+    )[0];
+    popup_b7cc35c75b05fe1f2d32fecd3e220a2f.setContent(
+      html_613abd7a56146f2f61490dc4b4f2dcff
+    );
+
+    marker_cbd08ea6a01ee1f5175693852b7944ec.bindPopup(
+      popup_b7cc35c75b05fe1f2d32fecd3e220a2f
+    );
+
+    marker_cbd08ea6a01ee1f5175693852b7944ec.setIcon(
+      icon_38ab65e99670c25b9270dd53ab366e58
+    );
+
+    var marker_64923ab029cd0b3155a65bed85b2536f = L.marker(
+      [19.0094, 72.8394],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_0f6e700ce65a74c79bce4913a8116671 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_b3715f27952167e6bcd6420eddc3f0c8 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_5009a8ab71af0b6a41d2d7e9f28b199e = $(
+      `<div id="html_5009a8ab71af0b6a41d2d7e9f28b199e" style="width: 100.0%; height: 100.0%;">Existing Station: Kazam - Parel | </div>`
+    )[0];
+    popup_b3715f27952167e6bcd6420eddc3f0c8.setContent(
+      html_5009a8ab71af0b6a41d2d7e9f28b199e
+    );
+
+    marker_64923ab029cd0b3155a65bed85b2536f.bindPopup(
+      popup_b3715f27952167e6bcd6420eddc3f0c8
+    );
+
+    marker_64923ab029cd0b3155a65bed85b2536f.setIcon(
+      icon_0f6e700ce65a74c79bce4913a8116671
+    );
+
+    var marker_14719b12ef27b950ed70d137cd9c8b82 = L.marker(
+      [19.1866, 72.9728],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_8a04c54f89abdb2def64fcea09e7d2f2 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_229021106c97df58840b372baf8e0741 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_08c9890c7d3c8b5842ec5f46adbb14ab = $(
+      `<div id="html_08c9890c7d3c8b5842ec5f46adbb14ab" style="width: 100.0%; height: 100.0%;">Existing Station: Kazam - Thane | </div>`
+    )[0];
+    popup_229021106c97df58840b372baf8e0741.setContent(
+      html_08c9890c7d3c8b5842ec5f46adbb14ab
+    );
+
+    marker_14719b12ef27b950ed70d137cd9c8b82.bindPopup(
+      popup_229021106c97df58840b372baf8e0741
+    );
+
+    marker_14719b12ef27b950ed70d137cd9c8b82.setIcon(
+      icon_8a04c54f89abdb2def64fcea09e7d2f2
+    );
+
+    var marker_3b7106e8a802180309e5f47d2d1e54c4 = L.marker(
+      [19.3919, 72.833],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_8180d248bf5c1f13718c5ed2e1963188 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_65a20f9e05e05934ba8affe357a052cb = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_350fa8914b9cf86bd9a820239ac1fb6f = $(
+      `<div id="html_350fa8914b9cf86bd9a820239ac1fb6f" style="width: 100.0%; height: 100.0%;">Existing Station: Kazam - Vasai | </div>`
+    )[0];
+    popup_65a20f9e05e05934ba8affe357a052cb.setContent(
+      html_350fa8914b9cf86bd9a820239ac1fb6f
+    );
+
+    marker_3b7106e8a802180309e5f47d2d1e54c4.bindPopup(
+      popup_65a20f9e05e05934ba8affe357a052cb
+    );
+
+    marker_3b7106e8a802180309e5f47d2d1e54c4.setIcon(
+      icon_8180d248bf5c1f13718c5ed2e1963188
+    );
+
+    var marker_05d7d98ccaf541a91d52aad381b214bd = L.marker(
+      [19.0246, 72.8402],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_6f239c2fe3d154c140c3f17c253c7422 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_91b69c10552d890cc735b302181e450c = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_1d5d0dfc2af88395d4213239a26b1b63 = $(
+      `<div id="html_1d5d0dfc2af88395d4213239a26b1b63" style="width: 100.0%; height: 100.0%;">Existing Station: Kohinoor Altissimo Residential Tower | </div>`
+    )[0];
+    popup_91b69c10552d890cc735b302181e450c.setContent(
+      html_1d5d0dfc2af88395d4213239a26b1b63
+    );
+
+    marker_05d7d98ccaf541a91d52aad381b214bd.bindPopup(
+      popup_91b69c10552d890cc735b302181e450c
+    );
+
+    marker_05d7d98ccaf541a91d52aad381b214bd.setIcon(
+      icon_6f239c2fe3d154c140c3f17c253c7422
+    );
+
+    var marker_30b88f82b8d581b06768d883924d7957 = L.marker(
+      [19.02460889, 72.84282021],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_098b50d4dc5aa3fc21c101aca3f089e4 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_1807f7ee35a732df5648c553ec96d19e = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_b665248c02f8ddb49730384f8ac14a09 = $(
+      `<div id="html_b665248c02f8ddb49730384f8ac14a09" style="width: 100.0%; height: 100.0%;">Existing Station: Kohinoor MCGM parking | </div>`
+    )[0];
+    popup_1807f7ee35a732df5648c553ec96d19e.setContent(
+      html_b665248c02f8ddb49730384f8ac14a09
+    );
+
+    marker_30b88f82b8d581b06768d883924d7957.bindPopup(
+      popup_1807f7ee35a732df5648c553ec96d19e
+    );
+
+    marker_30b88f82b8d581b06768d883924d7957.setIcon(
+      icon_098b50d4dc5aa3fc21c101aca3f089e4
+    );
+
+    var marker_4024dd2626771349882c025426cf0f69 = L.marker(
+      [19.06895357, 73.02251015],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_c737973a03f3f97838a617e1dceb43a3 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_1f232afc24d56813e13536795e9be30b = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_bf0e037e518f25376a888bfac2209d42 = $(
+      `<div id="html_bf0e037e518f25376a888bfac2209d42" style="width: 100.0%; height: 100.0%;">Existing Station: Lifeon Industries | </div>`
+    )[0];
+    popup_1f232afc24d56813e13536795e9be30b.setContent(
+      html_bf0e037e518f25376a888bfac2209d42
+    );
+
+    marker_4024dd2626771349882c025426cf0f69.bindPopup(
+      popup_1f232afc24d56813e13536795e9be30b
+    );
+
+    marker_4024dd2626771349882c025426cf0f69.setIcon(
+      icon_c737973a03f3f97838a617e1dceb43a3
+    );
+
+    var marker_57703a35a8516dd061fc96fe8932e4a7 = L.marker(
+      [19.15381142, 72.85579572],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_38786300e35a9a099f4030b7f871d1bf = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_30969987a01190e8b31627d1acf19853 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_846c695795dd78dc3d7f17929aa72329 = $(
+      `<div id="html_846c695795dd78dc3d7f17929aa72329" style="width: 100.0%; height: 100.0%;">Existing Station: Lodha Florenza | </div>`
+    )[0];
+    popup_30969987a01190e8b31627d1acf19853.setContent(
+      html_846c695795dd78dc3d7f17929aa72329
+    );
+
+    marker_57703a35a8516dd061fc96fe8932e4a7.bindPopup(
+      popup_30969987a01190e8b31627d1acf19853
+    );
+
+    marker_57703a35a8516dd061fc96fe8932e4a7.setIcon(
+      icon_38786300e35a9a099f4030b7f871d1bf
+    );
+
+    var marker_863121e2eb08dc308af32d106f7086b8 = L.marker(
+      [18.9917205, 72.841513],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_6b478127b38a96377a26a7ebe4157120 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_7d2b7edd94de5b8354861848ecd98e36 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_04ac510a837d6f6b85e7d355dc5584e2 = $(
+      `<div id="html_04ac510a837d6f6b85e7d355dc5584e2" style="width: 100.0%; height: 100.0%;">Existing Station: Lodha Venezia CPL | </div>`
+    )[0];
+    popup_7d2b7edd94de5b8354861848ecd98e36.setContent(
+      html_04ac510a837d6f6b85e7d355dc5584e2
+    );
+
+    marker_863121e2eb08dc308af32d106f7086b8.bindPopup(
+      popup_7d2b7edd94de5b8354861848ecd98e36
+    );
+
+    marker_863121e2eb08dc308af32d106f7086b8.setIcon(
+      icon_6b478127b38a96377a26a7ebe4157120
+    );
+
+    var marker_9219a679c56894a58c0c40ff9e749703 = L.marker(
+      [19.058, 72.8675],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_4134fcd83356f8d81d084fed6150ffc3 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_5863df2e23462b3435d1c414782c94ad = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_757527e3a2f22d63ce8a7ed7795c21a2 = $(
+      `<div id="html_757527e3a2f22d63ce8a7ed7795c21a2" style="width: 100.0%; height: 100.0%;">Existing Station: Magenta ChargeGrid - Bandra Kurla Complex 2 | </div>`
+    )[0];
+    popup_5863df2e23462b3435d1c414782c94ad.setContent(
+      html_757527e3a2f22d63ce8a7ed7795c21a2
+    );
+
+    marker_9219a679c56894a58c0c40ff9e749703.bindPopup(
+      popup_5863df2e23462b3435d1c414782c94ad
+    );
+
+    marker_9219a679c56894a58c0c40ff9e749703.setIcon(
+      icon_4134fcd83356f8d81d084fed6150ffc3
+    );
+
+    var marker_4ca587263c7ed237a0cd5620b095f9fe = L.marker(
+      [19.1547, 72.9346],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_534d28b330149264713d7b7295351761 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_d9c466d7bf248420d345b7ace2a10796 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_b2e8b7752ca239edd4a13d58db174082 = $(
+      `<div id="html_b2e8b7752ca239edd4a13d58db174082" style="width: 100.0%; height: 100.0%;">Existing Station: Magenta ChargeGrid - Bhandup | </div>`
+    )[0];
+    popup_d9c466d7bf248420d345b7ace2a10796.setContent(
+      html_b2e8b7752ca239edd4a13d58db174082
+    );
+
+    marker_4ca587263c7ed237a0cd5620b095f9fe.bindPopup(
+      popup_d9c466d7bf248420d345b7ace2a10796
+    );
+
+    marker_4ca587263c7ed237a0cd5620b095f9fe.setIcon(
+      icon_534d28b330149264713d7b7295351761
+    );
+
+    var marker_a6d794adbd790e279c9e64a9c61b2e6c = L.marker(
+      [19.3134, 72.8476],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_df2f461a39b9930e94c9b2ebd76fcdde = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_236c168a844c8b5281a484a8fb8af9f7 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_f11da4d1239179d3523fb140e69ec7c2 = $(
+      `<div id="html_f11da4d1239179d3523fb140e69ec7c2" style="width: 100.0%; height: 100.0%;">Existing Station: Magenta ChargeGrid - Bhayandar | </div>`
+    )[0];
+    popup_236c168a844c8b5281a484a8fb8af9f7.setContent(
+      html_f11da4d1239179d3523fb140e69ec7c2
+    );
+
+    marker_a6d794adbd790e279c9e64a9c61b2e6c.bindPopup(
+      popup_236c168a844c8b5281a484a8fb8af9f7
+    );
+
+    marker_a6d794adbd790e279c9e64a9c61b2e6c.setIcon(
+      icon_df2f461a39b9930e94c9b2ebd76fcdde
+    );
+
+    var marker_dd4ca59b85e1a10c3d6f2a44cbad7688 = L.marker(
+      [18.9677, 72.8055],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_026468be303243010b6c11c0f9aeb593 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_12ab0f5d8c85192c8327004d782b3c8a = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_8eb050c38b7d5914b2b355c5991f7bf3 = $(
+      `<div id="html_8eb050c38b7d5914b2b355c5991f7bf3" style="width: 100.0%; height: 100.0%;">Existing Station: Magenta ChargeGrid - Breach Candy | </div>`
+    )[0];
+    popup_12ab0f5d8c85192c8327004d782b3c8a.setContent(
+      html_8eb050c38b7d5914b2b355c5991f7bf3
+    );
+
+    marker_dd4ca59b85e1a10c3d6f2a44cbad7688.bindPopup(
+      popup_12ab0f5d8c85192c8327004d782b3c8a
+    );
+
+    marker_dd4ca59b85e1a10c3d6f2a44cbad7688.setIcon(
+      icon_026468be303243010b6c11c0f9aeb593
+    );
+
+    var marker_57966bc274f76367d9cf6d041c0a2cf0 = L.marker(
+      [19.0546, 72.9047],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_299ee0ebece14a4efbcf363e895c3000 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_02d6718e34ae430d9aa1cd64b3c50b7f = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_09433f33d21ab981968d9e217ea98a57 = $(
+      `<div id="html_09433f33d21ab981968d9e217ea98a57" style="width: 100.0%; height: 100.0%;">Existing Station: Magenta ChargeGrid - Chembur | </div>`
+    )[0];
+    popup_02d6718e34ae430d9aa1cd64b3c50b7f.setContent(
+      html_09433f33d21ab981968d9e217ea98a57
+    );
+
+    marker_57966bc274f76367d9cf6d041c0a2cf0.bindPopup(
+      popup_02d6718e34ae430d9aa1cd64b3c50b7f
+    );
+
+    marker_57966bc274f76367d9cf6d041c0a2cf0.setIcon(
+      icon_299ee0ebece14a4efbcf363e895c3000
+    );
+
+    var marker_c45413793d948ebac0da11e23af2a193 = L.marker(
+      [19.0458, 72.8991],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_2e3ce1054cdcf561e7e781a0eb3016f2 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_92bd7d291fb60975aa4b8d8092534d9f = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_72fe5fa0a4c018e28b945aa070367416 = $(
+      `<div id="html_72fe5fa0a4c018e28b945aa070367416" style="width: 100.0%; height: 100.0%;">Existing Station: Magenta ChargeGrid - Chembur Diamond Garden | </div>`
+    )[0];
+    popup_92bd7d291fb60975aa4b8d8092534d9f.setContent(
+      html_72fe5fa0a4c018e28b945aa070367416
+    );
+
+    marker_c45413793d948ebac0da11e23af2a193.bindPopup(
+      popup_92bd7d291fb60975aa4b8d8092534d9f
+    );
+
+    marker_c45413793d948ebac0da11e23af2a193.setIcon(
+      icon_2e3ce1054cdcf561e7e781a0eb3016f2
+    );
+
+    var marker_2d3c264ab42d234bb966092eb197d94c = L.marker(
+      [18.9398, 72.8354],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_6370c839ba7f9e194ea02e003066ddbc = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_9fb5f2664b2e95f03151f72a329901a2 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_2403108cfb7488074d4ce000b1dba3d1 = $(
+      `<div id="html_2403108cfb7488074d4ce000b1dba3d1" style="width: 100.0%; height: 100.0%;">Existing Station: Magenta ChargeGrid - CST | </div>`
+    )[0];
+    popup_9fb5f2664b2e95f03151f72a329901a2.setContent(
+      html_2403108cfb7488074d4ce000b1dba3d1
+    );
+
+    marker_2d3c264ab42d234bb966092eb197d94c.bindPopup(
+      popup_9fb5f2664b2e95f03151f72a329901a2
+    );
+
+    marker_2d3c264ab42d234bb966092eb197d94c.setIcon(
+      icon_6370c839ba7f9e194ea02e003066ddbc
+    );
+
+    var marker_0dfe8f1c658a52ca07d4bed0b0cc4bef = L.marker(
+      [19.0864, 72.9085],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_52868fde99e1a2156a78d9e0559ac1bb = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_7d921b4c865237f3bb5c8ca0efae6056 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_f69d25ab6e4ccc5885471026dbc0a5b9 = $(
+      `<div id="html_f69d25ab6e4ccc5885471026dbc0a5b9" style="width: 100.0%; height: 100.0%;">Existing Station: Magenta ChargeGrid - Ghatkopar | </div>`
+    )[0];
+    popup_7d921b4c865237f3bb5c8ca0efae6056.setContent(
+      html_f69d25ab6e4ccc5885471026dbc0a5b9
+    );
+
+    marker_0dfe8f1c658a52ca07d4bed0b0cc4bef.bindPopup(
+      popup_7d921b4c865237f3bb5c8ca0efae6056
+    );
+
+    marker_0dfe8f1c658a52ca07d4bed0b0cc4bef.setIcon(
+      icon_52868fde99e1a2156a78d9e0559ac1bb
+    );
+
+    var marker_1cc3f6bd66817c618df19a85201dc47e = L.marker(
+      [19.2403, 73.1258],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_6dcc90fa78ab287a8d5c64393d1eb56d = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_4745fcfb73602b05eb16158a9bf5db62 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_488063bda3a23ddd37cf1a0c2b4bfa38 = $(
+      `<div id="html_488063bda3a23ddd37cf1a0c2b4bfa38" style="width: 100.0%; height: 100.0%;">Existing Station: Magenta ChargeGrid - Kalyan | </div>`
+    )[0];
+    popup_4745fcfb73602b05eb16158a9bf5db62.setContent(
+      html_488063bda3a23ddd37cf1a0c2b4bfa38
+    );
+
+    marker_1cc3f6bd66817c618df19a85201dc47e.bindPopup(
+      popup_4745fcfb73602b05eb16158a9bf5db62
+    );
+
+    marker_1cc3f6bd66817c618df19a85201dc47e.setIcon(
+      icon_6dcc90fa78ab287a8d5c64393d1eb56d
+    );
+
+    var marker_287dbde28d7d5c6a3260e9f3d61edc5d = L.marker(
+      [19.2402, 73.1362],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_49d93f85ea875569b23555dc7dc6f9a2 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_04e56c0a99925f79275471c57d848d12 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_580682b8c27b71c644238490972a7cf8 = $(
+      `<div id="html_580682b8c27b71c644238490972a7cf8" style="width: 100.0%; height: 100.0%;">Existing Station: Magenta ChargeGrid - Kalyan East | </div>`
+    )[0];
+    popup_04e56c0a99925f79275471c57d848d12.setContent(
+      html_580682b8c27b71c644238490972a7cf8
+    );
+
+    marker_287dbde28d7d5c6a3260e9f3d61edc5d.bindPopup(
+      popup_04e56c0a99925f79275471c57d848d12
+    );
+
+    marker_287dbde28d7d5c6a3260e9f3d61edc5d.setIcon(
+      icon_49d93f85ea875569b23555dc7dc6f9a2
+    );
+
+    var marker_a355b25be93d9441ceca87978b9b4ed9 = L.marker(
+      [19.016, 73.0949],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_cb384656acc598add9b5325e3c7af458 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_bc09eb811b679d95937039088a566698 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_402c670cf4da6138c4e3871400cf886c = $(
+      `<div id="html_402c670cf4da6138c4e3871400cf886c" style="width: 100.0%; height: 100.0%;">Existing Station: Magenta ChargeGrid - Kamothe | </div>`
+    )[0];
+    popup_bc09eb811b679d95937039088a566698.setContent(
+      html_402c670cf4da6138c4e3871400cf886c
+    );
+
+    marker_a355b25be93d9441ceca87978b9b4ed9.bindPopup(
+      popup_bc09eb811b679d95937039088a566698
+    );
+
+    marker_a355b25be93d9441ceca87978b9b4ed9.setIcon(
+      icon_cb384656acc598add9b5325e3c7af458
+    );
+
+    var marker_c0c6722a0e4d0e98679d248bdc4e47ba = L.marker(
+      [18.9938, 72.8237],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_09791959b249b41e06506146922ff4e8 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_1c68a33170b9694b434847f464954604 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_1666567ddccddbcd53b3e55d6304ed56 = $(
+      `<div id="html_1666567ddccddbcd53b3e55d6304ed56" style="width: 100.0%; height: 100.0%;">Existing Station: Magenta ChargeGrid - Mahalaxmi | </div>`
+    )[0];
+    popup_1c68a33170b9694b434847f464954604.setContent(
+      html_1666567ddccddbcd53b3e55d6304ed56
+    );
+
+    marker_c0c6722a0e4d0e98679d248bdc4e47ba.bindPopup(
+      popup_1c68a33170b9694b434847f464954604
+    );
+
+    marker_c0c6722a0e4d0e98679d248bdc4e47ba.setIcon(
+      icon_09791959b249b41e06506146922ff4e8
+    );
+
+    var marker_d79f28368b475d5c882f66a1656314c6 = L.marker(
+      [19.1736, 72.8352],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_c55a706b035e15f7bab43db55fde4b3e = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_53f91e8e708d6169aae4b14e34f9a06b = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_47189cfa4bba6dc81ac7f66c8766a78c = $(
+      `<div id="html_47189cfa4bba6dc81ac7f66c8766a78c" style="width: 100.0%; height: 100.0%;">Existing Station: Magenta ChargeGrid - Malad | </div>`
+    )[0];
+    popup_53f91e8e708d6169aae4b14e34f9a06b.setContent(
+      html_47189cfa4bba6dc81ac7f66c8766a78c
+    );
+
+    marker_d79f28368b475d5c882f66a1656314c6.bindPopup(
+      popup_53f91e8e708d6169aae4b14e34f9a06b
+    );
+
+    marker_d79f28368b475d5c882f66a1656314c6.setIcon(
+      icon_c55a706b035e15f7bab43db55fde4b3e
+    );
+
+    var marker_847f94fe1553daf93b7257e277930e65 = L.marker(
+      [19.0121, 73.055],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_de97518780059df44d6b22d748d9df89 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_7c42fb48825fee61c5711c11b37a2430 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_0aad081c1c9bc97c575efbdf2e67c600 = $(
+      `<div id="html_0aad081c1c9bc97c575efbdf2e67c600" style="width: 100.0%; height: 100.0%;">Existing Station: Magenta ChargeGrid - Mansarovar | </div>`
+    )[0];
+    popup_7c42fb48825fee61c5711c11b37a2430.setContent(
+      html_0aad081c1c9bc97c575efbdf2e67c600
+    );
+
+    marker_847f94fe1553daf93b7257e277930e65.bindPopup(
+      popup_7c42fb48825fee61c5711c11b37a2430
+    );
+
+    marker_847f94fe1553daf93b7257e277930e65.setIcon(
+      icon_de97518780059df44d6b22d748d9df89
+    );
+
+    var marker_9f8b65fc34a5345946509c6ad1df014a = L.marker(
+      [19.1808, 72.9836],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_fd2ca6b80065aa56e7dee0fb05c2da7c = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_f43b024003410cf6f74364a6a6211e8c = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_326e42154aea7ea7f03718753d09c4ba = $(
+      `<div id="html_326e42154aea7ea7f03718753d09c4ba" style="width: 100.0%; height: 100.0%;">Existing Station: Magenta ChargeGrid - Mumbra | </div>`
+    )[0];
+    popup_f43b024003410cf6f74364a6a6211e8c.setContent(
+      html_326e42154aea7ea7f03718753d09c4ba
+    );
+
+    marker_9f8b65fc34a5345946509c6ad1df014a.bindPopup(
+      popup_f43b024003410cf6f74364a6a6211e8c
+    );
+
+    marker_9f8b65fc34a5345946509c6ad1df014a.setIcon(
+      icon_fd2ca6b80065aa56e7dee0fb05c2da7c
+    );
+
+    var marker_c949ff9a10ab1fa36e5e930bf8603d73 = L.marker(
+      [19.1441, 72.8366],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_76a2e096da3550050b0a7efc578a96b6 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_3c4c41cf6f46177271286bbb3804a595 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_5abee386795dad1b79956ceef389ddad = $(
+      `<div id="html_5abee386795dad1b79956ceef389ddad" style="width: 100.0%; height: 100.0%;">Existing Station: Magenta ChargeGrid - Oshiwara | </div>`
+    )[0];
+    popup_3c4c41cf6f46177271286bbb3804a595.setContent(
+      html_5abee386795dad1b79956ceef389ddad
+    );
+
+    marker_c949ff9a10ab1fa36e5e930bf8603d73.bindPopup(
+      popup_3c4c41cf6f46177271286bbb3804a595
+    );
+
+    marker_c949ff9a10ab1fa36e5e930bf8603d73.setIcon(
+      icon_76a2e096da3550050b0a7efc578a96b6
+    );
+
+    var marker_285b5a29d22300e884e94d3ade00bf8b = L.marker(
+      [19.0155, 72.8275],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_7d7ec1218cd5491d9b5ea6249bf66a01 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_5c4d974bdb1028df4b6b1273af0bdbbe = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_1bc6708f3035de202da8f7de6a1d59f8 = $(
+      `<div id="html_1bc6708f3035de202da8f7de6a1d59f8" style="width: 100.0%; height: 100.0%;">Existing Station: Magenta ChargeGrid - Prabhadevi | </div>`
+    )[0];
+    popup_5c4d974bdb1028df4b6b1273af0bdbbe.setContent(
+      html_1bc6708f3035de202da8f7de6a1d59f8
+    );
+
+    marker_285b5a29d22300e884e94d3ade00bf8b.bindPopup(
+      popup_5c4d974bdb1028df4b6b1273af0bdbbe
+    );
+
+    marker_285b5a29d22300e884e94d3ade00bf8b.setIcon(
+      icon_7d7ec1218cd5491d9b5ea6249bf66a01
+    );
+
+    var marker_0762bf8f6aa1ced4ecb2e66686228302 = L.marker(
+      [19.0378, 73.1318],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_642f6ee118e4ec2ce4faf08348b73896 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_c855a319d810f2a861c2be333d914344 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_d7f7bdfc424b25b0974dd204c2d249ff = $(
+      `<div id="html_d7f7bdfc424b25b0974dd204c2d249ff" style="width: 100.0%; height: 100.0%;">Existing Station: Magenta ChargeGrid - Taloja | </div>`
+    )[0];
+    popup_c855a319d810f2a861c2be333d914344.setContent(
+      html_d7f7bdfc424b25b0974dd204c2d249ff
+    );
+
+    marker_0762bf8f6aa1ced4ecb2e66686228302.bindPopup(
+      popup_c855a319d810f2a861c2be333d914344
+    );
+
+    marker_0762bf8f6aa1ced4ecb2e66686228302.setIcon(
+      icon_642f6ee118e4ec2ce4faf08348b73896
+    );
+
+    var marker_52738cf2d56c6e064b3653813f179366 = L.marker(
+      [19.037, 72.9235],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_d4ee32c25e791dd53127c3354bb65aa1 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_23eeaaa98cce0154191731ae6b7c80da = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_e9489812449f0b4d0364722c94c1ba1a = $(
+      `<div id="html_e9489812449f0b4d0364722c94c1ba1a" style="width: 100.0%; height: 100.0%;">Existing Station: Magenta ChargeGrid - Trombay | </div>`
+    )[0];
+    popup_23eeaaa98cce0154191731ae6b7c80da.setContent(
+      html_e9489812449f0b4d0364722c94c1ba1a
+    );
+
+    marker_52738cf2d56c6e064b3653813f179366.bindPopup(
+      popup_23eeaaa98cce0154191731ae6b7c80da
+    );
+
+    marker_52738cf2d56c6e064b3653813f179366.setIcon(
+      icon_d4ee32c25e791dd53127c3354bb65aa1
+    );
+
+    var marker_c61e0581c3bd870c56cde50185035668 = L.marker(
+      [19.0188, 72.8571],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_9c3620a911d08c79e629be47fd2ac669 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_f23b982d631720c7f7de4d905d37c97e = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_635e86aeceb6b4adc253963e36cb443f = $(
+      `<div id="html_635e86aeceb6b4adc253963e36cb443f" style="width: 100.0%; height: 100.0%;">Existing Station: Magenta ChargeGrid - Wadala | </div>`
+    )[0];
+    popup_f23b982d631720c7f7de4d905d37c97e.setContent(
+      html_635e86aeceb6b4adc253963e36cb443f
+    );
+
+    marker_c61e0581c3bd870c56cde50185035668.bindPopup(
+      popup_f23b982d631720c7f7de4d905d37c97e
+    );
+
+    marker_c61e0581c3bd870c56cde50185035668.setIcon(
+      icon_9c3620a911d08c79e629be47fd2ac669
+    );
+
+    var marker_8b5d12dd836d12f86c81ff5ea7ea2bc3 = L.marker(
+      [19.0085, 72.8153],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_ac5abd365790b10df6db73ce64c954ac = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_405dfc8d786d7d1fb01acdf5ccfe4786 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_3957e93f126573f03bfe8081b590b404 = $(
+      `<div id="html_3957e93f126573f03bfe8081b590b404" style="width: 100.0%; height: 100.0%;">Existing Station: Magenta ChargeGrid - Worli | </div>`
+    )[0];
+    popup_405dfc8d786d7d1fb01acdf5ccfe4786.setContent(
+      html_3957e93f126573f03bfe8081b590b404
+    );
+
+    marker_8b5d12dd836d12f86c81ff5ea7ea2bc3.bindPopup(
+      popup_405dfc8d786d7d1fb01acdf5ccfe4786
+    );
+
+    marker_8b5d12dd836d12f86c81ff5ea7ea2bc3.setIcon(
+      icon_ac5abd365790b10df6db73ce64c954ac
+    );
+
+    var marker_c8c098f48c315a0699e764232b3b3377 = L.marker(
+      [19.06870454, 73.02298692],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_b376b8ce4ff03b964f8f6a3c429037fe = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_7ceec4c09f6a7ddbea01f01b9a7fa6fd = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_3603bf9d7948ddbf30ff87ff2ac3da63 = $(
+      `<div id="html_3603bf9d7948ddbf30ff87ff2ac3da63" style="width: 100.0%; height: 100.0%;">Existing Station: Magenta House - Mumbai | </div>`
+    )[0];
+    popup_7ceec4c09f6a7ddbea01f01b9a7fa6fd.setContent(
+      html_3603bf9d7948ddbf30ff87ff2ac3da63
+    );
+
+    marker_c8c098f48c315a0699e764232b3b3377.bindPopup(
+      popup_7ceec4c09f6a7ddbea01f01b9a7fa6fd
+    );
+
+    marker_c8c098f48c315a0699e764232b3b3377.setIcon(
+      icon_b376b8ce4ff03b964f8f6a3c429037fe
+    );
+
+    var marker_36c3fc4bc4fb537f03208d1c68173507 = L.marker(
+      [19.0079, 72.8425],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_82c4b23cf37f2b4bdb78e40b0ce7b4a0 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_0a0f1f95fcd93ca54c32dcbd338f2052 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_36f87328f0dd0b1e5de4c080508b656f = $(
+      `<div id="html_36f87328f0dd0b1e5de4c080508b656f" style="width: 100.0%; height: 100.0%;">Existing Station: Magenta Charging Station (Parel) | </div>`
+    )[0];
+    popup_0a0f1f95fcd93ca54c32dcbd338f2052.setContent(
+      html_36f87328f0dd0b1e5de4c080508b656f
+    );
+
+    marker_36c3fc4bc4fb537f03208d1c68173507.bindPopup(
+      popup_0a0f1f95fcd93ca54c32dcbd338f2052
+    );
+
+    marker_36c3fc4bc4fb537f03208d1c68173507.setIcon(
+      icon_82c4b23cf37f2b4bdb78e40b0ce7b4a0
+    );
+
+    var marker_809f33a10fdbf03bf299740dde2a59b4 = L.marker(
+      [19.0685788, 73.022744],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_cc722be46d10e82edd0b617fc5e09d03 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_570f9e94f03a40849778358cc8d687d8 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_262a0aab644da935e78b5f86e34f0e4a = $(
+      `<div id="html_262a0aab644da935e78b5f86e34f0e4a" style="width: 100.0%; height: 100.0%;">Existing Station: Magenta TTC, Turbhe | </div>`
+    )[0];
+    popup_570f9e94f03a40849778358cc8d687d8.setContent(
+      html_262a0aab644da935e78b5f86e34f0e4a
+    );
+
+    marker_809f33a10fdbf03bf299740dde2a59b4.bindPopup(
+      popup_570f9e94f03a40849778358cc8d687d8
+    );
+
+    marker_809f33a10fdbf03bf299740dde2a59b4.setIcon(
+      icon_cc722be46d10e82edd0b617fc5e09d03
+    );
+
+    var marker_b96eff81efe55a17474d381db0983d5a = L.marker(
+      [19.0472567, 72.8783829],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_a884ef0f72c8e5d14489a27e335ee741 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_cb2effb1c731d27ca0fcea337ec42bfe = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_19488bb6c7c0ee3cd1faf0fc930797ff = $(
+      `<div id="html_19488bb6c7c0ee3cd1faf0fc930797ff" style="width: 100.0%; height: 100.0%;">Existing Station: Mahanagar Gas Limited, Wadala | </div>`
+    )[0];
+    popup_cb2effb1c731d27ca0fcea337ec42bfe.setContent(
+      html_19488bb6c7c0ee3cd1faf0fc930797ff
+    );
+
+    marker_b96eff81efe55a17474d381db0983d5a.bindPopup(
+      popup_cb2effb1c731d27ca0fcea337ec42bfe
+    );
+
+    marker_b96eff81efe55a17474d381db0983d5a.setIcon(
+      icon_a884ef0f72c8e5d14489a27e335ee741
+    );
+
+    var marker_9d7368bda9b867db731cbadbe0665730 = L.marker(
+      [19.17674569, 72.94574801],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_385bf5b1fff8a07411d3d15dc83ad5cc = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_bb914cfe8351c9146d26a595e0e13f1c = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_a3782f5b0983159816c1c988dc582da5 = $(
+      `<div id="html_a3782f5b0983159816c1c988dc582da5" style="width: 100.0%; height: 100.0%;">Existing Station: Masstech controls Pvt ltd | </div>`
+    )[0];
+    popup_bb914cfe8351c9146d26a595e0e13f1c.setContent(
+      html_a3782f5b0983159816c1c988dc582da5
+    );
+
+    marker_9d7368bda9b867db731cbadbe0665730.bindPopup(
+      popup_bb914cfe8351c9146d26a595e0e13f1c
+    );
+
+    marker_9d7368bda9b867db731cbadbe0665730.setIcon(
+      icon_385bf5b1fff8a07411d3d15dc83ad5cc
+    );
+
+    var marker_5becfd4d3bfdb88d26d88c63efd07536 = L.marker(
+      [19.2402364, 72.8481819],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_4f5e35eb04ff58392d8c3049f7019ed3 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_cad83b91d3ec8540dde19d813bb6ae63 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_c3a7f68cf7229579b8901c7d6f4bd220 = $(
+      `<div id="html_c3a7f68cf7229579b8901c7d6f4bd220" style="width: 100.0%; height: 100.0%;">Existing Station: MCGM Parking || Club Aquaria | </div>`
+    )[0];
+    popup_cad83b91d3ec8540dde19d813bb6ae63.setContent(
+      html_c3a7f68cf7229579b8901c7d6f4bd220
+    );
+
+    marker_5becfd4d3bfdb88d26d88c63efd07536.bindPopup(
+      popup_cad83b91d3ec8540dde19d813bb6ae63
+    );
+
+    marker_5becfd4d3bfdb88d26d88c63efd07536.setIcon(
+      icon_4f5e35eb04ff58392d8c3049f7019ed3
+    );
+
+    var marker_99c91d578574988abca886e14e64aa44 = L.marker(
+      [19.18066617, 72.94684724],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_7c056085d789deba798999479373947e = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_bf38663a6f1ad003c77ebc4ccb24e096 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_b32b1fb5c43a317fdaae5a4651b42a6c = $(
+      `<div id="html_b32b1fb5c43a317fdaae5a4651b42a6c" style="width: 100.0%; height: 100.0%;">Existing Station: MCGM Parking || Runwal Anthurium | </div>`
+    )[0];
+    popup_bf38663a6f1ad003c77ebc4ccb24e096.setContent(
+      html_b32b1fb5c43a317fdaae5a4651b42a6c
+    );
+
+    marker_99c91d578574988abca886e14e64aa44.bindPopup(
+      popup_bf38663a6f1ad003c77ebc4ccb24e096
+    );
+
+    marker_99c91d578574988abca886e14e64aa44.setIcon(
+      icon_7c056085d789deba798999479373947e
+    );
+
+    var marker_f62d9ed194b1504560eeab8f0d371375 = L.marker(
+      [19.11999443, 72.9141036],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_15a7fc4168fdca5b6f59cec576999bf6 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_7d43b7c555e61600c4dc6f1d7484ed96 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_3078808fb2493089bd08370a27dde98e = $(
+      `<div id="html_3078808fb2493089bd08370a27dde98e" style="width: 100.0%; height: 100.0%;">Existing Station: MH|MUMBAI|POWAI#HIRANANDANI GARDENS | </div>`
+    )[0];
+    popup_7d43b7c555e61600c4dc6f1d7484ed96.setContent(
+      html_3078808fb2493089bd08370a27dde98e
+    );
+
+    marker_f62d9ed194b1504560eeab8f0d371375.bindPopup(
+      popup_7d43b7c555e61600c4dc6f1d7484ed96
+    );
+
+    marker_f62d9ed194b1504560eeab8f0d371375.setIcon(
+      icon_15a7fc4168fdca5b6f59cec576999bf6
+    );
+
+    var marker_15586c1d0d49c9237492a7add6995190 = L.marker(
+      [19.0737, 72.857],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_a32cc8cae980831b3cf9bd798bfb72c5 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_1c3110b37a8d876a9b8cc132a30fb3c7 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_eec69f6abf2f7da332c8920c45dfdf55 = $(
+      `<div id="html_eec69f6abf2f7da332c8920c45dfdf55" style="width: 100.0%; height: 100.0%;">Existing Station: Moiz Apartments | </div>`
+    )[0];
+    popup_1c3110b37a8d876a9b8cc132a30fb3c7.setContent(
+      html_eec69f6abf2f7da332c8920c45dfdf55
+    );
+
+    marker_15586c1d0d49c9237492a7add6995190.bindPopup(
+      popup_1c3110b37a8d876a9b8cc132a30fb3c7
+    );
+
+    marker_15586c1d0d49c9237492a7add6995190.setIcon(
+      icon_a32cc8cae980831b3cf9bd798bfb72c5
+    );
+
+    var marker_aa9abb2a58b8406bb9e0fb54f0c12adf = L.marker(
+      [18.9688627, 72.8207138],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_c2432c5341ced207623ede8369e09df8 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_94e9722173865fb17116f1a96f4a484f = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_d524199c72645c856dcf468010de8230 = $(
+      `<div id="html_d524199c72645c856dcf468010de8230" style="width: 100.0%; height: 100.0%;">Existing Station: Nathani Heights, Mumbai Central | </div>`
+    )[0];
+    popup_94e9722173865fb17116f1a96f4a484f.setContent(
+      html_d524199c72645c856dcf468010de8230
+    );
+
+    marker_aa9abb2a58b8406bb9e0fb54f0c12adf.bindPopup(
+      popup_94e9722173865fb17116f1a96f4a484f
+    );
+
+    marker_aa9abb2a58b8406bb9e0fb54f0c12adf.setIcon(
+      icon_c2432c5341ced207623ede8369e09df8
+    );
+
+    var marker_3d20bb74c10680dd92ffc79d4f45068e = L.marker(
+      [19.1737611, 72.8600172],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_f2e6d2d72b9d9127715af7b6174e49b9 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_470eb48550e01739f1f66795104e9dcd = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_0aea8aaeffec165fd415ad277b437bf9 = $(
+      `<div id="html_0aea8aaeffec165fd415ad277b437bf9" style="width: 100.0%; height: 100.0%;">Existing Station: Oberoi Mall, Goregaon | </div>`
+    )[0];
+    popup_470eb48550e01739f1f66795104e9dcd.setContent(
+      html_0aea8aaeffec165fd415ad277b437bf9
+    );
+
+    marker_3d20bb74c10680dd92ffc79d4f45068e.bindPopup(
+      popup_470eb48550e01739f1f66795104e9dcd
+    );
+
+    marker_3d20bb74c10680dd92ffc79d4f45068e.setIcon(
+      icon_f2e6d2d72b9d9127715af7b6174e49b9
+    );
+
+    var marker_4b603da7c4c1f03b0162a28c7d1f1ffa = L.marker(
+      [19.0751, 72.8893],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_6459befa498c68cb6f8bc3e606c4ea72 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_2f017c033f5896e5636ae93e8cfa179e = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_b0a8a328c476e787c42509c79f72e31f = $(
+      `<div id="html_b0a8a328c476e787c42509c79f72e31f" style="width: 100.0%; height: 100.0%;">Existing Station: Phoenix Market City Charging Station | </div>`
+    )[0];
+    popup_2f017c033f5896e5636ae93e8cfa179e.setContent(
+      html_b0a8a328c476e787c42509c79f72e31f
+    );
+
+    marker_4b603da7c4c1f03b0162a28c7d1f1ffa.bindPopup(
+      popup_2f017c033f5896e5636ae93e8cfa179e
+    );
+
+    marker_4b603da7c4c1f03b0162a28c7d1f1ffa.setIcon(
+      icon_6459befa498c68cb6f8bc3e606c4ea72
+    );
+
+    var marker_ca7571ea27e4eb6dbc4d76fdbea86b3d = L.marker(
+      [19.0994, 72.8269],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_0eab230c1b9dd475c64f64ea3426f556 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_fd49c7f94938b7701847b5a79693e9fc = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_6b5db81b1cbaee03bfb26c9e0fcdcf93 = $(
+      `<div id="html_6b5db81b1cbaee03bfb26c9e0fcdcf93" style="width: 100.0%; height: 100.0%;">Existing Station: EV Point - Juhu | </div>`
+    )[0];
+    popup_fd49c7f94938b7701847b5a79693e9fc.setContent(
+      html_6b5db81b1cbaee03bfb26c9e0fcdcf93
+    );
+
+    marker_ca7571ea27e4eb6dbc4d76fdbea86b3d.bindPopup(
+      popup_fd49c7f94938b7701847b5a79693e9fc
+    );
+
+    marker_ca7571ea27e4eb6dbc4d76fdbea86b3d.setIcon(
+      icon_0eab230c1b9dd475c64f64ea3426f556
+    );
+
+    var marker_65e78cfdc8b15f50638551f8e2c6aff1 = L.marker(
+      [19.0337, 73.0204],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_b92ea7cb5868a7678f2afc910a0a56a7 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_7c7e18f6476b3d2d2da8e2fdc1952f6d = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_fe632f4d86279ab950b2b36947ba200d = $(
+      `<div id="html_fe632f4d86279ab950b2b36947ba200d" style="width: 100.0%; height: 100.0%;">Existing Station: EV Point - Navi Mumbai | </div>`
+    )[0];
+    popup_7c7e18f6476b3d2d2da8e2fdc1952f6d.setContent(
+      html_fe632f4d86279ab950b2b36947ba200d
+    );
+
+    marker_65e78cfdc8b15f50638551f8e2c6aff1.bindPopup(
+      popup_7c7e18f6476b3d2d2da8e2fdc1952f6d
+    );
+
+    marker_65e78cfdc8b15f50638551f8e2c6aff1.setIcon(
+      icon_b92ea7cb5868a7678f2afc910a0a56a7
+    );
+
+    var marker_5e31b3936a1323ed9a740a5c804ccbc6 = L.marker(
+      [19.1146, 72.8696],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_e9956fd5d2cae5b5a6ee6d5e10ab7b4c = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_4790ca7ee11bd028c6c3d36b2a18f455 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_a9e91dac12d2ffb71a7a5ed425e76e5f = $(
+      `<div id="html_a9e91dac12d2ffb71a7a5ed425e76e5f" style="width: 100.0%; height: 100.0%;">Existing Station: Statiq - Andheri East | </div>`
+    )[0];
+    popup_4790ca7ee11bd028c6c3d36b2a18f455.setContent(
+      html_a9e91dac12d2ffb71a7a5ed425e76e5f
+    );
+
+    marker_5e31b3936a1323ed9a740a5c804ccbc6.bindPopup(
+      popup_4790ca7ee11bd028c6c3d36b2a18f455
+    );
+
+    marker_5e31b3936a1323ed9a740a5c804ccbc6.setIcon(
+      icon_e9956fd5d2cae5b5a6ee6d5e10ab7b4c
+    );
+
+    var marker_7b2e7142fe447ce53fd7540272fc5a0b = L.marker(
+      [19.0588, 72.8703],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_e70127b704b97adad2ad18df6813cd2d = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_cf40d93b59f248ae87a5e8e1b9326080 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_d5f638bdcb4176d303508b9aade86259 = $(
+      `<div id="html_d5f638bdcb4176d303508b9aade86259" style="width: 100.0%; height: 100.0%;">Existing Station: Statiq - Bandra Kurla Complex | </div>`
+    )[0];
+    popup_cf40d93b59f248ae87a5e8e1b9326080.setContent(
+      html_d5f638bdcb4176d303508b9aade86259
+    );
+
+    marker_7b2e7142fe447ce53fd7540272fc5a0b.bindPopup(
+      popup_cf40d93b59f248ae87a5e8e1b9326080
+    );
+
+    marker_7b2e7142fe447ce53fd7540272fc5a0b.setIcon(
+      icon_e70127b704b97adad2ad18df6813cd2d
+    );
+
+    var marker_55a9672d57b661c9c7d5d71d8e4fa81f = L.marker(
+      [19.0836, 72.9136],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_0249a247ae15d02029a74e74134d0a00 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_530fa12e5025a47a8d7fe22118b59d0a = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_e5eac6e1b18bcb9bf881f24bf61a6e19 = $(
+      `<div id="html_e5eac6e1b18bcb9bf881f24bf61a6e19" style="width: 100.0%; height: 100.0%;">Existing Station: Statiq - Ghatkopar | </div>`
+    )[0];
+    popup_530fa12e5025a47a8d7fe22118b59d0a.setContent(
+      html_e5eac6e1b18bcb9bf881f24bf61a6e19
+    );
+
+    marker_55a9672d57b661c9c7d5d71d8e4fa81f.bindPopup(
+      popup_530fa12e5025a47a8d7fe22118b59d0a
+    );
+
+    marker_55a9672d57b661c9c7d5d71d8e4fa81f.setIcon(
+      icon_0249a247ae15d02029a74e74134d0a00
+    );
+
+    var marker_a7c67ad4c3197b56f5b844f490705248 = L.marker(
+      [19.1341, 72.9297],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_1abef8fd109e7cd174718dc35da85665 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_e66cfd6a036ea00afacb5c95d0e45a4c = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_19041872d68a34e5948d794fbd8e6ad1 = $(
+      `<div id="html_19041872d68a34e5948d794fbd8e6ad1" style="width: 100.0%; height: 100.0%;">Existing Station: Statiq - Kanjurmarg | </div>`
+    )[0];
+    popup_e66cfd6a036ea00afacb5c95d0e45a4c.setContent(
+      html_19041872d68a34e5948d794fbd8e6ad1
+    );
+
+    marker_a7c67ad4c3197b56f5b844f490705248.bindPopup(
+      popup_e66cfd6a036ea00afacb5c95d0e45a4c
+    );
+
+    marker_a7c67ad4c3197b56f5b844f490705248.setIcon(
+      icon_1abef8fd109e7cd174718dc35da85665
+    );
+
+    var marker_ac1af32320640447767a63e7bbd05fc9 = L.marker(
+      [19.0418, 73.0634],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_52bfb116e67b012e18c7cb5f4999efb7 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_8039849dd54af513021318e00df150b5 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_1f543a6729e934d9544c1e54dc57f1c7 = $(
+      `<div id="html_1f543a6729e934d9544c1e54dc57f1c7" style="width: 100.0%; height: 100.0%;">Existing Station: Statiq - Kharghar Central Park | </div>`
+    )[0];
+    popup_8039849dd54af513021318e00df150b5.setContent(
+      html_1f543a6729e934d9544c1e54dc57f1c7
+    );
+
+    marker_ac1af32320640447767a63e7bbd05fc9.bindPopup(
+      popup_8039849dd54af513021318e00df150b5
+    );
+
+    marker_ac1af32320640447767a63e7bbd05fc9.setIcon(
+      icon_52bfb116e67b012e18c7cb5f4999efb7
+    );
+
+    var marker_cd736ef4cf50f1318603fbe57c2c49f2 = L.marker(
+      [19.072, 72.8821],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_9fa9ca35c1a9593f96dd95c7e6234721 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_9364a6074231f7129fe81064dff79a98 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_261c08d3389c644e48479f5370e112a2 = $(
+      `<div id="html_261c08d3389c644e48479f5370e112a2" style="width: 100.0%; height: 100.0%;">Existing Station: Statiq - Kurla Nehru Nagar | </div>`
+    )[0];
+    popup_9364a6074231f7129fe81064dff79a98.setContent(
+      html_261c08d3389c644e48479f5370e112a2
+    );
+
+    marker_cd736ef4cf50f1318603fbe57c2c49f2.bindPopup(
+      popup_9364a6074231f7129fe81064dff79a98
+    );
+
+    marker_cd736ef4cf50f1318603fbe57c2c49f2.setIcon(
+      icon_9fa9ca35c1a9593f96dd95c7e6234721
+    );
+
+    var marker_7a97da8322fd159ab9e53a3983be28ff = L.marker(
+      [19.109, 72.8771],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_fc311cde8d49d0d9c020000f1dd80d2f = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_72852aaabf058f3c585733aad5bd6e36 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_fe9b43786f13e5fc7fbc7e8c14175569 = $(
+      `<div id="html_fe9b43786f13e5fc7fbc7e8c14175569" style="width: 100.0%; height: 100.0%;">Existing Station: Statiq - Marol Naka | </div>`
+    )[0];
+    popup_72852aaabf058f3c585733aad5bd6e36.setContent(
+      html_fe9b43786f13e5fc7fbc7e8c14175569
+    );
+
+    marker_7a97da8322fd159ab9e53a3983be28ff.bindPopup(
+      popup_72852aaabf058f3c585733aad5bd6e36
+    );
+
+    marker_7a97da8322fd159ab9e53a3983be28ff.setIcon(
+      icon_fc311cde8d49d0d9c020000f1dd80d2f
+    );
+
+    var marker_e130afd2a0f5c3f29545a05d45c968a4 = L.marker(
+      [19.0387, 73.0222],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_7f564aff63fc1cb1b87f13dc210b011f = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_252d7684d4b0c4ad204a1405775eca58 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_118a26fb5a842af2114c46e8896d4872 = $(
+      `<div id="html_118a26fb5a842af2114c46e8896d4872" style="width: 100.0%; height: 100.0%;">Existing Station: Statiq - Navi Mumbai | </div>`
+    )[0];
+    popup_252d7684d4b0c4ad204a1405775eca58.setContent(
+      html_118a26fb5a842af2114c46e8896d4872
+    );
+
+    marker_e130afd2a0f5c3f29545a05d45c968a4.bindPopup(
+      popup_252d7684d4b0c4ad204a1405775eca58
+    );
+
+    marker_e130afd2a0f5c3f29545a05d45c968a4.setIcon(
+      icon_7f564aff63fc1cb1b87f13dc210b011f
+    );
+
+    var marker_6a0bcd1ff6f0e4054407113c2185fe8d = L.marker(
+      [19.2263, 73.0965],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_d2c956f6e779cc2755cbc7879ad41f3b = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_edf3dee6e8d0633446982d2b2fe072e9 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_325605a9f0ac7b815a5f14ba1ee956d8 = $(
+      `<div id="html_325605a9f0ac7b815a5f14ba1ee956d8" style="width: 100.0%; height: 100.0%;">Existing Station: Statiq - Palava City | </div>`
+    )[0];
+    popup_edf3dee6e8d0633446982d2b2fe072e9.setContent(
+      html_325605a9f0ac7b815a5f14ba1ee956d8
+    );
+
+    marker_6a0bcd1ff6f0e4054407113c2185fe8d.bindPopup(
+      popup_edf3dee6e8d0633446982d2b2fe072e9
+    );
+
+    marker_6a0bcd1ff6f0e4054407113c2185fe8d.setIcon(
+      icon_d2c956f6e779cc2755cbc7879ad41f3b
+    );
+
+    var marker_ca17011819499445e9e19965018c8114 = L.marker(
+      [18.9892, 73.117],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_9299b0487dfb4a87fb336d34e759ce20 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_6a008f1326c8521c9a7fe8a14a88ce34 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_6f301cb0cba8a7abcd022033170f8343 = $(
+      `<div id="html_6f301cb0cba8a7abcd022033170f8343" style="width: 100.0%; height: 100.0%;">Existing Station: Statiq - Panvel | </div>`
+    )[0];
+    popup_6a008f1326c8521c9a7fe8a14a88ce34.setContent(
+      html_6f301cb0cba8a7abcd022033170f8343
+    );
+
+    marker_ca17011819499445e9e19965018c8114.bindPopup(
+      popup_6a008f1326c8521c9a7fe8a14a88ce34
+    );
+
+    marker_ca17011819499445e9e19965018c8114.setIcon(
+      icon_9299b0487dfb4a87fb336d34e759ce20
+    );
+
+    var marker_8971a595a2d89a71b1686879450528d6 = L.marker(
+      [19.0029, 72.824],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_11f8bf4fd11539609edbdf851421dd93 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_52bf86e0046613b8e32635ccf2b2c08f = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_971dfca3c7c6c34018024644cf04a67d = $(
+      `<div id="html_971dfca3c7c6c34018024644cf04a67d" style="width: 100.0%; height: 100.0%;">Existing Station: Statiq - Parel | </div>`
+    )[0];
+    popup_52bf86e0046613b8e32635ccf2b2c08f.setContent(
+      html_971dfca3c7c6c34018024644cf04a67d
+    );
+
+    marker_8971a595a2d89a71b1686879450528d6.bindPopup(
+      popup_52bf86e0046613b8e32635ccf2b2c08f
+    );
+
+    marker_8971a595a2d89a71b1686879450528d6.setIcon(
+      icon_11f8bf4fd11539609edbdf851421dd93
+    );
+
+    var marker_14441848cff01cee76ceeae322ea0426 = L.marker(
+      [19.0803, 72.8365],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_793964fd98ee92ff81ce05acac4632e9 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_680e77dd29cd62befe3fb3cee3d08f48 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_63a8dcd098197838f652ad76fa06c15e = $(
+      `<div id="html_63a8dcd098197838f652ad76fa06c15e" style="width: 100.0%; height: 100.0%;">Existing Station: Statiq - Santacruz | </div>`
+    )[0];
+    popup_680e77dd29cd62befe3fb3cee3d08f48.setContent(
+      html_63a8dcd098197838f652ad76fa06c15e
+    );
+
+    marker_14441848cff01cee76ceeae322ea0426.bindPopup(
+      popup_680e77dd29cd62befe3fb3cee3d08f48
+    );
+
+    marker_14441848cff01cee76ceeae322ea0426.setIcon(
+      icon_793964fd98ee92ff81ce05acac4632e9
+    );
+
+    var marker_e64360a2489686e167f43ef7e0e3aa5a = L.marker(
+      [19.2336, 73.1353],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_378a3d68645d51e25f03209449bab7e7 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_de1d56a234192deb08f7043358148435 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_49e45fb8aabba0a8542f8eacb82f29fe = $(
+      `<div id="html_49e45fb8aabba0a8542f8eacb82f29fe" style="width: 100.0%; height: 100.0%;">Existing Station: Statiq - Ulhasnagar | </div>`
+    )[0];
+    popup_de1d56a234192deb08f7043358148435.setContent(
+      html_49e45fb8aabba0a8542f8eacb82f29fe
+    );
+
+    marker_e64360a2489686e167f43ef7e0e3aa5a.bindPopup(
+      popup_de1d56a234192deb08f7043358148435
+    );
+
+    marker_e64360a2489686e167f43ef7e0e3aa5a.setIcon(
+      icon_378a3d68645d51e25f03209449bab7e7
+    );
+
+    var marker_6fb33078452a5b654567c41d2ca46ee0 = L.marker(
+      [19.0302, 72.8927],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_43b5857c765a17da02d3625e484d801f = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_2ce779d2dfc37d1602ea901c1530954c = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_11003c1cd714019b2b604c5666519c23 = $(
+      `<div id="html_11003c1cd714019b2b604c5666519c23" style="width: 100.0%; height: 100.0%;">Existing Station: Tata Power | 1</div>`
+    )[0];
+    popup_2ce779d2dfc37d1602ea901c1530954c.setContent(
+      html_11003c1cd714019b2b604c5666519c23
+    );
+
+    marker_6fb33078452a5b654567c41d2ca46ee0.bindPopup(
+      popup_2ce779d2dfc37d1602ea901c1530954c
+    );
+
+    marker_6fb33078452a5b654567c41d2ca46ee0.setIcon(
+      icon_43b5857c765a17da02d3625e484d801f
+    );
+
+    var marker_b6a9ca61cbb0f5bcf1e81cf32358a18f = L.marker(
+      [19.0302, 72.8927],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_6d0add9d9a3b7b55e550c0d01326a51e = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_9c83ee92ec0e2333ec488071ea208d14 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_6b63329c2161b05f8e6b87943c07e49d = $(
+      `<div id="html_6b63329c2161b05f8e6b87943c07e49d" style="width: 100.0%; height: 100.0%;">Existing Station: Tata Power Charging Station | 1</div>`
+    )[0];
+    popup_9c83ee92ec0e2333ec488071ea208d14.setContent(
+      html_6b63329c2161b05f8e6b87943c07e49d
+    );
+
+    marker_b6a9ca61cbb0f5bcf1e81cf32358a18f.bindPopup(
+      popup_9c83ee92ec0e2333ec488071ea208d14
+    );
+
+    marker_b6a9ca61cbb0f5bcf1e81cf32358a18f.setIcon(
+      icon_6d0add9d9a3b7b55e550c0d01326a51e
+    );
+
+    var marker_32bcce251d5918ddd5f94b8a5460ea99 = L.marker(
+      [19.164, 72.9948],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_b82995b2d898dcba42e1835f3dd6ea6f = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_e5da37f044f897a3c49d6e5cc60f1113 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_a20dfca9b5a64686bf6fd59a705ae1fb = $(
+      `<div id="html_a20dfca9b5a64686bf6fd59a705ae1fb" style="width: 100.0%; height: 100.0%;">Existing Station: Tata Power - Airoli | </div>`
+    )[0];
+    popup_e5da37f044f897a3c49d6e5cc60f1113.setContent(
+      html_a20dfca9b5a64686bf6fd59a705ae1fb
+    );
+
+    marker_32bcce251d5918ddd5f94b8a5460ea99.bindPopup(
+      popup_e5da37f044f897a3c49d6e5cc60f1113
+    );
+
+    marker_32bcce251d5918ddd5f94b8a5460ea99.setIcon(
+      icon_b82995b2d898dcba42e1835f3dd6ea6f
+    );
+
+    var marker_afb7f25d64c731bb49112c36fa2ed7ee = L.marker(
+      [19.0165, 72.8605],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_5a9d95924cc2ac82085a5abd33e3af44 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_fb6e6a27997181c43b9274f66d94f218 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_de589da0bcb5ab7a0f92b14f9707835f = $(
+      `<div id="html_de589da0bcb5ab7a0f92b14f9707835f" style="width: 100.0%; height: 100.0%;">Existing Station: Tata Power - Antop Hill | </div>`
+    )[0];
+    popup_fb6e6a27997181c43b9274f66d94f218.setContent(
+      html_de589da0bcb5ab7a0f92b14f9707835f
+    );
+
+    marker_afb7f25d64c731bb49112c36fa2ed7ee.bindPopup(
+      popup_fb6e6a27997181c43b9274f66d94f218
+    );
+
+    marker_afb7f25d64c731bb49112c36fa2ed7ee.setIcon(
+      icon_5a9d95924cc2ac82085a5abd33e3af44
+    );
+
+    var marker_1b11308438472a5b2ef8b0dc16db7725 = L.marker(
+      [18.9451, 72.8354],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_41409df0de3228f22b5c335be2db08a4 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_7ebb8c045258dba394c5077d88db53bc = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_0e467e41192c657bbf8b88365fc2ee50 = $(
+      `<div id="html_0e467e41192c657bbf8b88365fc2ee50" style="width: 100.0%; height: 100.0%;">Existing Station: Tata Power - Ballard Estate | </div>`
+    )[0];
+    popup_7ebb8c045258dba394c5077d88db53bc.setContent(
+      html_0e467e41192c657bbf8b88365fc2ee50
+    );
+
+    marker_1b11308438472a5b2ef8b0dc16db7725.bindPopup(
+      popup_7ebb8c045258dba394c5077d88db53bc
+    );
+
+    marker_1b11308438472a5b2ef8b0dc16db7725.setIcon(
+      icon_41409df0de3228f22b5c335be2db08a4
+    );
+
+    var marker_1f99b9d8ce1559cfca1bc54f21507f50 = L.marker(
+      [19.0585, 72.8557],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_8f76eee022a9b0ce5f10ee7386b71df2 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_301da8d118694237d57361f1a40fbe6f = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_962371314f7db3a5ce521babbca55198 = $(
+      `<div id="html_962371314f7db3a5ce521babbca55198" style="width: 100.0%; height: 100.0%;">Existing Station: Tata Power - BKC Substation | </div>`
+    )[0];
+    popup_301da8d118694237d57361f1a40fbe6f.setContent(
+      html_962371314f7db3a5ce521babbca55198
+    );
+
+    marker_1f99b9d8ce1559cfca1bc54f21507f50.bindPopup(
+      popup_301da8d118694237d57361f1a40fbe6f
+    );
+
+    marker_1f99b9d8ce1559cfca1bc54f21507f50.setIcon(
+      icon_8f76eee022a9b0ce5f10ee7386b71df2
+    );
+
+    var marker_83f28cabd26c84d0a9ad89f3f4669e60 = L.marker(
+      [19.233, 72.8552],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_a96b409ea816854b59c4743f707d230a = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_353f89174dc7e9d9e678f66c9a626077 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_8049ab98fb6923c905f004ca4968d5d7 = $(
+      `<div id="html_8049ab98fb6923c905f004ca4968d5d7" style="width: 100.0%; height: 100.0%;">Existing Station: Tata Power - Borivali West | </div>`
+    )[0];
+    popup_353f89174dc7e9d9e678f66c9a626077.setContent(
+      html_8049ab98fb6923c905f004ca4968d5d7
+    );
+
+    marker_83f28cabd26c84d0a9ad89f3f4669e60.bindPopup(
+      popup_353f89174dc7e9d9e678f66c9a626077
+    );
+
+    marker_83f28cabd26c84d0a9ad89f3f4669e60.setIcon(
+      icon_a96b409ea816854b59c4743f707d230a
+    );
+
+    var marker_eca118a3413a52eabe4325a89c2859fe = L.marker(
+      [18.9788, 72.8337],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_4457091d33fd6a41d896c638d4939777 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_e4bc032f80a35c0b4174dd0072f4bfba = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_e776633b48f73b47c8e7dc2de85e5175 = $(
+      `<div id="html_e776633b48f73b47c8e7dc2de85e5175" style="width: 100.0%; height: 100.0%;">Existing Station: Tata Power - Byculla | </div>`
+    )[0];
+    popup_e4bc032f80a35c0b4174dd0072f4bfba.setContent(
+      html_e776633b48f73b47c8e7dc2de85e5175
+    );
+
+    marker_eca118a3413a52eabe4325a89c2859fe.bindPopup(
+      popup_e4bc032f80a35c0b4174dd0072f4bfba
+    );
+
+    marker_eca118a3413a52eabe4325a89c2859fe.setIcon(
+      icon_4457091d33fd6a41d896c638d4939777
+    );
+
+    var marker_16db5aa2e354bc96e6925fc7dcd8997d = L.marker(
+      [19.1088, 72.8535],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_216042d6e909d3edce0cd3fd3085248d = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_164defff673a21d165dfde1246020f01 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_67ed2148a8058ceb37a6ccdc21e64dc7 = $(
+      `<div id="html_67ed2148a8058ceb37a6ccdc21e64dc7" style="width: 100.0%; height: 100.0%;">Existing Station: Tata Power - Chakala | </div>`
+    )[0];
+    popup_164defff673a21d165dfde1246020f01.setContent(
+      html_67ed2148a8058ceb37a6ccdc21e64dc7
+    );
+
+    marker_16db5aa2e354bc96e6925fc7dcd8997d.bindPopup(
+      popup_164defff673a21d165dfde1246020f01
+    );
+
+    marker_16db5aa2e354bc96e6925fc7dcd8997d.setIcon(
+      icon_216042d6e909d3edce0cd3fd3085248d
+    );
+
+    var marker_7165b84cebcdce51c6e05d5229e481cd = L.marker(
+      [19.0455, 72.8996],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_9151a9dc1b60bb464df64cb51bf10fac = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_a2438458aded8a1be90f0e42047108f0 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_279607c08c24956a27f15068df8d9db2 = $(
+      `<div id="html_279607c08c24956a27f15068df8d9db2" style="width: 100.0%; height: 100.0%;">Existing Station: Tata Power - Chembur | </div>`
+    )[0];
+    popup_a2438458aded8a1be90f0e42047108f0.setContent(
+      html_279607c08c24956a27f15068df8d9db2
+    );
+
+    marker_7165b84cebcdce51c6e05d5229e481cd.bindPopup(
+      popup_a2438458aded8a1be90f0e42047108f0
+    );
+
+    marker_7165b84cebcdce51c6e05d5229e481cd.setIcon(
+      icon_9151a9dc1b60bb464df64cb51bf10fac
+    );
+
+    var marker_a9ce2ec7dbbbc2fb51dcae27d6159ee2 = L.marker(
+      [18.9216, 72.8326],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_d308568499b80de8d797f4c3c59d5724 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_3f2291dcdd0c9a16a2b9d7173914e295 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_bc406d92268fac7eebc24fc1a664c6d0 = $(
+      `<div id="html_bc406d92268fac7eebc24fc1a664c6d0" style="width: 100.0%; height: 100.0%;">Existing Station: Tata Power - Colaba | </div>`
+    )[0];
+    popup_3f2291dcdd0c9a16a2b9d7173914e295.setContent(
+      html_bc406d92268fac7eebc24fc1a664c6d0
+    );
+
+    marker_a9ce2ec7dbbbc2fb51dcae27d6159ee2.bindPopup(
+      popup_3f2291dcdd0c9a16a2b9d7173914e295
+    );
+
+    marker_a9ce2ec7dbbbc2fb51dcae27d6159ee2.setIcon(
+      icon_d308568499b80de8d797f4c3c59d5724
+    );
+
+    var marker_5c5fc30c5cd7e7a8576a8c559cbd1fe1 = L.marker(
+      [18.991, 72.8485],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_75de72cb444ed1e72363479553fd4c93 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_43e6655461b07754f20f04dfeaec6db5 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_17d39f9cc86f422f7636c2ff48990b96 = $(
+      `<div id="html_17d39f9cc86f422f7636c2ff48990b96" style="width: 100.0%; height: 100.0%;">Existing Station: Tata Power - Cotton Green | </div>`
+    )[0];
+    popup_43e6655461b07754f20f04dfeaec6db5.setContent(
+      html_17d39f9cc86f422f7636c2ff48990b96
+    );
+
+    marker_5c5fc30c5cd7e7a8576a8c559cbd1fe1.bindPopup(
+      popup_43e6655461b07754f20f04dfeaec6db5
+    );
+
+    marker_5c5fc30c5cd7e7a8576a8c559cbd1fe1.setIcon(
+      icon_75de72cb444ed1e72363479553fd4c93
+    );
+
+    var marker_f133d56f5be6411ff7c3915852043ece = L.marker(
+      [19.0202, 72.8447],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_662e9522230d6cee793d0927a599f29c = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_f1a12eb08e6cd205113e949c36e67b7b = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_76336306c2bc739571617605dc63d6ef = $(
+      `<div id="html_76336306c2bc739571617605dc63d6ef" style="width: 100.0%; height: 100.0%;">Existing Station: Tata Power - Dadar East | </div>`
+    )[0];
+    popup_f1a12eb08e6cd205113e949c36e67b7b.setContent(
+      html_76336306c2bc739571617605dc63d6ef
+    );
+
+    marker_f133d56f5be6411ff7c3915852043ece.bindPopup(
+      popup_f1a12eb08e6cd205113e949c36e67b7b
+    );
+
+    marker_f133d56f5be6411ff7c3915852043ece.setIcon(
+      icon_662e9522230d6cee793d0927a599f29c
+    );
+
+    var marker_6d9e727b7cc541c35531d335c3695d31 = L.marker(
+      [19.034402, 72.85284],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_c311bcd2a8526a4a7f543c54bfb33f4f = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_912d68ad3c33b469d71a56de2e6a9d0d = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_e0aad4d302de86c1c9c9362a4cd9d17a = $(
+      `<div id="html_e0aad4d302de86c1c9c9362a4cd9d17a" style="width: 100.0%; height: 100.0%;">Existing Station: Tata Power, Dharavi Colony | </div>`
+    )[0];
+    popup_912d68ad3c33b469d71a56de2e6a9d0d.setContent(
+      html_e0aad4d302de86c1c9c9362a4cd9d17a
+    );
+
+    marker_6d9e727b7cc541c35531d335c3695d31.bindPopup(
+      popup_912d68ad3c33b469d71a56de2e6a9d0d
+    );
+
+    marker_6d9e727b7cc541c35531d335c3695d31.setIcon(
+      icon_c311bcd2a8526a4a7f543c54bfb33f4f
+    );
+
+    var marker_cebec3ceeceabf48f682a55195cbc586 = L.marker(
+      [19.2188, 73.0935],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_86d78a75ba5fecf72f8681b5960e4550 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_a88ef37c4c2e1979d4b1ee3b851984e8 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_a24429990f078372f160fa7f6178732b = $(
+      `<div id="html_a24429990f078372f160fa7f6178732b" style="width: 100.0%; height: 100.0%;">Existing Station: Tata Power - Dombivli | </div>`
+    )[0];
+    popup_a88ef37c4c2e1979d4b1ee3b851984e8.setContent(
+      html_a24429990f078372f160fa7f6178732b
+    );
+
+    marker_cebec3ceeceabf48f682a55195cbc586.bindPopup(
+      popup_a88ef37c4c2e1979d4b1ee3b851984e8
+    );
+
+    marker_cebec3ceeceabf48f682a55195cbc586.setIcon(
+      icon_86d78a75ba5fecf72f8681b5960e4550
+    );
+
+    var marker_b6043d3aa89ba9fbd5f112347afae43b = L.marker(
+      [18.9218, 72.8347],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_d89fa898c852d60675bf779c7865ddfd = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_4552d453c8cbfab28d6aba37a0fb0ed5 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_3b49ddbe67733cb57a0b1d4eac70959e = $(
+      `<div id="html_3b49ddbe67733cb57a0b1d4eac70959e" style="width: 100.0%; height: 100.0%;">Existing Station: Tata Power - Gateway of India | </div>`
+    )[0];
+    popup_4552d453c8cbfab28d6aba37a0fb0ed5.setContent(
+      html_3b49ddbe67733cb57a0b1d4eac70959e
+    );
+
+    marker_b6043d3aa89ba9fbd5f112347afae43b.bindPopup(
+      popup_4552d453c8cbfab28d6aba37a0fb0ed5
+    );
+
+    marker_b6043d3aa89ba9fbd5f112347afae43b.setIcon(
+      icon_d89fa898c852d60675bf779c7865ddfd
+    );
+
+    var marker_c2a55f18f84c2dad1d84c8db81aa0e61 = L.marker(
+      [19.097, 72.8261],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_a2484ad5d9b6903f86c0e87a335ed554 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_e9d8f40e10759511bfbc5e862f0aaf40 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_053ffa1e4ba7b667fe0e59c7771db293 = $(
+      `<div id="html_053ffa1e4ba7b667fe0e59c7771db293" style="width: 100.0%; height: 100.0%;">Existing Station: Tata Power - Juhu Vile Parle | </div>`
+    )[0];
+    popup_e9d8f40e10759511bfbc5e862f0aaf40.setContent(
+      html_053ffa1e4ba7b667fe0e59c7771db293
+    );
+
+    marker_c2a55f18f84c2dad1d84c8db81aa0e61.bindPopup(
+      popup_e9d8f40e10759511bfbc5e862f0aaf40
+    );
+
+    marker_c2a55f18f84c2dad1d84c8db81aa0e61.setIcon(
+      icon_a2484ad5d9b6903f86c0e87a335ed554
+    );
+
+    var marker_56e650dcbd1455fb8431781baa5fbec1 = L.marker(
+      [19.2053, 72.8444],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_d58e0d4cef307052947d21ce7b252582 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_f7612ed19eb529baf96c7b6d47d7bf33 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_950e7d52530c514eeabf3516fca9bbcd = $(
+      `<div id="html_950e7d52530c514eeabf3516fca9bbcd" style="width: 100.0%; height: 100.0%;">Existing Station: Tata Power - Kandivali West | </div>`
+    )[0];
+    popup_f7612ed19eb529baf96c7b6d47d7bf33.setContent(
+      html_950e7d52530c514eeabf3516fca9bbcd
+    );
+
+    marker_56e650dcbd1455fb8431781baa5fbec1.bindPopup(
+      popup_f7612ed19eb529baf96c7b6d47d7bf33
+    );
+
+    marker_56e650dcbd1455fb8431781baa5fbec1.setIcon(
+      icon_d58e0d4cef307052947d21ce7b252582
+    );
+
+    var marker_fa5d24899250f31b784dd06445caf666 = L.marker(
+      [18.965, 72.8098],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_49835284248383247294faf20556b16f = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_2bfca8503782fc0053c1bdbc67de0970 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_9764497e140152a65f3370c42b22b336 = $(
+      `<div id="html_9764497e140152a65f3370c42b22b336" style="width: 100.0%; height: 100.0%;">Existing Station: Tata Power - Kapasi CHSL | </div>`
+    )[0];
+    popup_2bfca8503782fc0053c1bdbc67de0970.setContent(
+      html_9764497e140152a65f3370c42b22b336
+    );
+
+    marker_fa5d24899250f31b784dd06445caf666.bindPopup(
+      popup_2bfca8503782fc0053c1bdbc67de0970
+    );
+
+    marker_fa5d24899250f31b784dd06445caf666.setIcon(
+      icon_49835284248383247294faf20556b16f
+    );
+
+    var marker_e0ee0cf81480e98cbca0f85af7ed6709 = L.marker(
+      [19.0028, 73.1076],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_16da7a03785a73f42b4cf46f66a1947e = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_28357e4484581f3a192eee6c1f5b49e8 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_7112fbdcb92d42dce4f5d4f6544cd329 = $(
+      `<div id="html_7112fbdcb92d42dce4f5d4f6544cd329" style="width: 100.0%; height: 100.0%;">Existing Station: Tata Power - Khandeshwar | </div>`
+    )[0];
+    popup_28357e4484581f3a192eee6c1f5b49e8.setContent(
+      html_7112fbdcb92d42dce4f5d4f6544cd329
+    );
+
+    marker_e0ee0cf81480e98cbca0f85af7ed6709.bindPopup(
+      popup_28357e4484581f3a192eee6c1f5b49e8
+    );
+
+    marker_e0ee0cf81480e98cbca0f85af7ed6709.setIcon(
+      icon_16da7a03785a73f42b4cf46f66a1947e
+    );
+
+    var marker_690c47c4faf6b6d427903a1e5df62ec3 = L.marker(
+      [19.0756, 72.8322],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_03e573ba00cc230417d3b026d3d0bb3e = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_f5bbde4cd6302b1a7168f43ddf02565c = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_a1926c11388da86e663c9f74343aa9fc = $(
+      `<div id="html_a1926c11388da86e663c9f74343aa9fc" style="width: 100.0%; height: 100.0%;">Existing Station: Tata Power - Khar West | </div>`
+    )[0];
+    popup_f5bbde4cd6302b1a7168f43ddf02565c.setContent(
+      html_a1926c11388da86e663c9f74343aa9fc
+    );
+
+    marker_690c47c4faf6b6d427903a1e5df62ec3.bindPopup(
+      popup_f5bbde4cd6302b1a7168f43ddf02565c
+    );
+
+    marker_690c47c4faf6b6d427903a1e5df62ec3.setIcon(
+      icon_03e573ba00cc230417d3b026d3d0bb3e
+    );
+
+    var marker_9cf8fcd9ae4c1e034843c87652ea15ed = L.marker(
+      [19.0702, 72.881],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_5d05c9f5259594863031593ab33a734f = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_8afc030af53dcf44927627b4fe46a21c = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_3ff2a4e51e6e9ce932365b260920a84a = $(
+      `<div id="html_3ff2a4e51e6e9ce932365b260920a84a" style="width: 100.0%; height: 100.0%;">Existing Station: Tata Power - Kurla LBS | </div>`
+    )[0];
+    popup_8afc030af53dcf44927627b4fe46a21c.setContent(
+      html_3ff2a4e51e6e9ce932365b260920a84a
+    );
+
+    marker_9cf8fcd9ae4c1e034843c87652ea15ed.bindPopup(
+      popup_8afc030af53dcf44927627b4fe46a21c
+    );
+
+    marker_9cf8fcd9ae4c1e034843c87652ea15ed.setIcon(
+      icon_5d05c9f5259594863031593ab33a734f
+    );
+
+    var marker_ee2b00b5cb3853d9324bf16d30b87a2e = L.marker(
+      [18.994, 72.8231],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_f0c5d29e62618c5e5d62b1976939c41a = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_8816ba0057c73af61f75a1da5e060e6d = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_4d97ada231f97390b3360e0f4b565f10 = $(
+      `<div id="html_4d97ada231f97390b3360e0f4b565f10" style="width: 100.0%; height: 100.0%;">Existing Station: Tata Power - Mahalaxmi West | </div>`
+    )[0];
+    popup_8816ba0057c73af61f75a1da5e060e6d.setContent(
+      html_4d97ada231f97390b3360e0f4b565f10
+    );
+
+    marker_ee2b00b5cb3853d9324bf16d30b87a2e.bindPopup(
+      popup_8816ba0057c73af61f75a1da5e060e6d
+    );
+
+    marker_ee2b00b5cb3853d9324bf16d30b87a2e.setIcon(
+      icon_f0c5d29e62618c5e5d62b1976939c41a
+    );
+
+    var marker_10605e42971fa44e59791ff8ce673010 = L.marker(
+      [19.0281, 72.8647],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_6c00cda8d4a62b5fd959bfc6339b9ba0 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_c22e132ad05b3fefc79e3e14b405b582 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_5a3b8a8cc13dbcea15458848ba5a15f1 = $(
+      `<div id="html_5a3b8a8cc13dbcea15458848ba5a15f1" style="width: 100.0%; height: 100.0%;">Existing Station: Tata Power - Mahanagar Gas | </div>`
+    )[0];
+    popup_c22e132ad05b3fefc79e3e14b405b582.setContent(
+      html_5a3b8a8cc13dbcea15458848ba5a15f1
+    );
+
+    marker_10605e42971fa44e59791ff8ce673010.bindPopup(
+      popup_c22e132ad05b3fefc79e3e14b405b582
+    );
+
+    marker_10605e42971fa44e59791ff8ce673010.setIcon(
+      icon_6c00cda8d4a62b5fd959bfc6339b9ba0
+    );
+
+    var marker_9e8076fd845b78554a99edc05aac19d9 = L.marker(
+      [19.0498, 72.9317],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_c909e7c8914e868608227e1d28956527 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_f1c57afb911cff58630bbe05152609da = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_18d6179fabfc0ef5cda9c3a9eb7c2ecb = $(
+      `<div id="html_18d6179fabfc0ef5cda9c3a9eb7c2ecb" style="width: 100.0%; height: 100.0%;">Existing Station: Tata Power - Mankhurd | </div>`
+    )[0];
+    popup_f1c57afb911cff58630bbe05152609da.setContent(
+      html_18d6179fabfc0ef5cda9c3a9eb7c2ecb
+    );
+
+    marker_9e8076fd845b78554a99edc05aac19d9.bindPopup(
+      popup_f1c57afb911cff58630bbe05152609da
+    );
+
+    marker_9e8076fd845b78554a99edc05aac19d9.setIcon(
+      icon_c909e7c8914e868608227e1d28956527
+    );
+
+    var marker_2a269870b8dcc3a47fa49a15f1bf85cd = L.marker(
+      [18.9255, 72.8234],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_75ab8e99ed12ee019dca4e1823d06cff = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_949246728bc3cced894ea973635484c3 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_ed2ab81726d03ea4ab72425dc7953ab0 = $(
+      `<div id="html_ed2ab81726d03ea4ab72425dc7953ab0" style="width: 100.0%; height: 100.0%;">Existing Station: Tata Power - Nariman Point | </div>`
+    )[0];
+    popup_949246728bc3cced894ea973635484c3.setContent(
+      html_ed2ab81726d03ea4ab72425dc7953ab0
+    );
+
+    marker_2a269870b8dcc3a47fa49a15f1bf85cd.bindPopup(
+      popup_949246728bc3cced894ea973635484c3
+    );
+
+    marker_2a269870b8dcc3a47fa49a15f1bf85cd.setIcon(
+      icon_75ab8e99ed12ee019dca4e1823d06cff
+    );
+
+    var marker_cd0cb441a1d9528489afbdaa98ac4363 = L.marker(
+      [18.9907, 73.1195],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_859125f631a264b94b4df7cc83f225a3 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_0ece65b6d19d39d97ba1fea7cc9c44c4 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_cb714e78aa775fd77a91cf89157c5c34 = $(
+      `<div id="html_cb714e78aa775fd77a91cf89157c5c34" style="width: 100.0%; height: 100.0%;">Existing Station: Tata Power - New Panvel | </div>`
+    )[0];
+    popup_0ece65b6d19d39d97ba1fea7cc9c44c4.setContent(
+      html_cb714e78aa775fd77a91cf89157c5c34
+    );
+
+    marker_cd0cb441a1d9528489afbdaa98ac4363.bindPopup(
+      popup_0ece65b6d19d39d97ba1fea7cc9c44c4
+    );
+
+    marker_cd0cb441a1d9528489afbdaa98ac4363.setIcon(
+      icon_859125f631a264b94b4df7cc83f225a3
+    );
+
+    var marker_9ed2fa868a05ec685a2cd7aa5c2dda36 = L.marker(
+      [18.9545, 72.8189],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_435dcd79ce1c9e7e79ca8895196c5971 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_a82a5d7742c922cf835455ef1e393f59 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_ffe1da22b57fcf2a27748efb6a8ce308 = $(
+      `<div id="html_ffe1da22b57fcf2a27748efb6a8ce308" style="width: 100.0%; height: 100.0%;">Existing Station: Tata Power - Opera House | </div>`
+    )[0];
+    popup_a82a5d7742c922cf835455ef1e393f59.setContent(
+      html_ffe1da22b57fcf2a27748efb6a8ce308
+    );
+
+    marker_9ed2fa868a05ec685a2cd7aa5c2dda36.bindPopup(
+      popup_a82a5d7742c922cf835455ef1e393f59
+    );
+
+    marker_9ed2fa868a05ec685a2cd7aa5c2dda36.setIcon(
+      icon_435dcd79ce1c9e7e79ca8895196c5971
+    );
+
+    var marker_9a30b59a012260ee1f8a00b1d9c39501 = L.marker(
+      [19.2081, 73.1041],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_81ea0a407e4173aa2d0fb6a9f96591c2 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_7a0ec4160773756e478f49f0596ff864 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_d177137f019fc11390bf10170b349192 = $(
+      `<div id="html_d177137f019fc11390bf10170b349192" style="width: 100.0%; height: 100.0%;">Existing Station: Tata Power - Palava | </div>`
+    )[0];
+    popup_7a0ec4160773756e478f49f0596ff864.setContent(
+      html_d177137f019fc11390bf10170b349192
+    );
+
+    marker_9a30b59a012260ee1f8a00b1d9c39501.bindPopup(
+      popup_7a0ec4160773756e478f49f0596ff864
+    );
+
+    marker_9a30b59a012260ee1f8a00b1d9c39501.setIcon(
+      icon_81ea0a407e4173aa2d0fb6a9f96591c2
+    );
+
+    var marker_b0e37d134913bd2e513e54c7eef2d648 = L.marker(
+      [19.0494, 73.1166],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_6df9e41a522ce1b66b369a7280469bb7 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_68f7f0a71fd35d665e41bbbb16abb471 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_9aac350e936087209d084420d8e167fb = $(
+      `<div id="html_9aac350e936087209d084420d8e167fb" style="width: 100.0%; height: 100.0%;">Existing Station: Tata Power - Taloja Station | </div>`
+    )[0];
+    popup_68f7f0a71fd35d665e41bbbb16abb471.setContent(
+      html_9aac350e936087209d084420d8e167fb
+    );
+
+    marker_b0e37d134913bd2e513e54c7eef2d648.bindPopup(
+      popup_68f7f0a71fd35d665e41bbbb16abb471
+    );
+
+    marker_b0e37d134913bd2e513e54c7eef2d648.setIcon(
+      icon_6df9e41a522ce1b66b369a7280469bb7
+    );
+
+    var marker_f5c927e313529af9e308a492092a0a86 = L.marker(
+      [19.1915, 72.972],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_fc223098b55f7c94e4bbfc067e1c41fa = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_2d7cfe53d5ea9be667c76950fb7bdb5f = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_725cea6a7fcf8dbfa54001c45c86dc9c = $(
+      `<div id="html_725cea6a7fcf8dbfa54001c45c86dc9c" style="width: 100.0%; height: 100.0%;">Existing Station: Tata Power - Thane West | </div>`
+    )[0];
+    popup_2d7cfe53d5ea9be667c76950fb7bdb5f.setContent(
+      html_725cea6a7fcf8dbfa54001c45c86dc9c
+    );
+
+    marker_f5c927e313529af9e308a492092a0a86.bindPopup(
+      popup_2d7cfe53d5ea9be667c76950fb7bdb5f
+    );
+
+    marker_f5c927e313529af9e308a492092a0a86.setIcon(
+      icon_fc223098b55f7c94e4bbfc067e1c41fa
+    );
+
+    var marker_4150a8eea581cccfb0a27b32877aa48e = L.marker(
+      [19.0734, 72.8892],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_6674ab3a349e2e52b5fbe6f859e742ac = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_31d04a3ee92553cfc2cd21761dff014b = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_4e414e595b0107dabb499b95a37b3c7f = $(
+      `<div id="html_4e414e595b0107dabb499b95a37b3c7f" style="width: 100.0%; height: 100.0%;">Existing Station: Tata Power - Tilak Nagar | </div>`
+    )[0];
+    popup_31d04a3ee92553cfc2cd21761dff014b.setContent(
+      html_4e414e595b0107dabb499b95a37b3c7f
+    );
+
+    marker_4150a8eea581cccfb0a27b32877aa48e.bindPopup(
+      popup_31d04a3ee92553cfc2cd21761dff014b
+    );
+
+    marker_4150a8eea581cccfb0a27b32877aa48e.setIcon(
+      icon_6674ab3a349e2e52b5fbe6f859e742ac
+    );
+
+    var marker_465fe53b4b84a58f81424a80a741df78 = L.marker(
+      [19.106, 72.9286],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_6c89cd5c867fa212bdfb019a0e229037 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_54420df49b728bbfbe37c177f111bc22 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_192efb409be2e2d370b212f17cb65d62 = $(
+      `<div id="html_192efb409be2e2d370b212f17cb65d62" style="width: 100.0%; height: 100.0%;">Existing Station: Tata Power - Vikhroli | </div>`
+    )[0];
+    popup_54420df49b728bbfbe37c177f111bc22.setContent(
+      html_192efb409be2e2d370b212f17cb65d62
+    );
+
+    marker_465fe53b4b84a58f81424a80a741df78.bindPopup(
+      popup_54420df49b728bbfbe37c177f111bc22
+    );
+
+    marker_465fe53b4b84a58f81424a80a741df78.setIcon(
+      icon_6c89cd5c867fa212bdfb019a0e229037
+    );
+
+    var marker_daec2dff900c328bb4df8aa57c5ff753 = L.marker(
+      [18.9563188, 73.1626506],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_ed6bdce7c48a33ff8e689570b5c58858 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_62c7338c0274289f168d182937030bc2 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_5c6d5d90421a0aa7aa3101b57a45b5fc = $(
+      `<div id="html_5c6d5d90421a0aa7aa3101b57a45b5fc" style="width: 100.0%; height: 100.0%;">Existing Station: Trimurti Petroleum, Panvel | </div>`
+    )[0];
+    popup_62c7338c0274289f168d182937030bc2.setContent(
+      html_5c6d5d90421a0aa7aa3101b57a45b5fc
+    );
+
+    marker_daec2dff900c328bb4df8aa57c5ff753.bindPopup(
+      popup_62c7338c0274289f168d182937030bc2
+    );
+
+    marker_daec2dff900c328bb4df8aa57c5ff753.setIcon(
+      icon_ed6bdce7c48a33ff8e689570b5c58858
+    );
+
+    var marker_91d8ffae5e072ee418fd7a45ad3a57e4 = L.marker(
+      [19.1146146, 72.8840941],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_5234335ee9ae4708e571d559ed31e5a0 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_727139a2797b49c0a8c61af640f5ef6f = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_1cecaffa8267715149563fb25b90b83c = $(
+      `<div id="html_1cecaffa8267715149563fb25b90b83c" style="width: 100.0%; height: 100.0%;">Existing Station: Vasant oasis | </div>`
+    )[0];
+    popup_727139a2797b49c0a8c61af640f5ef6f.setContent(
+      html_1cecaffa8267715149563fb25b90b83c
+    );
+
+    marker_91d8ffae5e072ee418fd7a45ad3a57e4.bindPopup(
+      popup_727139a2797b49c0a8c61af640f5ef6f
+    );
+
+    marker_91d8ffae5e072ee418fd7a45ad3a57e4.setIcon(
+      icon_5234335ee9ae4708e571d559ed31e5a0
+    );
+
+    var marker_d76443c8068039fd0aba7463205c6afb = L.marker(
+      [19.12012455, 72.88724762],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_e7cf3633606e4e2f8d3463c58ca28802 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_596d309974d2502c27b977fe340e9dd1 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_016252110b66154761b1e3c19c44b252 = $(
+      `<div id="html_016252110b66154761b1e3c19c44b252" style="width: 100.0%; height: 100.0%;">Existing Station: Volltic PCS04 | </div>`
+    )[0];
+    popup_596d309974d2502c27b977fe340e9dd1.setContent(
+      html_016252110b66154761b1e3c19c44b252
+    );
+
+    marker_d76443c8068039fd0aba7463205c6afb.bindPopup(
+      popup_596d309974d2502c27b977fe340e9dd1
+    );
+
+    marker_d76443c8068039fd0aba7463205c6afb.setIcon(
+      icon_e7cf3633606e4e2f8d3463c58ca28802
+    );
+
+    var marker_c73b55530571cbdbf9f9672224688011 = L.marker(
+      [19.0161, 72.828],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_886b5b9f8e7ffb1bdd8e97d4720a3000 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_668630695b1f96d862e73b63f038c99f = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_24a638d2003212dcde84ea0c7188c61c = $(
+      `<div id="html_24a638d2003212dcde84ea0c7188c61c" style="width: 100.0%; height: 100.0%;">Existing Station: VoltaPoint Charging Station | </div>`
+    )[0];
+    popup_668630695b1f96d862e73b63f038c99f.setContent(
+      html_24a638d2003212dcde84ea0c7188c61c
+    );
+
+    marker_c73b55530571cbdbf9f9672224688011.bindPopup(
+      popup_668630695b1f96d862e73b63f038c99f
+    );
+
+    marker_c73b55530571cbdbf9f9672224688011.setIcon(
+      icon_886b5b9f8e7ffb1bdd8e97d4720a3000
+    );
+
+    var marker_3082a9296ce2ac137c80157e538ada5e = L.marker(
+      [19.2567, 72.8572],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_6ca5021f1c89e4642eec6a98d0c252ac = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_2d9d086ad6164a378e0e8f1a0a9a11e0 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_706148bc8c4804521208f4f9cc2a5e17 = $(
+      `<div id="html_706148bc8c4804521208f4f9cc2a5e17" style="width: 100.0%; height: 100.0%;">Existing Station: VoltaPoint - Dahisar | </div>`
+    )[0];
+    popup_2d9d086ad6164a378e0e8f1a0a9a11e0.setContent(
+      html_706148bc8c4804521208f4f9cc2a5e17
+    );
+
+    marker_3082a9296ce2ac137c80157e538ada5e.bindPopup(
+      popup_2d9d086ad6164a378e0e8f1a0a9a11e0
+    );
+
+    marker_3082a9296ce2ac137c80157e538ada5e.setIcon(
+      icon_6ca5021f1c89e4642eec6a98d0c252ac
+    );
+
+    var marker_bfe21c0c436a92fa141b3cc8e151c9f1 = L.marker(
+      [19.0543, 73.1153],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_843045af45bfde0a6de8c4ef46270c74 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_cf5b6f93abc7fd8703d9f2ad203f6a76 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_1e1f07d99e1ed1aada7da6803045cd73 = $(
+      `<div id="html_1e1f07d99e1ed1aada7da6803045cd73" style="width: 100.0%; height: 100.0%;">Existing Station: VoltaPoint - Kalamboli Highway | </div>`
+    )[0];
+    popup_cf5b6f93abc7fd8703d9f2ad203f6a76.setContent(
+      html_1e1f07d99e1ed1aada7da6803045cd73
+    );
+
+    marker_bfe21c0c436a92fa141b3cc8e151c9f1.bindPopup(
+      popup_cf5b6f93abc7fd8703d9f2ad203f6a76
+    );
+
+    marker_bfe21c0c436a92fa141b3cc8e151c9f1.setIcon(
+      icon_843045af45bfde0a6de8c4ef46270c74
+    );
+
+    var marker_f9f08b9a14d944ca3be62e077b44714b = L.marker(
+      [19.0094, 72.8394],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_7a68af22ab1b310d8983f80b8b553ab4 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_f382e966a625003f7ed606c4e52528b3 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_fc799d21b3fbb4b45902df9aba40272a = $(
+      `<div id="html_fc799d21b3fbb4b45902df9aba40272a" style="width: 100.0%; height: 100.0%;">Existing Station: VoltaPoint - Parel | </div>`
+    )[0];
+    popup_f382e966a625003f7ed606c4e52528b3.setContent(
+      html_fc799d21b3fbb4b45902df9aba40272a
+    );
+
+    marker_f9f08b9a14d944ca3be62e077b44714b.bindPopup(
+      popup_f382e966a625003f7ed606c4e52528b3
+    );
+
+    marker_f9f08b9a14d944ca3be62e077b44714b.setIcon(
+      icon_7a68af22ab1b310d8983f80b8b553ab4
+    );
+
+    var marker_ac69065f88454b5acfafce6ae46f802d = L.marker(
+      [19.0658, 72.8687],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_9140ff2629eae441ac3ba76bef163d66 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_c98965f8a69585b07318b0fefa4a62c3 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_68be456030274f5a3b2998b21ed3f973 = $(
+      `<div id="html_68be456030274f5a3b2998b21ed3f973" style="width: 100.0%; height: 100.0%;">Existing Station: Volttic - BKC | </div>`
+    )[0];
+    popup_c98965f8a69585b07318b0fefa4a62c3.setContent(
+      html_68be456030274f5a3b2998b21ed3f973
+    );
+
+    marker_ac69065f88454b5acfafce6ae46f802d.bindPopup(
+      popup_c98965f8a69585b07318b0fefa4a62c3
+    );
+
+    marker_ac69065f88454b5acfafce6ae46f802d.setIcon(
+      icon_9140ff2629eae441ac3ba76bef163d66
+    );
+
+    var marker_e6e9a0d2b26668d2ab39ce23ca7dd353 = L.marker(
+      [19.1339, 73.0011],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_447750307fab894abf847abcb118be60 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_23ed9a39a7323aedc48aa90c5868b50c = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_6d9c178e3658a3fca3fca0224b35c247 = $(
+      `<div id="html_6d9c178e3658a3fca3fca0224b35c247" style="width: 100.0%; height: 100.0%;">Existing Station: Volttic - Ghansoli | </div>`
+    )[0];
+    popup_23ed9a39a7323aedc48aa90c5868b50c.setContent(
+      html_6d9c178e3658a3fca3fca0224b35c247
+    );
+
+    marker_e6e9a0d2b26668d2ab39ce23ca7dd353.bindPopup(
+      popup_23ed9a39a7323aedc48aa90c5868b50c
+    );
+
+    marker_e6e9a0d2b26668d2ab39ce23ca7dd353.setIcon(
+      icon_447750307fab894abf847abcb118be60
+    );
+
+    var marker_28493f3f5c13d33a8642463e5a7f4c7e = L.marker(
+      [19.1112, 72.874],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_bcf7f23d9df5c08a9c56d34edcab3ab9 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_45c4902129701dcb29ed5400898d9ab5 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_b7d77b3e721a71a5d1b7cb6577fe1a01 = $(
+      `<div id="html_b7d77b3e721a71a5d1b7cb6577fe1a01" style="width: 100.0%; height: 100.0%;">Existing Station: Volttic Charging - Marol | </div>`
+    )[0];
+    popup_45c4902129701dcb29ed5400898d9ab5.setContent(
+      html_b7d77b3e721a71a5d1b7cb6577fe1a01
+    );
+
+    marker_28493f3f5c13d33a8642463e5a7f4c7e.bindPopup(
+      popup_45c4902129701dcb29ed5400898d9ab5
+    );
+
+    marker_28493f3f5c13d33a8642463e5a7f4c7e.setIcon(
+      icon_bcf7f23d9df5c08a9c56d34edcab3ab9
+    );
+
+    var marker_efe6c3c10e55fe2bfa74064fd85bdd35 = L.marker(
+      [19.1265, 72.8874],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_9e7469a4136b46539474f9f4372f4adc = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_664ad137fa40e826dc2750edf6cf7825 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_0fd12999aa16340d1a05c54ead9e2d39 = $(
+      `<div id="html_0fd12999aa16340d1a05c54ead9e2d39" style="width: 100.0%; height: 100.0%;">Existing Station: Volttic Mini Charging | </div>`
+    )[0];
+    popup_664ad137fa40e826dc2750edf6cf7825.setContent(
+      html_0fd12999aa16340d1a05c54ead9e2d39
+    );
+
+    marker_efe6c3c10e55fe2bfa74064fd85bdd35.bindPopup(
+      popup_664ad137fa40e826dc2750edf6cf7825
+    );
+
+    marker_efe6c3c10e55fe2bfa74064fd85bdd35.setIcon(
+      icon_9e7469a4136b46539474f9f4372f4adc
+    );
+
+    var marker_26e16c4404e667973462891e17854ca5 = L.marker(
+      [18.9692, 72.8195],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_553951c78de5a79facc87a57f8e3e192 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_f2325a18ddfd508d309623389820690e = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_0a5b8c078fa2bb77c9a2a8fce900044c = $(
+      `<div id="html_0a5b8c078fa2bb77c9a2a8fce900044c" style="width: 100.0%; height: 100.0%;">Existing Station: Volttic - Mumbai Central | </div>`
+    )[0];
+    popup_f2325a18ddfd508d309623389820690e.setContent(
+      html_0a5b8c078fa2bb77c9a2a8fce900044c
+    );
+
+    marker_26e16c4404e667973462891e17854ca5.bindPopup(
+      popup_f2325a18ddfd508d309623389820690e
+    );
+
+    marker_26e16c4404e667973462891e17854ca5.setIcon(
+      icon_553951c78de5a79facc87a57f8e3e192
+    );
+
+    var marker_3fd3f4717d01216e6adf020ee386ea74 = L.marker(
+      [19.032, 72.8597],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_f2834176dfb6e251e191635fd438f429 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_be339f1cf3bd44863e790c2d0c71c460 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_bdb29e8c16bc80a50e71829369f35516 = $(
+      `<div id="html_bdb29e8c16bc80a50e71829369f35516" style="width: 100.0%; height: 100.0%;">Existing Station: Volttic - Sion | </div>`
+    )[0];
+    popup_be339f1cf3bd44863e790c2d0c71c460.setContent(
+      html_bdb29e8c16bc80a50e71829369f35516
+    );
+
+    marker_3fd3f4717d01216e6adf020ee386ea74.bindPopup(
+      popup_be339f1cf3bd44863e790c2d0c71c460
+    );
+
+    marker_3fd3f4717d01216e6adf020ee386ea74.setIcon(
+      icon_f2834176dfb6e251e191635fd438f429
+    );
+
+    var marker_a5b9e3934cd6185078bee01b82e5ad0d = L.marker(
+      [19.0053, 72.8157],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_056617eb280b402626fc53e5f60b9b39 = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_13740008dc5545b845c6f1b646bdfbec = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_e0e5e04b28263db2dd7861e57b3006bd = $(
+      `<div id="html_e0e5e04b28263db2dd7861e57b3006bd" style="width: 100.0%; height: 100.0%;">Existing Station: Volttic - Worli Sea Face | </div>`
+    )[0];
+    popup_13740008dc5545b845c6f1b646bdfbec.setContent(
+      html_e0e5e04b28263db2dd7861e57b3006bd
+    );
+
+    marker_a5b9e3934cd6185078bee01b82e5ad0d.bindPopup(
+      popup_13740008dc5545b845c6f1b646bdfbec
+    );
+
+    marker_a5b9e3934cd6185078bee01b82e5ad0d.setIcon(
+      icon_056617eb280b402626fc53e5f60b9b39
+    );
+
+    var marker_f6b019a5965194bf39c62e38425c06cc = L.marker(
+      [19.04520829, 72.84154175],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_c2821155318be6a1db241b394af8158d = L.AwesomeMarkers.icon({
+      markerColor: "green",
+      iconColor: "white",
+      icon: "ok-sign",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_cde1802ce50cffc46dc580d994d38589 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_bf543841c52f03413cf8ac5299133719 = $(
+      `<div id="html_bf543841c52f03413cf8ac5299133719" style="width: 100.0%; height: 100.0%;">Existing Station: Xavier Institute of Engineering | </div>`
+    )[0];
+    popup_cde1802ce50cffc46dc580d994d38589.setContent(
+      html_bf543841c52f03413cf8ac5299133719
+    );
+
+    marker_f6b019a5965194bf39c62e38425c06cc.bindPopup(
+      popup_cde1802ce50cffc46dc580d994d38589
+    );
+
+    marker_f6b019a5965194bf39c62e38425c06cc.setIcon(
+      icon_c2821155318be6a1db241b394af8158d
+    );
+
+    var marker_d220d58601faa33d361fa9e73c6245f6 = L.marker(
+      [19.1206, 72.9188],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_08859a96a07c7c772f2de607570ef449 = L.AwesomeMarkers.icon({
+      markerColor: "red",
+      iconColor: "white",
+      icon: "flag",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_aa396260ed0f3c8861ab0d9868eb92d7 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_d101eb5945ea54b99daceba808782402 = $(
+      `<div id="html_d101eb5945ea54b99daceba808782402" style="width: 100.0%; height: 100.0%;">Suggested New Station | Predicted demand: 4.91 | Bucket: near | Dist from nearest: 0.00 km</div>`
+    )[0];
+    popup_aa396260ed0f3c8861ab0d9868eb92d7.setContent(
+      html_d101eb5945ea54b99daceba808782402
+    );
+
+    marker_d220d58601faa33d361fa9e73c6245f6.bindPopup(
+      popup_aa396260ed0f3c8861ab0d9868eb92d7
+    );
+
+    marker_d220d58601faa33d361fa9e73c6245f6.setIcon(
+      icon_08859a96a07c7c772f2de607570ef449
+    );
+
+    var marker_e3d219ad279a47ebb8da14d33bf2faf5 = L.marker(
+      [19.1164, 72.9109],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_6b9427e495b7c650b567c3b281115702 = L.AwesomeMarkers.icon({
+      markerColor: "red",
+      iconColor: "white",
+      icon: "flag",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_c4ad0cc57036edcc9e9004eec0304555 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_22ebb34eadb23d6f88b4abe95ff40fe5 = $(
+      `<div id="html_22ebb34eadb23d6f88b4abe95ff40fe5" style="width: 100.0%; height: 100.0%;">Suggested New Station | Predicted demand: 4.25 | Bucket: near | Dist from nearest: 0.01 km</div>`
+    )[0];
+    popup_c4ad0cc57036edcc9e9004eec0304555.setContent(
+      html_22ebb34eadb23d6f88b4abe95ff40fe5
+    );
+
+    marker_e3d219ad279a47ebb8da14d33bf2faf5.bindPopup(
+      popup_c4ad0cc57036edcc9e9004eec0304555
+    );
+
+    marker_e3d219ad279a47ebb8da14d33bf2faf5.setIcon(
+      icon_6b9427e495b7c650b567c3b281115702
+    );
+
+    var marker_6ed1a0361e01d5af549ea518ef24c0dc = L.marker(
+      [19.0313, 72.881],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_0f2ffc992083f90322a77564a5647f2f = L.AwesomeMarkers.icon({
+      markerColor: "red",
+      iconColor: "white",
+      icon: "flag",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_df892df9be2f141b8ef17afde2eebdc6 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_7fd388eb94a14e4a26d3ef59d4a9aa4b = $(
+      `<div id="html_7fd388eb94a14e4a26d3ef59d4a9aa4b" style="width: 100.0%; height: 100.0%;">Suggested New Station | Predicted demand: 4.03 | Bucket: near | Dist from nearest: 0.00 km</div>`
+    )[0];
+    popup_df892df9be2f141b8ef17afde2eebdc6.setContent(
+      html_7fd388eb94a14e4a26d3ef59d4a9aa4b
+    );
+
+    marker_6ed1a0361e01d5af549ea518ef24c0dc.bindPopup(
+      popup_df892df9be2f141b8ef17afde2eebdc6
+    );
+
+    marker_6ed1a0361e01d5af549ea518ef24c0dc.setIcon(
+      icon_0f2ffc992083f90322a77564a5647f2f
+    );
+
+    var marker_ebdd409dd7eee181a98c44fc5b0bfd22 = L.marker(
+      [18.9894, 72.8252],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_ed82ce4178d676dd40712afa8266ada1 = L.AwesomeMarkers.icon({
+      markerColor: "red",
+      iconColor: "white",
+      icon: "flag",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_daeda49afa0565dd7faa60159a527d6f = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_fecb95f7b86db914f9b05bacbe19cc79 = $(
+      `<div id="html_fecb95f7b86db914f9b05bacbe19cc79" style="width: 100.0%; height: 100.0%;">Suggested New Station | Predicted demand: 3.96 | Bucket: near | Dist from nearest: 0.01 km</div>`
+    )[0];
+    popup_daeda49afa0565dd7faa60159a527d6f.setContent(
+      html_fecb95f7b86db914f9b05bacbe19cc79
+    );
+
+    marker_ebdd409dd7eee181a98c44fc5b0bfd22.bindPopup(
+      popup_daeda49afa0565dd7faa60159a527d6f
+    );
+
+    marker_ebdd409dd7eee181a98c44fc5b0bfd22.setIcon(
+      icon_ed82ce4178d676dd40712afa8266ada1
+    );
+
+    var marker_cd3babe6f070bf1829917cf53196d816 = L.marker(
+      [19.102, 72.8872],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_af999f0dd7745602723317c9f7f4a6e4 = L.AwesomeMarkers.icon({
+      markerColor: "red",
+      iconColor: "white",
+      icon: "flag",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_9110465655b3adc2b32acb9ca5ea215c = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_f062377941b66e2cb1b25d7470f85543 = $(
+      `<div id="html_f062377941b66e2cb1b25d7470f85543" style="width: 100.0%; height: 100.0%;">Suggested New Station | Predicted demand: 3.96 | Bucket: near | Dist from nearest: 0.00 km</div>`
+    )[0];
+    popup_9110465655b3adc2b32acb9ca5ea215c.setContent(
+      html_f062377941b66e2cb1b25d7470f85543
+    );
+
+    marker_cd3babe6f070bf1829917cf53196d816.bindPopup(
+      popup_9110465655b3adc2b32acb9ca5ea215c
+    );
+
+    marker_cd3babe6f070bf1829917cf53196d816.setIcon(
+      icon_af999f0dd7745602723317c9f7f4a6e4
+    );
+
+    var marker_2349a2e46145a7f90d6ec0da46ab4b3f = L.marker(
+      [19.1738, 72.86],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_6d8150c32ee456fb224779fa63959a5a = L.AwesomeMarkers.icon({
+      markerColor: "red",
+      iconColor: "white",
+      icon: "flag",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_6c4474c3b2f4c5b56dbebbe579ade640 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_17b78dfc3eea9276587ed641ab647a2b = $(
+      `<div id="html_17b78dfc3eea9276587ed641ab647a2b" style="width: 100.0%; height: 100.0%;">Suggested New Station | Predicted demand: 3.75 | Bucket: near | Dist from nearest: 0.00 km</div>`
+    )[0];
+    popup_6c4474c3b2f4c5b56dbebbe579ade640.setContent(
+      html_17b78dfc3eea9276587ed641ab647a2b
+    );
+
+    marker_2349a2e46145a7f90d6ec0da46ab4b3f.bindPopup(
+      popup_6c4474c3b2f4c5b56dbebbe579ade640
+    );
+
+    marker_2349a2e46145a7f90d6ec0da46ab4b3f.setIcon(
+      icon_6d8150c32ee456fb224779fa63959a5a
+    );
+
+    var marker_97c583e4a62f3d4dc10a0c4118e93b75 = L.marker(
+      [19.1146, 72.8841],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_6991e5d935240d57362198b9ed69a5ac = L.AwesomeMarkers.icon({
+      markerColor: "red",
+      iconColor: "white",
+      icon: "flag",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_3f5385ba850b5926c3e6575b2b32bd22 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_f5662c70b114494f6e3a4c5ff45ca428 = $(
+      `<div id="html_f5662c70b114494f6e3a4c5ff45ca428" style="width: 100.0%; height: 100.0%;">Suggested New Station | Predicted demand: 3.71 | Bucket: near | Dist from nearest: 0.00 km</div>`
+    )[0];
+    popup_3f5385ba850b5926c3e6575b2b32bd22.setContent(
+      html_f5662c70b114494f6e3a4c5ff45ca428
+    );
+
+    marker_97c583e4a62f3d4dc10a0c4118e93b75.bindPopup(
+      popup_3f5385ba850b5926c3e6575b2b32bd22
+    );
+
+    marker_97c583e4a62f3d4dc10a0c4118e93b75.setIcon(
+      icon_6991e5d935240d57362198b9ed69a5ac
+    );
+
+    var marker_e170d78934e8a269b75dadea974cdbef = L.marker(
+      [19.106, 72.9286],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_3e565017079358877a65328a837c10da = L.AwesomeMarkers.icon({
+      markerColor: "red",
+      iconColor: "white",
+      icon: "flag",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_e253bc3572defe34a646e2df2e9ed254 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_42cab8053aa5575423aca1384e69b646 = $(
+      `<div id="html_42cab8053aa5575423aca1384e69b646" style="width: 100.0%; height: 100.0%;">Suggested New Station | Predicted demand: 3.70 | Bucket: near | Dist from nearest: 0.00 km</div>`
+    )[0];
+    popup_e253bc3572defe34a646e2df2e9ed254.setContent(
+      html_42cab8053aa5575423aca1384e69b646
+    );
+
+    marker_e170d78934e8a269b75dadea974cdbef.bindPopup(
+      popup_e253bc3572defe34a646e2df2e9ed254
+    );
+
+    marker_e170d78934e8a269b75dadea974cdbef.setIcon(
+      icon_3e565017079358877a65328a837c10da
+    );
+
+    var marker_c79dd6b9c266a391c1e8404d84cd04a6 = L.marker(
+      [19.1337, 72.9008],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_a947d144d8dd46ee15f996acc486cf17 = L.AwesomeMarkers.icon({
+      markerColor: "red",
+      iconColor: "white",
+      icon: "flag",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_64eb3f2887a7be0e1e070d3c1e890e87 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_778b977ef3ded7bb6bbb6c42cde45441 = $(
+      `<div id="html_778b977ef3ded7bb6bbb6c42cde45441" style="width: 100.0%; height: 100.0%;">Suggested New Station | Predicted demand: 3.64 | Bucket: near | Dist from nearest: 0.00 km</div>`
+    )[0];
+    popup_64eb3f2887a7be0e1e070d3c1e890e87.setContent(
+      html_778b977ef3ded7bb6bbb6c42cde45441
+    );
+
+    marker_c79dd6b9c266a391c1e8404d84cd04a6.bindPopup(
+      popup_64eb3f2887a7be0e1e070d3c1e890e87
+    );
+
+    marker_c79dd6b9c266a391c1e8404d84cd04a6.setIcon(
+      icon_a947d144d8dd46ee15f996acc486cf17
+    );
+
+    var marker_8b649538b429ff07ee3301e657ce3ac8 = L.marker(
+      [19.1866, 72.9728],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_cd7d96102a5274c44ea6d7256c3d021f = L.AwesomeMarkers.icon({
+      markerColor: "red",
+      iconColor: "white",
+      icon: "flag",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_e0aa7eab806c3fc5a982465396b8a005 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_221eeaa7c2208f6942a8c65627df1b26 = $(
+      `<div id="html_221eeaa7c2208f6942a8c65627df1b26" style="width: 100.0%; height: 100.0%;">Suggested New Station | Predicted demand: 3.60 | Bucket: near | Dist from nearest: 0.00 km</div>`
+    )[0];
+    popup_e0aa7eab806c3fc5a982465396b8a005.setContent(
+      html_221eeaa7c2208f6942a8c65627df1b26
+    );
+
+    marker_8b649538b429ff07ee3301e657ce3ac8.bindPopup(
+      popup_e0aa7eab806c3fc5a982465396b8a005
+    );
+
+    marker_8b649538b429ff07ee3301e657ce3ac8.setIcon(
+      icon_cd7d96102a5274c44ea6d7256c3d021f
+    );
+
+    var marker_c3087f1480f473a68ea542c7f735c6ed = L.marker(
+      [19.2402, 72.8482],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_54711119a6b39f90b995f2b0a685ef5f = L.AwesomeMarkers.icon({
+      markerColor: "red",
+      iconColor: "white",
+      icon: "flag",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_b5c560cc9931aca0a222bffe1629548a = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_7fbbfbb07367a99ba7e82890d5f43fd0 = $(
+      `<div id="html_7fbbfbb07367a99ba7e82890d5f43fd0" style="width: 100.0%; height: 100.0%;">Suggested New Station | Predicted demand: 3.60 | Bucket: near | Dist from nearest: 0.00 km</div>`
+    )[0];
+    popup_b5c560cc9931aca0a222bffe1629548a.setContent(
+      html_7fbbfbb07367a99ba7e82890d5f43fd0
+    );
+
+    marker_c3087f1480f473a68ea542c7f735c6ed.bindPopup(
+      popup_b5c560cc9931aca0a222bffe1629548a
+    );
+
+    marker_c3087f1480f473a68ea542c7f735c6ed.setIcon(
+      icon_54711119a6b39f90b995f2b0a685ef5f
+    );
+
+    var marker_ce564f87bdbb19c753a7f5c7415b6709 = L.marker(
+      [19.0029, 72.824],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_22ba55d511ed9f1e7e5aa8918cfc8f19 = L.AwesomeMarkers.icon({
+      markerColor: "red",
+      iconColor: "white",
+      icon: "flag",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_8d1144d3cd6db8ca8a245e72a9ee217e = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_a11ec827f2398a0325401f5a327a5146 = $(
+      `<div id="html_a11ec827f2398a0325401f5a327a5146" style="width: 100.0%; height: 100.0%;">Suggested New Station | Predicted demand: 3.55 | Bucket: near | Dist from nearest: 0.00 km</div>`
+    )[0];
+    popup_8d1144d3cd6db8ca8a245e72a9ee217e.setContent(
+      html_a11ec827f2398a0325401f5a327a5146
+    );
+
+    marker_ce564f87bdbb19c753a7f5c7415b6709.bindPopup(
+      popup_8d1144d3cd6db8ca8a245e72a9ee217e
+    );
+
+    marker_ce564f87bdbb19c753a7f5c7415b6709.setIcon(
+      icon_22ba55d511ed9f1e7e5aa8918cfc8f19
+    );
+
+    var marker_600033d5f86483dc2bf44232bda4b62f = L.marker(
+      [19.0815, 72.8367],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_eef8129a1c0166cfb8fd5926a2a45b45 = L.AwesomeMarkers.icon({
+      markerColor: "red",
+      iconColor: "white",
+      icon: "flag",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_b3efbe809e9d1ecdac5b8d1d72a4562c = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_8e2e3be77bbc94862546c9be2d98b39d = $(
+      `<div id="html_8e2e3be77bbc94862546c9be2d98b39d" style="width: 100.0%; height: 100.0%;">Suggested New Station | Predicted demand: 3.48 | Bucket: near | Dist from nearest: 0.00 km</div>`
+    )[0];
+    popup_b3efbe809e9d1ecdac5b8d1d72a4562c.setContent(
+      html_8e2e3be77bbc94862546c9be2d98b39d
+    );
+
+    marker_600033d5f86483dc2bf44232bda4b62f.bindPopup(
+      popup_b3efbe809e9d1ecdac5b8d1d72a4562c
+    );
+
+    marker_600033d5f86483dc2bf44232bda4b62f.setIcon(
+      icon_eef8129a1c0166cfb8fd5926a2a45b45
+    );
+
+    var marker_fd89246d91e0413393ac821032458fc2 = L.marker(
+      [18.9892, 73.117],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_a5f32696234678e6dd10134f87a34e46 = L.AwesomeMarkers.icon({
+      markerColor: "red",
+      iconColor: "white",
+      icon: "flag",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_2af30b118dfadfd8b73b6781539f6eee = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_01fccaba058a46d0b10dab9236594e1a = $(
+      `<div id="html_01fccaba058a46d0b10dab9236594e1a" style="width: 100.0%; height: 100.0%;">Suggested New Station | Predicted demand: 3.46 | Bucket: near | Dist from nearest: 0.00 km</div>`
+    )[0];
+    popup_2af30b118dfadfd8b73b6781539f6eee.setContent(
+      html_01fccaba058a46d0b10dab9236594e1a
+    );
+
+    marker_fd89246d91e0413393ac821032458fc2.bindPopup(
+      popup_2af30b118dfadfd8b73b6781539f6eee
+    );
+
+    marker_fd89246d91e0413393ac821032458fc2.setIcon(
+      icon_a5f32696234678e6dd10134f87a34e46
+    );
+
+    var marker_4c7e5b1761c90a2d13998d372cc8162f = L.marker(
+      [19.0302, 72.8927],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_a9635935c4a545ace0177abe8cc0db17 = L.AwesomeMarkers.icon({
+      markerColor: "red",
+      iconColor: "white",
+      icon: "flag",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_edc677a68aa2eb67542d47394d1bf0fc = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_c97ad40ffa391752bc58c94079fccef2 = $(
+      `<div id="html_c97ad40ffa391752bc58c94079fccef2" style="width: 100.0%; height: 100.0%;">Suggested New Station | Predicted demand: 3.40 | Bucket: near | Dist from nearest: 0.00 km</div>`
+    )[0];
+    popup_edc677a68aa2eb67542d47394d1bf0fc.setContent(
+      html_c97ad40ffa391752bc58c94079fccef2
+    );
+
+    marker_4c7e5b1761c90a2d13998d372cc8162f.bindPopup(
+      popup_edc677a68aa2eb67542d47394d1bf0fc
+    );
+
+    marker_4c7e5b1761c90a2d13998d372cc8162f.setIcon(
+      icon_a9635935c4a545ace0177abe8cc0db17
+    );
+
+    var marker_25c24f1371aa6600a452ea0f62ec7caf = L.marker(
+      [19.109, 72.8771],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_35641efbf8b5cda530d29c2c6bed151a = L.AwesomeMarkers.icon({
+      markerColor: "red",
+      iconColor: "white",
+      icon: "flag",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_81135decb6248ee59c7d4a79b24f5817 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_8b665d187a7339cc8dfcbd88e4a907d5 = $(
+      `<div id="html_8b665d187a7339cc8dfcbd88e4a907d5" style="width: 100.0%; height: 100.0%;">Suggested New Station | Predicted demand: 3.38 | Bucket: near | Dist from nearest: 0.00 km</div>`
+    )[0];
+    popup_81135decb6248ee59c7d4a79b24f5817.setContent(
+      html_8b665d187a7339cc8dfcbd88e4a907d5
+    );
+
+    marker_25c24f1371aa6600a452ea0f62ec7caf.bindPopup(
+      popup_81135decb6248ee59c7d4a79b24f5817
+    );
+
+    marker_25c24f1371aa6600a452ea0f62ec7caf.setIcon(
+      icon_35641efbf8b5cda530d29c2c6bed151a
+    );
+
+    var marker_c0721265963d6796c098f7c13beb84d4 = L.marker(
+      [19.12, 72.9141],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_f8170ea56e37249f7cebe13638877739 = L.AwesomeMarkers.icon({
+      markerColor: "red",
+      iconColor: "white",
+      icon: "flag",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_d40df5960c29d086510cc6d1478e8c7a = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_30a16eced72d0c0d6118ca29ec81d454 = $(
+      `<div id="html_30a16eced72d0c0d6118ca29ec81d454" style="width: 100.0%; height: 100.0%;">Suggested New Station | Predicted demand: 3.32 | Bucket: near | Dist from nearest: 0.00 km</div>`
+    )[0];
+    popup_d40df5960c29d086510cc6d1478e8c7a.setContent(
+      html_30a16eced72d0c0d6118ca29ec81d454
+    );
+
+    marker_c0721265963d6796c098f7c13beb84d4.bindPopup(
+      popup_d40df5960c29d086510cc6d1478e8c7a
+    );
+
+    marker_c0721265963d6796c098f7c13beb84d4.setIcon(
+      icon_f8170ea56e37249f7cebe13638877739
+    );
+
+    var marker_b9e97d7731a0b20de65d8a6ea295cbfd = L.marker(
+      [19.0516, 72.838],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_2c3f9d9afe84bf076ced9467f0ce3c31 = L.AwesomeMarkers.icon({
+      markerColor: "red",
+      iconColor: "white",
+      icon: "flag",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_3d4c5ec23f810a65e1aeebd099ab4684 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_8bc8d9d686456583d278e8c098d212c6 = $(
+      `<div id="html_8bc8d9d686456583d278e8c098d212c6" style="width: 100.0%; height: 100.0%;">Suggested New Station | Predicted demand: 3.28 | Bucket: near | Dist from nearest: 0.00 km</div>`
+    )[0];
+    popup_3d4c5ec23f810a65e1aeebd099ab4684.setContent(
+      html_8bc8d9d686456583d278e8c098d212c6
+    );
+
+    marker_b9e97d7731a0b20de65d8a6ea295cbfd.bindPopup(
+      popup_3d4c5ec23f810a65e1aeebd099ab4684
+    );
+
+    marker_b9e97d7731a0b20de65d8a6ea295cbfd.setIcon(
+      icon_2c3f9d9afe84bf076ced9467f0ce3c31
+    );
+
+    var marker_15736bb0c0ca03846dda307578b649e2 = L.marker(
+      [19.1182, 72.9053],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_2f4a98e234067f9d810705d66772ca9c = L.AwesomeMarkers.icon({
+      markerColor: "red",
+      iconColor: "white",
+      icon: "flag",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_422844c6f8b9a453875b5eed15c71acf = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_eff11ecc255f774fc82f0123af765777 = $(
+      `<div id="html_eff11ecc255f774fc82f0123af765777" style="width: 100.0%; height: 100.0%;">Suggested New Station | Predicted demand: 3.09 | Bucket: near | Dist from nearest: 0.00 km</div>`
+    )[0];
+    popup_422844c6f8b9a453875b5eed15c71acf.setContent(
+      html_eff11ecc255f774fc82f0123af765777
+    );
+
+    marker_15736bb0c0ca03846dda307578b649e2.bindPopup(
+      popup_422844c6f8b9a453875b5eed15c71acf
+    );
+
+    marker_15736bb0c0ca03846dda307578b649e2.setIcon(
+      icon_2f4a98e234067f9d810705d66772ca9c
+    );
+
+    var marker_07a7b3e35e322fe81c049fbf8532f746 = L.marker(
+      [19.0977, 72.8271],
+      {}
+    ).addTo(map_5d46edbaf2f1ad9d0b1d238bd7749124);
+
+    var icon_e23aad1b96d6a4c68a4e3e6367022a4f = L.AwesomeMarkers.icon({
+      markerColor: "red",
+      iconColor: "white",
+      icon: "flag",
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0",
+    });
+
+    var popup_ce081b0da01ea3487d776638265e72f2 = L.popup({
+      maxWidth: "100%",
+    });
+
+    var html_1d5d46a184e047b5b18160358fda9a28 = $(
+      `<div id="html_1d5d46a184e047b5b18160358fda9a28" style="width: 100.0%; height: 100.0%;">Suggested New Station | Predicted demand: 3.06 | Bucket: near | Dist from nearest: 0.00 km</div>`
+    )[0];
+    popup_ce081b0da01ea3487d776638265e72f2.setContent(
+      html_1d5d46a184e047b5b18160358fda9a28
+    );
+
+    marker_07a7b3e35e322fe81c049fbf8532f746.bindPopup(
+      popup_ce081b0da01ea3487d776638265e72f2
+    );
+
+    marker_07a7b3e35e322fe81c049fbf8532f746.setIcon(
+      icon_e23aad1b96d6a4c68a4e3e6367022a4f
+    );
+  </script>
+</html>

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+    />
+    <title>EVision</title>
+     
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/Components/CSS/style.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <meta
+      name="viewport"
+      content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <script>
+      L_NO_TOUCH = false;
+      L_DISABLE_3D = false;
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/gh/python-visualization/folium@main/folium/templates/leaflet_heat.min.js"></script>
+  </head>
+  <body>
+    <body>
+  <header>
+    <h1> <i class="fa-solid fa-bolt"></i> EV<span style="color:var(--primary-dark);">ision</span></h1>
+    <div class="hamburger">
+      <i class="fa-solid fa-bars"></i>
+    </div>
+    <div class="theme-toggle" id="themeToggle">
+      <i class="fa-solid fa-sun"></i>
+    </div>
+    <nav class="nav-menu">
+      <a href="index.html">Home</a>
+      <a href="#project-info">About</a>
+      <a href="/Components/HTML/dashboard.html">Dashboard</a>
+      <a href="https://github.com/TirthDhandhukia30/EVision-Capstone" target="_blank" rel="noopener noreferrer">Source</a>
+      <a href="/Components/HTML/contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Drive the Future</h2>
+      <h1>
+        EV Charging Forecasting & Location Planner
+      </h1>
+    </div>
+
+    <section class="quick">
+      <a href="/Components/HTML/result.html" rel="noopener noreferrer" class="btn-wrapper">
+        <button type="button" class="btn btn-primary btn-lg"><i class="fa-solid fa-calculator"></i>
+          <!-- <i class="fa-brands fa-github"></i> -->
+          Results
+        </button>
+      </a>
+      <a href="/Components/HTML/synopsis.html" class="btn-wrapper">
+        <button type="button" class="btn btn-primary btn-lg">
+          <i class="fa-solid fa-circle-info"></i>
+          Info
+        </button>
+      </a>
+      <a href="/Components/HTML/dashboard.html" class="btn-wrapper">
+        <button type="button" class="btn btn-primary btn-lg">
+          <i class="fa-solid fa-chart-simple"></i>
+          Dashboard
+        </button>
+      </a>
+      <a href="https://github.com/TirthDhandhukia30/EVision.git" target="_blank" rel="noopener noreferrer" class="btn-wrapper">
+        <button type="button" class="btn btn-primary btn-lg">
+          <i class="fa-brands fa-github"></i>
+          Github
+        </button>
+      </a>
+      
+    </section>
+  </section>
+
+  <section class="about-project" id="project-info">
+    <div class="container">
+      <h3 class="section-title">About Project</h3>
+      <div class="about-content">
+        <p>EVision is an innovative solution designed to revolutionize EV charging infrastructure planning in Mumbai. Our project combines advanced data analytics with machine learning to identify optimal locations for new charging stations. By analyzing factors such as traffic patterns, existing infrastructure, and population density, we provide data-driven recommendations for sustainable urban mobility.</p>
+        <div class="key-features">
+          <div class="feature" data-aos="fade-up">
+            <div class="feature-icon">
+              <i class="fa-solid fa-map-location-dot"></i>
+            </div>
+            <div class="feature-content">
+              <h4>Smart Location Analysis</h4>
+              <p>Advanced algorithms to identify prime locations for new charging stations</p>
+            </div>
+          </div>
+          <div class="feature" data-aos="fade-up" data-aos-delay="100">
+            <div class="feature-icon">
+              <i class="fa-solid fa-chart-line "></i>
+            </div>
+            <div class="feature-content">
+              <h4>Demand Forecasting</h4>
+              <p>Predictive analytics for future EV charging demands</p>
+            </div>
+          </div>
+          <div class="feature" data-aos="fade-up" data-aos-delay="200">
+            <div class="feature-icon">
+              <i class="fa-solid fa-network-wired"></i>
+            </div>
+            <div class="feature-content">
+              <h4>Infrastructure Planning</h4>
+              <p>Comprehensive infrastructure assessment and optimization</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="aboutSection" id="about">
+    <h3 class="section-title">Established Chargers</h3>
+    <section class="map">
+      <div class="folium-map" id="map_3a4670564931cbf3dcff8c66617088f5" ></div>
+    </section>
+  </section>
+
+
+  <!-- <section id="contact">
+    <h3 class="section-title">Contact Us</h3>
+    <div class="contact">
+      <div class="team-members">
+        <div class="member">
+          <div class="member-info">
+            <h4>Tirth Dhandhukia</h4>
+          </div>
+          <div class="member-social">
+            <a href="mailto:tirth30.info@gmail.com" class="social-link">
+              <i class="fa-solid fa-envelope"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/tirthdhandhukia/" target="_blank" class="social-link">
+              <i class="fa-brands fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/TirthDhandhukia30" target="_blank" class="social-link">
+              <i class="fa-brands fa-github"></i>
+            </a>
+          </div>
+        </div>
+        <div class="member-divider"></div>
+        <div class="member">
+          <div class="member-info">
+            <h4>Yash Joshi</h4>
+          </div>
+          <div class="member-social">
+            <a href="mailto:yash03.info@gmail.com" class="social-link">
+              <i class="fa-solid fa-envelope"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/yashjoshi03/" target="_blank" class="social-link">
+              <i class="fa-brands fa-linkedin"></i>
+            </a>
+            <a href="github.com/Yashjoshi03" target="_blank" class="social-link">
+              <i class="fa-brands fa-github"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+  <footer>
+    &copy; Made with ❤️ ~ Tirth Dhandhukia
+  </footer>
+  
+  <script>
+(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="B-IqPVfoZnTEFUQ_1-hG1";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+</script>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="/scripts/script.js"></script>
+    <script>
+      // Initialize AOS
+      AOS.init({
+        duration: 800,
+        once: true,
+        offset: 100
+      });
+    </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = themeToggle.querySelector('i');
+        
+        // Check system preference
+        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+        
+        // Theme toggle functionality
+        const currentTheme = localStorage.getItem('theme') || 
+                           (prefersDarkScheme.matches ? 'dark' : 'light');
+        
+        // Set initial theme
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        themeIcon.className = currentTheme === 'dark' ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
+        
+        // Listen for system theme changes
+        prefersDarkScheme.addEventListener('change', (e) => {
+          if (!localStorage.getItem('theme')) {
+            const newTheme = e.matches ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            themeIcon.className = newTheme === 'dark' ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
+          }
+        });
+
+        themeToggle.addEventListener('click', () => {
+          const currentTheme = document.documentElement.getAttribute('data-theme');
+          const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+          
+          document.documentElement.setAttribute('data-theme', newTheme);
+          localStorage.setItem('theme', newTheme);
+          themeIcon.className = newTheme === 'dark' ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
+        });
+
+        hamburger.addEventListener('click', function() {
+          navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+          link.addEventListener('click', function() {
+            navMenu.classList.remove('active');
+          });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+          if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+            navMenu.classList.remove('active');
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
