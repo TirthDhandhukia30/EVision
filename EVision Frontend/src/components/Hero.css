@@ -171,6 +171,150 @@
   transition: color 0.3s ease;
 }
 
+.hero-highlights {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  justify-content: center;
+}
+
+.highlight-card {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  background: var(--bg-secondary);
+  padding: 0.85rem 1.1rem;
+  border-radius: 14px;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.3s ease, box-shadow 0.3s ease,
+    background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.highlight-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.highlight-icon {
+  width: 1.9rem;
+  height: 1.9rem;
+  color: var(--text-primary);
+  flex-shrink: 0;
+  transition: color 0.3s ease;
+}
+
+.highlight-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.15rem;
+  transition: color 0.3s ease;
+}
+
+.highlight-subtitle {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.01em;
+  transition: color 0.3s ease;
+}
+
+.hero-workflow {
+  margin: 2rem auto 0;
+  padding: 1.25rem 1.5rem;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  max-width: 960px;
+}
+
+.workflow-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.workflow-node {
+  min-width: 140px;
+  padding: 0.75rem 1rem;
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.node-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: 0.01em;
+}
+
+.node-subtitle {
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.02em;
+}
+
+.workflow-arrow {
+  position: relative;
+  width: 32px;
+  height: 2px;
+  flex-shrink: 0;
+}
+
+.workflow-arrow::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 8px;
+  height: 2px;
+  background: var(--border-color);
+  transform: translateY(-50%);
+}
+
+.workflow-arrow::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid var(--text-secondary);
+  border-right: 2px solid var(--text-secondary);
+  transform: translateY(-50%) rotate(45deg);
+}
+
+@media (max-width: 600px) {
+  .hero-workflow {
+    padding: 1rem;
+  }
+
+  .workflow-row {
+    gap: 0.5rem;
+  }
+
+  .workflow-node {
+    min-width: 120px;
+  }
+
+  .workflow-arrow {
+    width: 24px;
+  }
+}
+
 /* Research Types Section */
 .research-types {
   position: relative;
@@ -225,6 +369,7 @@
 @media (max-width: 1024px) {
   .hero-headline {
     font-size: 3.5rem;
+    margin-top: 1.75rem;
   }
 
   .nav-menu {
@@ -261,6 +406,10 @@
   .connector-lines {
     display: none;
   }
+
+  .hero-highlights {
+    gap: 1rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -279,6 +428,5 @@
   .btn-signin,
   .btn-demo {
     padding: 0.5rem 1rem;
-    font-size: 0.85rem;
   }
 }

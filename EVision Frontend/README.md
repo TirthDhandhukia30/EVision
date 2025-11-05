@@ -1,89 +1,114 @@
-# ⚡ EVision – EV Charging Forecasting & Location Planner
+# EVision – Intelligent EV Charging Planner
 
-EVision is a **capstone project** that predicts the demand for EV charging stations and helps plan optimal locations.  
-Currently focused on the **Mumbai region**, the system can easily scale to other cities or countries as relevant data becomes available.
-
----
-
-## 🚀 Features
-
-- **EV Charging Demand Forecasting**  
-  Machine Learning models trained to achieve **over 90% accuracy** in predicting future charging demand.
-
-- **Location Planning**  
-  Suggests strategic sites for setting up new charging stations based on forecasted demand and regional factors.
-
-- **Web-Based Dashboard**  
-  A clean, interactive frontend built with **HTML, CSS, and JavaScript** for showcasing predictions and maps.
-
-- **Scalable Design**  
-  The pipeline and architecture can quickly adapt to additional regions when more data is provided.
+EVision is a full-stack research project developed as part of a Master of Science program to evaluate technology for intelligent electric-vehicle infrastructure planning. The system combines a production-ready React frontend with a robust Python machine-learning pipeline to forecast charging demand and recommend optimal station locations across Mumbai, India.
 
 ---
 
-## 🏗️ Tech Stack
-
-| Layer            | Technologies / Tools                          |
-|------------------|-----------------------------------------------|
-| **Frontend**     | HTML, CSS, JavaScript                          |
-| **ML**           | Python, scikit-learn, pandas, NumPy (update with actual libraries) |
-| **Data**         | Government official data, Public EV infrastructure datasets, traffic & demographic data (Mumbai) |
-| **Deployment**   | Netlify |
+## Why It Matters
+- **Urban EV readiness** – Helps city administrators and utilities understand when/where charging pressure will spike.
+- **Invest smarter** – Provides data-backed site recommendations instead of anecdotal decisions.
+- **Scales beyond Mumbai** – Pipeline is geography-agnostic; swapping datasets allows rapid replication in other cities.
 
 ---
 
+## Solution Overview
 
-## ⚙️ Setup & Usage
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/your-username/EVision.git
-   cd EVision
-   ```
-
-2. **Install dependencies** (for ML environment)
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-3. **Launch the web interface**  
-   Open `web/index.html` in a browser **or** run a simple local server:
-   ```bash
-   python -m http.server 8080
-   ```
-   Then navigate to `http://localhost:8080/web/` in your browser.
+| Layer | Responsibilities | Key Technologies |
+|-------|------------------|------------------|
+| Data Engineering | Ingest and clean public EV ownership, grid load, traffic density, and GIS datasets | pandas, GeoPandas, NumPy |
+| Feature Engineering & Scoring | Build composite suitability scores for candidate locations | scikit-learn, SHAP, custom scoring functions |
+| ML Modeling | Benchmark linear, ridge, and gradient boosting regressors; tune hyperparameters | scikit-learn, Optuna |
+| Frontend Experience | Present findings through an interactive single-page app with dedicated dashboard and results views | React 18, Vite 5, React Router, CSS modules |
+| Visualization | Embed Folium-generated maps to display current stations and predicted sites | Folium, Leaflet |
 
 ---
 
-## 📊 Results
+## Highlighted Features
 
-- Achieved **>90% prediction accuracy** on Mumbai EV-charging datasets.
-- Visual dashboards display:
-  - **Demand heatmaps** for upcoming months.
-  - **Recommended station sites** based on forecasted demand.
-
-
----
-
-## 🌍 Future Enhancements
-
-- Expand to additional metropolitan regions as datasets become available.
-- Integrate real-time traffic, weather, and energy grid data for dynamic forecasts.
-- Add user authentication and station management features.
-- Deploy as a full-stack web application with APIs.
+- **Model Benchmarking Dashboard** – Pricing-card inspired comparison of Ridge, Gradient Boosting, and Linear Regression models with contextual explanations.
+- **Results Portal** – Displays final Gradient Boosting predictions with an interactive map of recommended stations.
+- **Theme System** – Light/dark palette, persisted via Context API and localStorage, with a custom toggle component in the global navbar.
+- **Maps Without Clutter** – Clean map embeds stripped of default Folium controls for a polished presentation.
 
 ---
 
-## 👥 Team & Acknowledgments
+## Data & Methodology
 
-- **Team Members**: *Tirth Dhandhukia & Yash Joshi*  
-- **Mentors / Guides**: *TBD*  
-- **Data Sources**: *added to the website.
-
-Special thanks to everyone who provided guidance and resources for this project.
+- **Region**: Mumbai Metropolitan Region (MMR)
+- **Sources**: Government EV ownership records, transport department traffic density, utility smart-grid usage, open petrol pump registries, and crowdsourced EV charging station data.
+- **Target Metric**: Charging session demand per locality.
+- **Best Model**: Hypertuned Gradient Boosting Regressor with **99.32%** accuracy on hold-out evaluation, outperforming Linear Regression (95.97%) and baseline Ridge Regression (60%).
+- **Explainability**: SHAP summary plots used to communicate feature influence to stakeholders.
 
 ---
 
-## 📝 License
+## Getting Started (Frontend)
 
-This project is licensed under the **MIT License** – see the [LICENSE](LICENSE) file for details.
+```bash
+git clone https://github.com/TirthDhandhukia30/EVision.git
+cd "EVision Frontend"
+npm install
+npm run dev
+```
+
+Visit `http://localhost:5173` to explore the interface. Use `npm run build` to generate the production bundle in `dist/` (already configured for Vercel deployment).
+
+### Project Structure
+
+```
+EVision Frontend/
+├── src/
+│   ├── components/      # Hero, Dashboard, Results, About, theme toggle
+│   ├── context/         # ThemeContext for global light/dark management
+│   ├── pages/           # Routed views (Home, Dashboard, Results)
+│   ├── utils/           # Utility helpers
+│   └── styles/          # Scoped CSS modules
+├── public/maps/         # Pre-rendered Folium HTML maps
+├── vite.config.js       # Vite + React configuration
+└── package.json         # Scripts and dependencies
+```
+
+---
+
+## Backend & Modeling Notebooks
+
+The machine-learning workflow lives under the top-level `Python/` directory:
+
+- `Step1-Data Preprocessing.ipynb` – Clean and normalize raw CSV inputs.
+- `Step2-Data Exploration.ipynb` – Exploratory data analysis, feature correlation.
+- `Step3-Feature Engineering & Suitability Scoring.ipynb` – Feature synthesis and weighted scoring.
+- `Step4-Existing Location.ipynb` – Baseline evaluation of current EV station distribution.
+- `Step5-Initial ML+Prediction.ipynb` – Baseline modeling experiments.
+- `Step6-Enhanced ML+Prediction.ipynb` – Final tuned models, residual analysis, deployment outputs.
+
+---
+
+## Results Snapshot
+
+- **Champion Model**: Gradient Boosting (99.32% accuracy)
+- **Deliverables**: Ranked list of suggested charging stations, interactive maps for existing vs. proposed sites, explainability narratives for non-technical stakeholders.
+- **Outcomes**: Identified 20+ high-confidence stations that fill demand gaps while aligning with grid capacity and traffic patterns.
+
+---
+
+## Roadmap
+
+1. Integrate live grid load and traffic feeds for near real-time adjustments.
+2. Expand to other Indian metros (Delhi, Bengaluru) by reusing the pipeline with minimal reconfiguration.
+3. Package the ML pipeline as APIs to power municipal dashboards or partner apps.
+4. Add ROI calculators for investment partners (capex vs. utilization forecasts).
+
+---
+
+## Contributors
+
+- **Tirth Dhandhukia** – ML engineering, data pipeline, product vision.
+- **Yash Joshi** – Frontend architecture, UI/UX, map integrations.
+
+Mentored by faculty advisors and industry professionals supporting sustainable mobility research.
+
+---
+
+## License
+
+Released under the MIT License. See [LICENSE](../LICENSE) for details.

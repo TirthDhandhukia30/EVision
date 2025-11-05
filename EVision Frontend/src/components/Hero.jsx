@@ -8,6 +8,7 @@ const Hero = () => {
 
   const buttons = [
     { name: "Result", href: "/results", type: "navigate" },
+    { name: "Model Details", href: "/model-details", type: "navigate" },
     { name: "About", href: "#about", type: "scroll" },
     { name: "Dashboard", href: "/dashboard", type: "navigate" },
     { name: "GitHub", href: "#github", type: "scroll" },
@@ -44,7 +45,13 @@ const Hero = () => {
 
           <div className="nav-buttons">
             <ThemeToggle />
-            <button className="btn-demo">Results</button>
+            <button
+              className="btn-demo"
+              type="button"
+              onClick={() => navigate("/results")}
+            >
+              Results
+            </button>
           </div>
         </div>
       </nav>
@@ -57,6 +64,73 @@ const Hero = () => {
           <p className="hero-subtext">
             EV Charging Forecasting & Location Planner
           </p>
+
+          <div className="hero-highlights">
+            <div className="highlight-card">
+              <svg
+                className="highlight-icon"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z" fill="currentColor" />
+              </svg>
+              <div>
+                <p className="highlight-title">Gradient Boosting</p>
+                <p className="highlight-subtitle">99.32% siting accuracy</p>
+              </div>
+            </div>
+
+            <div className="highlight-card">
+              <svg
+                className="highlight-icon"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M4 4h16v4H4V4zm0 6h16v2H4v-2zm0 4h10v2H4v-2z"
+                  fill="currentColor"
+                  opacity="0.7"
+                />
+                <path
+                  d="M18 14l2.5 2.5L18 19"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+              <div>
+                <p className="highlight-title">80+ Predicted Sites</p>
+                <p className="highlight-subtitle">
+                  Matches red markers on the map
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="hero-workflow">
+            <div className="workflow-row">
+              <div className="workflow-node">
+                <span className="node-title">Collected Data</span>
+              </div>
+              <span className="workflow-arrow" aria-hidden="true" />
+              <div className="workflow-node">
+                <span className="node-title">Feature Engineering</span>
+                <span className="node-subtitle">Suitability scoring</span>
+              </div>
+              <span className="workflow-arrow" aria-hidden="true" />
+              <div className="workflow-node">
+                <span className="node-title">Model Training</span>
+                <span className="node-subtitle">
+                  Gradient Boosting + baselines
+                </span>
+              </div>
+              <span className="workflow-arrow" aria-hidden="true" />
+              <div className="workflow-node">
+                <span className="node-title">Final Prediction</span>
+              </div>
+            </div>
+          </div>
 
           {/* Research Type Buttons with Connectors */}
           <div className="research-types">
