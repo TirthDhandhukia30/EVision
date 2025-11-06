@@ -11,13 +11,19 @@ const Hero = () => {
     { name: "Model Details", href: "/model-details", type: "navigate" },
     { name: "About", href: "#about", type: "scroll" },
     { name: "Dashboard", href: "/dashboard", type: "navigate" },
-    { name: "GitHub", href: "#github", type: "scroll" },
+    {
+      name: "GitHub",
+  href: "https://github.com/TirthDhandhukia30/EVision",
+      type: "external",
+    },
   ];
 
   const handleClick = (e, button) => {
     e.preventDefault();
     if (button.type === "navigate") {
       navigate(button.href);
+    } else if (button.type === "external") {
+      window.open(button.href, "_blank", "noopener,noreferrer");
     } else {
       const element = document.querySelector(button.href);
       if (element) {
